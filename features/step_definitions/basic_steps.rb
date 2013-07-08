@@ -14,9 +14,9 @@ end
 # very dumb; just looks for visible text
 Then /^I should( not)? see "([^"]*)"\s*$/ do |negative, text|
   if negative then
-    page.should_not have_xpath(".//*[text()='#{text}']", :visible => true)
+    assert has_no_content?(text)
   else
-    page.should have_content(text)
+    assert has_content?(text)
   end 
 end
 

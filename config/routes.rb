@@ -1,4 +1,12 @@
 GrantbBlog::Application.routes.draw do
+
+  root 'posts#index'
+  # Another option is to use a redirect:
+  # root :to => redirect("/home")
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -44,7 +44,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 
-group :test do
+group :test, :development do
   gem 'capybara'
   gem 'cucumber-rails'
   gem 'database_cleaner'
