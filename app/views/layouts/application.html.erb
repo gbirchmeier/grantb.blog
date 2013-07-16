@@ -8,7 +8,15 @@
 </head>
 <body>
 
-<%= yield %>
+
+    <div class="container"><!-- main content container -->
+        <% flash.each do |k, v| %>
+          <% alert_class = (k == :error ? "alert alert-error" : "alert") %>
+          <div class="<%= alert_class %>" id="<%= k %>"><%= v %></div>
+        <% end %>
+      <%= yield %>
+    </div><!-- main content container -->
+
 
 </body>
 </html>

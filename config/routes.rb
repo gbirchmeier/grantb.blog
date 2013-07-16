@@ -5,6 +5,11 @@ GrantbBlog::Application.routes.draw do
   # root :to => redirect("/home")
 
 
+  get "wutang" => "sessions#new", :as => "login"
+  get "logout" => "sessions#destroy", :as => "logout"
+  resources :sessions
+# replace with:
+#  get "sessions" => "sessions#create", :as => "sessions", :via=>:post
 
 
   # The priority is based upon order of creation: first created -> highest priority.

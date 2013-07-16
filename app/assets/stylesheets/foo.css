@@ -1,0 +1,12 @@
+div.userbox {
+  border: 2px solid green;
+  color: green;
+}
+
+.alert {
+  background-color: yellow;
+}
+
+.alert-error {
+  background-color: red;
+}
