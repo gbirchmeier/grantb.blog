@@ -20,6 +20,10 @@ Then /^I click "([^"]*)"$/ do |the_link|
   click_link_or_button(the_link)
 end
 
+Then /^I should be at the root path$/ do
+  assert_equal root_path, current_path
+end
+
 
 # for sleazy debugging
 Then /^what$/ do

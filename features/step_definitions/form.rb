@@ -1,4 +1,4 @@
-When /^I fill in "[^"]*" with "[^"]*"$/ do |field,input|
+When /^I fill in "([^"]*)" with "([^"]*)"$/ do |field,input|
   fill_in field, :with => input
 end
 

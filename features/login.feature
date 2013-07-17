@@ -14,7 +14,7 @@ Scenario: I can login
    Then I should see "You are logged in"
 
 Scenario: I can logout
-  Given I am logged in as "goose" with "topgun"
+  Given I log in as "goose" with "topgun"
     And I visit "/"
    Then I should see "You are logged in"
    When I log out
@@ -23,8 +23,8 @@ Scenario: I can logout
    Then I should not see "You are logged in"
 
 Scenario: If I'm logged in, the login form should say so
-  Given I am logged in as "goose" with "topgun"
+  Given I log in as "goose" with "topgun"
     And I visit the logon page
-   Then I should see "You are already logged in"
-    And I should not see a field for "Username"
+   # I'll get redirected
+   Then I should be at the root path
 

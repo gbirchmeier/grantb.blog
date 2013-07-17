@@ -1,15 +1,18 @@
 class SessionsController < ApplicationController
   def new
     @login_error = nil
-    redirect_to root_path unless @current_user.nil?
+    redirect_to root_path unless current_user().nil?
   end
 
   def destroy
 #    cookies.delete(:auth_token)
 #    cookies.delete(:remember_me)
-my_user = current_user
+    my_user = current_user()
     session[:user_id] = nil
-    redirect_to login_path, :alert => "#{my_user.username} logged out."
+    if my_user
+      redirect_to login_path, :alert => "You are logged out." and return
+    end
+    redirect_to login_path
   end
 
   def create
