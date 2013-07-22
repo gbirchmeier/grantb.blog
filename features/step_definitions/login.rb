@@ -11,3 +11,17 @@ end
 When /^I log ?out/ do
   visit '/logout'
 end
+
+Then /^I should see that I am logged in$/ do
+  assert has_css?(".userbox")
+  assert has_content?("You are logged in")
+end
+
+Then /^I should see that no one is logged in$/ do
+  assert has_no_css?(".userbox"), "Expected to not see a userboxs"
+  assert has_no_content?("logged in")
+end
+
+Then /^I should see a logout notice$/ do
+  assert has_content?("You are logged out")
+end
