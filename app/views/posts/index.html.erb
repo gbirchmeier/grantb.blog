@@ -1,9 +1,27 @@
-<% if @my_user %>
+<% if @current_user %>
 <div class="userbox">
-  <p>Hello, <%=@my_user.username%></p>
+  <p>Hello, <%=@current_user.username%></p>
   <p>You are logged in.</p>
   <p><%=link_to "Log out", logout_path%></p>
 </div>
 <% end %>
 
 <p>front page</p>
+
+<p>all the published posts</p>
+
+<table id="posts_tbl">
+	<tr>
+		<th>Headline</th>
+		<th>Created</th>
+		<th>Updated</th>
+	</tr>
+<% @posts.each {|p| %>
+	<tr>
+		<td><%=p.headline%></td>
+		<td><%=p.created_at%></td>
+		<td><%=p.updated_at%></td>
+	</tr>
+<% } %>
+</table>
+

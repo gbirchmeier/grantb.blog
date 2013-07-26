@@ -45,6 +45,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 
 group :test do
+  gem 'anticipate'
   gem 'capybara'
   gem 'cucumber-rails', :require=>false
   gem 'database_cleaner'

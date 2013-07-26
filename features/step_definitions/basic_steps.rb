@@ -16,14 +16,13 @@ Then /^I should( not)? see "([^"]*)"$/ do |negative, text|
   end 
 end
 
-Then /^I click "([^"]*)"$/ do |the_link|
+Then /^I (?:click|press) "([^"]*)"$/ do |the_link|
   click_link_or_button(the_link)
 end
 
 Then /^I should be at the root path$/ do
   assert_equal root_path, current_path
 end
-
 
 # for sleazy debugging
 Then /^what$/ do

@@ -5,9 +5,16 @@ GrantbBlog::Application.routes.draw do
   # root :to => redirect("/home")
 
 
-  get "wutang" => "sessions#new", :as => "login"
-  get "logout" => "sessions#destroy", :as => "logout"
+  get "wutang"=>"sessions#new", :as=>"login"
+  get "logout"=>"sessions#destroy", :as=>"logout"
   resources :sessions
+
+#  resources :posts
+  get "posts"=>"posts#index", :as=>"posts"
+  get "posts/drafts"=>"posts#drafts", :as=>"posts_drafts"
+
+  get '/no', :to=>redirect('/no.html'), :as=>"not_allowed"
+
 # replace with:
 #  get "sessions" => "sessions#create", :as => "sessions", :via=>:post
 

@@ -1,9 +1,20 @@
-Given /^I log ?in as "([^"]*)" with "([^"]*)"$/ do |username, pw|
-  visit "/logout"
-  visit "/wutang"
-  fill_in "Username", :with => username
-  fill_in "Password", :with => pw
-  click_button("Submit")
+Given /^I am not logged in$/ do
+puts "-- NOT LOGGED IN"
+  visit "/"
+  step("I should see that no one is logged in")
+end
+
+Given /^I (?:log ?in|am logged in) as "([^"]*)" with "([^"]*)"$/ do |username, pw|
+  if username.empty? and pw.empty?
+    step("I am not logged in")
+  else
+puts "-- #{username}"
+    visit "/logout"
+    visit "/wutang"
+    fill_in "Username", :with => username
+    fill_in "Password", :with => pw
+    click_button("Submit")
+  end
 end
 
 # When I logout
