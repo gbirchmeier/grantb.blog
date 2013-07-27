@@ -9,9 +9,9 @@ GrantbBlog::Application.routes.draw do
   get "logout"=>"sessions#destroy", :as=>"logout"
   resources :sessions
 
-#  resources :posts
-  get "posts"=>"posts#index", :as=>"posts"
   get "posts/drafts"=>"posts#drafts", :as=>"posts_drafts"
+  resources :posts
+#  get "posts"=>"posts#index", :as=>"posts"
 
   get '/no', :to=>redirect('/no.html'), :as=>"not_allowed"
 

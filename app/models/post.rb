@@ -7,5 +7,8 @@ class Post < ActiveRecord::Base
 
   scope :published, -> { where("published_at IS NOT NULL") }
   scope :unpublished, -> { where("published_at IS NULL") }
+
+
+
 end
 

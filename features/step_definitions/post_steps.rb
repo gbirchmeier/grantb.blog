@@ -1,7 +1,5 @@
 Then /^I should be at the show page for post "([^"]*)"/ do |headline|
   post = Post.find_by_headline(headline)
-  p = path
-  p = "/#{path}" unless path.match(/^\//)
   assert current_path=="/posts/#{post.id}"
 end
 

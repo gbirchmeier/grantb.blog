@@ -40,17 +40,18 @@ Scenario: I can see the draft posts, most-recently-updated first
         | nuh uh   | 2007-07-07 07:07:07 UTC | 2005-05-05 05:05:05 UTC |
         | nope     | 2006-06-06 06:06:06 UTC | 2006-06-06 06:06:06 UTC |
 
-@wip
 Scenario: I can create and publish a new post.
-  Given I visit "posts/new"
-   When I fill in "Headline" with "This is the new one"
+  Given I am logged in as "goose" with "topgun"
+   When I visit "posts/new"
+    And I fill in "Headline" with "This is the new one"
+    And I fill in "Content" with "blah blah"
     And I press "Publish"
    Then I should see a creation notice
     And I should be at the show page for post "This is the new one"
     And I should see "This is the new one"
    When I visit "posts"
    Then I should see the following posts:
-        | headline |
+        | Headline |
         | This is the new one |
         | abc_1    |
         | foo_2    |

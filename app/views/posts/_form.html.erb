@@ -1,0 +1,27 @@
+<%= form_for(@post) do |f| %>
+
+  <%=form_errors(@post)%>
+
+<div>
+  <%=f.label :headline %>
+  <%=f.text_field :headline %>
+</div>
+
+<div>
+  <%=f.label :content %>
+  <%=f.text_area :content %>
+</div>
+
+<% if self.action_name=="new" %>
+  <%= f.submit("Save draft",:name=>"save_draft") %>
+  <br/>
+  <%= f.submit("Publish",:name=>"publish") %>
+<% else %>
+  <%= f.submit("Update",:name=>"update") %>
+  <br/>
+  <%= f.submit("Un-publish",:name=>"retract") %>
+<% end %>
+
+
+<% end %>
+
