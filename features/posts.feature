@@ -40,7 +40,7 @@ Scenario: I can see the draft posts, most-recently-updated first
         | nuh uh   | 2007-07-07 07:07:07 UTC | 2005-05-05 05:05:05 UTC |
         | nope     | 2006-06-06 06:06:06 UTC | 2006-06-06 06:06:06 UTC |
 
-Scenario: I can create and publish a new post.
+Scenario: I can publish a new post from the creation form
   Given I am logged in as "goose" with "topgun"
    When I visit "posts/new"
     And I fill in "Headline" with "This is the new one"
@@ -50,6 +50,7 @@ Scenario: I can create and publish a new post.
     And I should be at the show page for post "This is the new one"
     And I should see "This is the new one"
    When I visit "posts"
+# TODO replace this with DB check
    Then I should see the following posts:
         | Headline |
         | This is the new one |
@@ -57,4 +58,20 @@ Scenario: I can create and publish a new post.
         | foo_2    |
         | xyz_3    |
 
+Scenario: I can create and save a post without publishing it
+  Given I am logged in as "goose" with "topgun"
+   When I visit "posts/new"
+    And I fill in "Headline" with "This is the new one"
+    And I fill in "Content" with "blah blah"
+    And I press "Save draft"
+   Then I should see a creation notice
+    And I should be at the show page for post "This is the new one"
+    And I should see "This is the new one"
+   When I visit "posts/drafts"
+# TODO replace this with DB check
+   Then I should see the following draft posts:
+        | Headline |
+        | This is the new one |
+        | nuh uh   |
+        | nope     |
 
