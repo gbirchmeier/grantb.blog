@@ -43,35 +43,26 @@ Scenario: I can see the draft posts, most-recently-updated first
 Scenario: I can publish a new post from the creation form
   Given I am logged in as "goose" with "topgun"
    When I visit "posts/new"
-    And I fill in "Headline" with "This is the new one"
+    And I fill in "Headline" with "The new one"
     And I fill in "Content" with "blah blah"
     And I press "Publish"
    Then I should see a creation notice
-    And I should be at the show page for post "This is the new one"
-    And I should see "This is the new one"
-   When I visit "posts"
-# TODO replace this with DB check
-   Then I should see the following posts:
-        | Headline |
-        | This is the new one |
-        | abc_1    |
-        | foo_2    |
-        | xyz_3    |
+    And I should be at the show page for post "The new one"
+    And I should see "The new one"
+    And the DB should have this post:
+        | headline    | content   | published_at | user  |
+        | The new one | blah blah | non-null     | goose |
 
 Scenario: I can create and save a post without publishing it
   Given I am logged in as "goose" with "topgun"
    When I visit "posts/new"
-    And I fill in "Headline" with "This is the new one"
+    And I fill in "Headline" with "The new one"
     And I fill in "Content" with "blah blah"
     And I press "Save draft"
    Then I should see a creation notice
-    And I should be at the show page for post "This is the new one"
-    And I should see "This is the new one"
-   When I visit "posts/drafts"
-# TODO replace this with DB check
-   Then I should see the following draft posts:
-        | Headline |
-        | This is the new one |
-        | nuh uh   |
-        | nope     |
+    And I should be at the show page for post "The new one"
+    And I should see "The new one"
+    And the DB should have this post:
+        | headline    | content   | published_at | user  |
+        | The new one | blah blah |              | goose |
 
