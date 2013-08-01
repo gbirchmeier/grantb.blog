@@ -6,3 +6,8 @@ end
 Then /^I should see a creation notice$/ do
   assert has_content?("was successfully created")
 end
+
+Then /^I should see an update notice$/ do
+  assert has_content?("was successfully updated")
+end
+

@@ -13,3 +13,20 @@ Then /^I should( not)? see a field for "([^"]*)"$/ do |negative,label|
   end 
 end
 
+Then /^"([^"]*)" should be (not |un)?checked$/ do |arg1,negated|
+  field = find_field(arg1)
+  if negated
+    refute field.checked?
+  else
+    assert field.checked?
+  end
+end
+
+When /^I check "([^"]*)"$/ do |page_el|
+  check(page_el)
+end
+
+When /^I uncheck "([^"]*)"$/ do |page_el|
+  uncheck(page_el)
+end
+

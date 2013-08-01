@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def form_errors(obj)
+  def emit_form_errors(obj)
     return "" unless obj.errors.any?
     rv <<-EOS
 <div id="form_errors">

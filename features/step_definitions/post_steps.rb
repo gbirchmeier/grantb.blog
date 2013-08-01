@@ -4,9 +4,7 @@ Then /^I should be at the show page for post "([^"]*)"/ do |headline|
 end
 
 Then /^I should see the following draft posts:/ do |expected_table|
-
   #expected_table.map_column!(:multiplier, false) {|c| c.to_f}
-
   table = nil 
   begin
     sleeping(0.1).seconds.between_tries.failing_after(10).tries do
@@ -18,7 +16,6 @@ Then /^I should see the following draft posts:/ do |expected_table|
           c.text.sub(/^[[:space:]]+/, '').sub(/[[:space:]]+$/, '') 
         }   
       }   
-
       expected_table.dup.diff! table
     end 
   rescue Exception => e
@@ -39,7 +36,6 @@ Then /^I should see the following posts:/ do |expected_table|
           c.text.sub(/^[[:space:]]+/, '').sub(/[[:space:]]+$/, '') 
         }   
       }   
-
       expected_table.dup.diff! table
     end 
   rescue Exception => e
@@ -56,18 +52,37 @@ def where_published_at(h)
   raise "unexpected arg for 'published_at' in test table"
 end
 
+def dump_posts
+  Post.all.collect{|x| x.inspect}.join("\n")
+end
+
 Then /^the DB should have (?:this post|these posts):$/ do |expected_table|
   hashes = expected_table.hashes
   hashes.each{|h|
     target = {}
-    target[:headline] = h["headline"]
-    target[:content] = h["content"]
-    target[:user] = User.find_by_username(h[:user])
-    raise "no user '#{h[:user]}'" unless target[:user]
+    target[:headline] = h["headline"] if h["headline"]
+    target[:content] = h["content"] if h["content"]
+    if h["user"]
+      target[:user] = User.find_by_username(h["user"])
+      raise "no user '#{h[:user]}'" unless target[:user]
+    end
     where_published_at = where_published_at(h)
 
     result = Post.where(target).where(where_published_at)
-    refute result.empty?, "Couldn't find #{h.inspect} / #{target.inspect}"
+    refute result.empty?, "Couldn't find #{h.inspect} \n#{dump_posts}"
   } 
+end
+
+Then /^the DB should not have post "([^"]*)"/ do |headline|
+  assert_nil Post.find_by_headline(headline)
+end
+
+When /^I ((?:edit|visit)) post "([^"]*)"/ do |cmd,headline|
+  p = Post.find_by_headline(headline)
+  case cmd
+    when "visit" then visit "/posts/#{p.id}"
+    when "edit" then visit "/posts/#{p.id}/edit"
+    else raise "invalid cmd"
+  end
 end
 

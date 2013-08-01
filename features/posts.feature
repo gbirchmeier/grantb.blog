@@ -40,12 +40,28 @@ Scenario: I can see the draft posts, most-recently-updated first
         | nuh uh   | 2007-07-07 07:07:07 UTC | 2005-05-05 05:05:05 UTC |
         | nope     | 2006-06-06 06:06:06 UTC | 2006-06-06 06:06:06 UTC |
 
-Scenario: I can publish a new post from the creation form
+Scenario: The new-post form should have "Published?" start as unchecked
+  Given I am logged in as "goose" with "topgun"
+   When I visit "posts/new"
+   Then "Published?" should be unchecked
+
+Scenario: The update-post form for a published post should have "Published?" start as checked
+  Given I am logged in as "goose" with "topgun"
+   When I edit post "abc_1"
+   Then "Published?" should be checked
+
+Scenario: The update-post form for a draft post should have "Published?" start as unchecked
+  Given I am logged in as "goose" with "topgun"
+   When I edit post "nope"
+   Then "Published?" should be unchecked
+
+Scenario: I can create a new published post from the creation form
   Given I am logged in as "goose" with "topgun"
    When I visit "posts/new"
     And I fill in "Headline" with "The new one"
     And I fill in "Content" with "blah blah"
-    And I press "Publish"
+    And I check "Published?"
+    And I press "Create Post"
    Then I should see a creation notice
     And I should be at the show page for post "The new one"
     And I should see "The new one"
@@ -53,16 +69,45 @@ Scenario: I can publish a new post from the creation form
         | headline    | content   | published_at | user  |
         | The new one | blah blah | non-null     | goose |
 
-Scenario: I can create and save a post without publishing it
+Scenario: I can create a new draft post from the creation form
   Given I am logged in as "goose" with "topgun"
    When I visit "posts/new"
     And I fill in "Headline" with "The new one"
     And I fill in "Content" with "blah blah"
-    And I press "Save draft"
+    And I uncheck "Published?"
+    And I press "Create Post"
    Then I should see a creation notice
     And I should be at the show page for post "The new one"
     And I should see "The new one"
     And the DB should have this post:
         | headline    | content   | published_at | user  |
         | The new one | blah blah |              | goose |
+
+Scenario: I can update a draft post to be published
+  Given I am logged in as "goose" with "topgun"
+   When I edit post "nope"
+    And I fill in "Headline" with "yep"
+    And I check "Published?"
+    And I press "Update Post"
+   Then I should see an update notice
+    And I should be at the show page for post "yep"
+    And I should see "yep"
+    And the DB should have this post:
+        | headline    | published_at | user  |
+        | yep         | non-null     | goose |
+    And the DB should not have post "nope"
+
+Scenario: I can update a draft post to be unpublished
+  Given I am logged in as "goose" with "topgun"
+   When I edit post "abc_1"
+    And I fill in "Headline" with "ppppp"
+    And I uncheck "Published?"
+    And I press "Update Post"
+   Then I should see an update notice
+    And I should be at the show page for post "ppppp"
+    And I should see "ppppp"
+    And the DB should have this post:
+        | headline    | published_at | user  |
+        | ppppp       |              | goose |
+    And the DB should not have post "abc_1"
 

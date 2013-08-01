@@ -1,6 +1,6 @@
 <%= form_for(@post) do |f| %>
 
-  <%=form_errors(@post)%>
+  <%=emit_form_errors(@post)%>
 
 <div>
   <%=f.label :headline %>
@@ -12,16 +12,12 @@
   <%=f.text_area :content %>
 </div>
 
-<% if self.action_name=="new" %>
-  <%= f.submit("Save draft",:name=>"save_draft") %>
-  <br/>
-  <%= f.submit("Publish",:name=>"publish") %>
-<% else %>
-  <%= f.submit("Update",:name=>"update") %>
-  <br/>
-  <%= f.submit("Un-publish",:name=>"retract") %>
-<% end %>
+<div>
+  <label for="is_published">Published?</label>
+  <input type="checkbox" name="is_published" id="is_published" <%="checked" unless @post.published_at.nil?%> />
+</div>
 
+<%= f.submit %>
 
 <% end %>
 

@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.published_at = DateTime.now if params[:publish]
+    @post.published_at = DateTime.now if params[:is_published]
     @post.user = @current_user
     if @post.save
       redirect_to @post, notice: "Post was successfully created."
@@ -37,7 +37,12 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.published_at = nil if params[:retract]
+    if @post.published_at
+      @post.published_at = nil unless params[:is_published]
+    else
+      @post.published_at = DateTime.now if params[:is_published]
+    end
+
     if @post.update_attributes(post_params)
       redirect_to @post, notice: "Post was successfully updated."
     else
