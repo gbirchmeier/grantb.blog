@@ -1,6 +1,6 @@
 GrantbBlog::Application.routes.draw do
 
-  root 'posts#index'
+  root 'front_page#index'
   # Another option is to use a redirect:
   # root :to => redirect("/home")
 

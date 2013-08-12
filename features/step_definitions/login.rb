@@ -22,13 +22,13 @@ When /^I log ?out/ do
 end
 
 Then /^I should see that I am logged in$/ do
-  assert has_css?(".userbox")
-  assert has_content?("You are logged in")
+  assert has_css?("#userbox"), "Expected to see #userbox"
+  assert has_content?("You are logged in"), "Expected to see 'You are logged in'"
 end
 
 Then /^I should see that no one is logged in$/ do
-  assert has_no_css?(".userbox"), "Expected to not see a userboxs"
-  assert has_no_content?("logged in")
+  assert has_no_css?("#userbox"), "Expected to not see #userbox"
+  assert has_no_content?("logged in"), "Expected to not see 'logged in'"
 end
 
 Then /^I should see a logout notice$/ do

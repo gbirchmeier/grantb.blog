@@ -24,6 +24,10 @@ Then /^I should be at the root path$/ do
   assert_equal root_path, current_path
 end
 
+Then /^I should see an element "([^"]*)"$/ do |el|
+  find(el)
+end
+
 # for sleazy debugging
 Then /^what$/ do
   puts

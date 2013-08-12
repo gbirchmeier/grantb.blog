@@ -1,0 +1,7 @@
+<% if @posts.count==0 %>
+  <div>No posts.</div>
+<% end %>
+
+<% @posts.each{|p| %>
+emitPost p
+<% } %>
