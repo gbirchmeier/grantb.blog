@@ -11,17 +11,21 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    (redirect_if_not_logged_in and return) unless @post.published?
   end
 
   def new
+    redirect_if_not_logged_in and return
     @post = Post.new
   end
 
   def edit
+    redirect_if_not_logged_in and return
     @post = Post.find(params[:id])
   end
 
   def create
+    redirect_if_not_logged_in and return
     @post = Post.new(post_params)
     @post.published_at = DateTime.now if params[:is_published]
     @post.user = @current_user
@@ -33,6 +37,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    redirect_if_not_logged_in and return
     @post = Post.find(params[:id])
     if @post.published_at
       @post.published_at = nil unless params[:is_published]
@@ -48,6 +53,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    redirect_if_not_logged_in and return
     @post = Post.find(params[:id])
     dead = @post.headline
     @post.destroy

@@ -27,14 +27,28 @@ Scenario Outline: Anyone can see that the posts index shows the
         | goose | topgun   |
         |       |          |
 
-Scenario: A rando can not see the draft posts
+Scenario Outline: A rando can not visit various post-admin pages 
   Given I am not logged in
-    And I visit "posts/drafts"
+   When I visit "<path>"
+   Then I should see the not-allowed page
+  Examples:
+        | path          |
+        | /posts/drafts |
+        | /posts/new    |
+
+Scenario: A rando can not edit posts
+  Given I am not logged in
+   When I edit post "abc_1"
+   Then I should see the not-allowed page
+
+Scenario: A rando can not show unpublished posts
+  Given I am not logged in
+   When I visit post "nuh uh"
    Then I should see the not-allowed page
 
 Scenario: I can see the draft posts, most-recently-updated first
   Given I am logged in as "goose" with "topgun"
-    And I visit "posts/drafts"
+   When I visit "posts/drafts"
    Then I should see the following draft posts:
         | Headline | Updated                 | Created                 |
         | nuh uh   | 2007-07-07 07:07:07 UTC | 2005-05-05 05:05:05 UTC |
