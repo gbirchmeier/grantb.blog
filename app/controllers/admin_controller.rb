@@ -1,9 +1,7 @@
 class AdminController < ApplicationController
 
   def index
-    unless @current_user
-      redirect_to not_allowed_path and return
-    end
+    redirect_if_not_logged_in and return
   end
 
 end
