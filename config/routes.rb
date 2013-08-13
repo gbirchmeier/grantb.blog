@@ -10,13 +10,10 @@ GrantbBlog::Application.routes.draw do
   get "logout"=>"sessions#destroy", :as=>"logout"
   resources :sessions
 
-  get "posts/drafts"=>"posts#drafts", :as=>"posts_drafts"
+  get "posts/admin/"=>"posts#admin", :as=>"posts_admin"
   resources :posts
 
   get '/no', :to=>redirect('/no.html'), :as=>"not_allowed"
-
-# replace with:
-#  get "sessions" => "sessions#create", :as => "sessions", :via=>:post
 
 
   # The priority is based upon order of creation: first created -> highest priority.

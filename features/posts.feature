@@ -13,28 +13,48 @@ Background:
   | goose  | foo_2    | x       | 20000501 16:04:34 | 20000501 16:04:34 | 20000501 16:04:34 |
   | goose  | nope     | x       |                   | 20060606 06:06:06 | 20060606 06:06:06 |
 
-Scenario Outline: Anyone can see that the posts index shows the
+
+#==============
+# Pages anyone can see
+#==============
+
+Scenario Outline: Anyone can see the posts index, which shows the
                   published headlines, most-recently-published first.
   Given I am logged in as "<user>" with "<password>"
    When I visit "posts"
    Then I should see the following posts:
-        | Headline |
-        | abc_1    |
-        | foo_2    |
-        | xyz_3    |
+        | Headline | Published               |
+        | abc_1    | 2013-07-22 16:04:34 UTC |
+        | foo_2    | 2000-05-01 16:04:34 UTC |
+        | xyz_3    | 1979-03-09 16:04:34 UTC |
   Examples:
         | user  | password |
         | goose | topgun   |
         |       |          |
+
+Scenario Outline: Anyone can see published posts
+  Given I am logged in as "<user>" with "<password>"
+   When I visit post "abc_1"
+   Then I should see "abc_1"
+    And I should see "batman"
+  Examples:
+        | user  | password |
+        | goose | topgun   |
+        |       |          |
+
+
+#==============
+# Pages that randos can't see
+#==============
 
 Scenario Outline: A rando can not visit various post-admin pages 
   Given I am not logged in
    When I visit "<path>"
    Then I should see the not-allowed page
   Examples:
-        | path          |
-        | /posts/drafts |
-        | /posts/new    |
+        | path                   |
+        | /posts/new             |
+        | /posts/admin           |
 
 Scenario: A rando can not edit posts
   Given I am not logged in
@@ -46,24 +66,22 @@ Scenario: A rando can not show unpublished posts
    When I visit post "nuh uh"
    Then I should see the not-allowed page
 
-Scenario Outline: Everyone can see published posts
-  Given I am logged in as "<user>" with "<password>"
-   When I visit post "abc_1"
-   Then I should see "abc_1"
-    And I should see "batman"
-  Examples:
-        | user  | password |
-        | goose | topgun   |
-        |       |          |
 
+#==============
+# Admin views and CRUD stuff
+#==============
 
-Scenario: I can see the draft posts, most-recently-updated first
+Scenario: The admin posts index shows drafts first (sorted by updated_at)
+          then published posts (sorted by published_at)
   Given I am logged in as "goose" with "topgun"
-   When I visit "posts/drafts"
-   Then I should see the following draft posts:
-        | Headline | Updated                 | Created                 |
-        | nuh uh   | 2007-07-07 07:07:07 UTC | 2005-05-05 05:05:05 UTC |
-        | nope     | 2006-06-06 06:06:06 UTC | 2006-06-06 06:06:06 UTC |
+   When I visit "posts/admin"
+   Then I should see the following posts:
+        | Headline | Published               | Updated                 | Created                 |
+        | nuh uh   |                         | 2007-07-07 07:07:07 UTC | 2005-05-05 05:05:05 UTC |
+        | nope     |                         | 2006-06-06 06:06:06 UTC | 2006-06-06 06:06:06 UTC |
+        | abc_1    | 2013-07-22 16:04:34 UTC | 2013-07-22 16:04:34 UTC | 2013-07-22 16:04:34 UTC |
+        | foo_2    | 2000-05-01 16:04:34 UTC | 2000-05-01 16:04:34 UTC | 2000-05-01 16:04:34 UTC |
+        | xyz_3    | 1979-03-09 16:04:34 UTC | 1979-03-09 16:04:34 UTC | 1979-03-09 16:04:34 UTC |
 
 Scenario: The new-post form should have "Published?" start as unchecked
   Given I am logged in as "goose" with "topgun"

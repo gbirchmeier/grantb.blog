@@ -4,9 +4,10 @@ class PostsController < ApplicationController
     @posts = Post.published.order(:published_at).reverse_order
   end
 
-  def drafts
+  def admin
     redirect_if_not_logged_in and return
-    @posts = Post.unpublished.order(:updated_at).reverse_order
+    @published_posts = Post.published.order(:published_at).reverse_order
+    @draft_posts = Post.unpublished.order(:updated_at).reverse_order
   end
 
   def show

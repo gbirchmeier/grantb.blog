@@ -1,14 +1,12 @@
 <table id="posts_tbl">
 	<tr>
 		<th>Headline</th>
-		<th>Created</th>
-		<th>Updated</th>
+		<th>Published</th>
 	</tr>
 <% @posts.each {|p| %>
 	<tr>
 		<td><%=p.headline%></td>
-		<td><%=p.created_at%></td>
-		<td><%=p.updated_at%></td>
+		<td><%=p.published_at%></td>
 	</tr>
 <% } %>
 </table>

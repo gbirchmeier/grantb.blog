@@ -1,0 +1,31 @@
+<%
+def post_row p
+  <<ROW
+	<tr>
+		<td>#{p.headline}</td>
+		<td>#{p.published_at}</td>
+		<td>#{p.updated_at}</td>
+		<td>#{p.created_at}</td>
+	</tr>
+ROW
+end
+%>
+
+<h2>Post management</h2>
+
+<p><%= link_to "New post", new_post_path %></p>
+
+<table id="posts_tbl">
+	<tr>
+		<th>Headline</th>
+		<th>Published</th>
+		<th>Updated</th>
+		<th>Created</th>
+	</tr>
+<% @draft_posts.each {|p| %>
+  <%=post_row(p).html_safe%>
+<% } %>
+<% @published_posts.each {|p| %>
+  <%=post_row(p).html_safe%>
+<% } %>
+</table>
