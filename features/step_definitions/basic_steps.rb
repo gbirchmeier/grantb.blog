@@ -25,7 +25,11 @@ Then /^I should be at the root path$/ do
 end
 
 Then /^I should see an element "([^"]*)"$/ do |el|
-  find(el)
+  assert has_css?(el)
+end
+
+Then /^I should not see an element "([^"]*)"$/ do |el|
+  assert has_no_css?(el)
 end
 
 # for sleazy debugging

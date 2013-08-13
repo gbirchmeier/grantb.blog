@@ -1,6 +1,10 @@
-div.userbox {
+#userbox {
   border: 2px solid green;
+  width: 200px;
   color: green;
+  position: absolute;
+  right: 1px;
+  top: 1px;
 }
 
 .alert {
@@ -9,4 +13,8 @@ div.userbox {
 
 .alert-error {
   background-color: red;
+}
+
+div.post {
+  border: 1px solid black;
 }

@@ -4,6 +4,7 @@ GrantbBlog::Application.routes.draw do
   # Another option is to use a redirect:
   # root :to => redirect("/home")
 
+  get "admin"=>"admin#index"
 
   get "wutang"=>"sessions#new", :as=>"login"
   get "logout"=>"sessions#destroy", :as=>"logout"
@@ -11,7 +12,6 @@ GrantbBlog::Application.routes.draw do
 
   get "posts/drafts"=>"posts#drafts", :as=>"posts_drafts"
   resources :posts
-#  get "posts"=>"posts#index", :as=>"posts"
 
   get '/no', :to=>redirect('/no.html'), :as=>"not_allowed"
 

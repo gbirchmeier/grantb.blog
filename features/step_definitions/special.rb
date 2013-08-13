@@ -1,6 +1,6 @@
 Then /^I should see the not-allowed page$/ do
   assert_equal not_allowed_path, current_path
-  assert has_css?('#not_cool',:text=>"No.")
+  assert has_css?('body#not_allowed')
 end
 
 Then /^I should see a creation notice$/ do
