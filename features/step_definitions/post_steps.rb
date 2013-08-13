@@ -5,7 +5,7 @@ end
 
 
 Then /^I should see the following posts:/ do |expected_table|
-  table = nil 
+  table = nil
   begin
     sleeping(0.1).seconds.between_tries.failing_after(10).tries do
       rows = find("table#posts_tbl").all('tr')
@@ -13,14 +13,14 @@ Then /^I should see the following posts:/ do |expected_table|
         r.all('th,td').map {|c|
           #String.strip doesn't affect unicode spaces, so need to do it explicity
           #http://www.ruby-forum.com/topic/4410833
-          c.text.sub(/^[[:space:]]+/, '').sub(/[[:space:]]+$/, '') 
-        }   
-      }   
+          c.text.sub(/^[[:space:]]+/, '').sub(/[[:space:]]+$/, '')
+        }
+      }
       expected_table.dup.diff! table
-    end 
+    end
   rescue Exception => e
     expected_table.dup.diff! table
-  end 
+  end
 end
 
 
@@ -50,7 +50,7 @@ Then /^the DB should have (?:this post|these posts):$/ do |expected_table|
 
     result = Post.where(target).where(where_published_at)
     refute result.empty?, "Couldn't find #{h.inspect} \n#{dump_posts}"
-  } 
+  }
 end
 
 Then /^the DB should not have post "([^"]*)"/ do |headline|
