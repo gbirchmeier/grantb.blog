@@ -7,7 +7,7 @@ Background:
 
   Given the following posts:
   | author | headline | content | published_at      | created_at        | updated_at        |
-  | goose  | abc_1    | x       | 20130722 16:04:34 | 20130722 16:04:34 | 20130722 16:04:34 |
+  | goose  | abc_1    | batman  | 20130722 16:04:34 | 20130722 16:04:34 | 20130722 16:04:34 |
   | goose  | nuh uh   | x       |                   | 20050505 05:05:05 | 20070707 07:07:07 |
   | goose  | xyz_3    | x       | 19790309 16:04:34 | 19790309 16:04:34 | 19790309 16:04:34 |
   | goose  | foo_2    | x       | 20000501 16:04:34 | 20000501 16:04:34 | 20000501 16:04:34 |
@@ -16,7 +16,7 @@ Background:
 Scenario Outline: Anyone can see that the posts index shows the
                   published headlines, most-recently-published first.
   Given I am logged in as "<user>" with "<password>"
-    And I visit "posts"
+   When I visit "posts"
    Then I should see the following posts:
         | Headline |
         | abc_1    |
@@ -45,6 +45,17 @@ Scenario: A rando can not show unpublished posts
   Given I am not logged in
    When I visit post "nuh uh"
    Then I should see the not-allowed page
+
+Scenario Outline: Everyone can see published posts
+  Given I am logged in as "<user>" with "<password>"
+   When I visit post "abc_1"
+   Then I should see "abc_1"
+    And I should see "batman"
+  Examples:
+        | user  | password |
+        | goose | topgun   |
+        |       |          |
+
 
 Scenario: I can see the draft posts, most-recently-updated first
   Given I am logged in as "goose" with "topgun"
