@@ -1,6 +1,6 @@
 Then /^I should be at the show page for post "([^"]*)"/ do |headline|
   post = Post.find_by_headline(headline)
-  assert current_path=="/posts/#{post.id}"
+  assert_equal "/posts/#{post.id}",current_path
 end
 
 
@@ -57,12 +57,28 @@ Then /^the DB should not have post "([^"]*)"/ do |headline|
   assert_nil Post.find_by_headline(headline)
 end
 
-When /^I ((?:edit|visit)) post "([^"]*)"/ do |cmd,headline|
+When /^I ((?:show|edit)) post "([^"]*)"/ do |cmd,headline|
   p = Post.find_by_headline(headline)
   case cmd
-    when "visit" then visit "/posts/#{p.id}"
+    when "show" then visit "/posts/#{p.id}"
     when "edit" then visit "/posts/#{p.id}/edit"
     else raise "invalid cmd"
   end
 end
 
+Then /^I should( not)? see a link to ((?:show|edit)) post "([^"]*)"/ do |neg,cmd,headline|
+  p = Post.find_by_headline(headline)
+  url = ""
+  case cmd
+    when "show" then url="/posts/#{p.id}"
+    when "edit" then url="/posts/#{p.id}/edit"
+    else raise "invalid cmd"
+  end
+
+  found = has_xpath?("//a[@href=\"#{url}\"]")
+  if neg
+    assert !found, "found link when I expected not to"
+  else
+    assert found, "no link found"
+  end
+end

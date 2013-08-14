@@ -27,6 +27,8 @@ Scenario Outline: Anyone can see the posts index, which shows the
         | abc_1    | 2013-07-22 16:04:34 UTC |
         | foo_2    | 2000-05-01 16:04:34 UTC |
         | xyz_3    | 1979-03-09 16:04:34 UTC |
+    And I should see a link to show post "abc_1"
+    And I should not see a link to edit post "abc_1"
   Examples:
         | user  | password |
         | goose | topgun   |
@@ -34,7 +36,7 @@ Scenario Outline: Anyone can see the posts index, which shows the
 
 Scenario Outline: Anyone can see published posts
   Given I am logged in as "<user>" with "<password>"
-   When I visit post "abc_1"
+   When I show post "abc_1"
    Then I should see "abc_1"
     And I should see "batman"
   Examples:
@@ -44,7 +46,7 @@ Scenario Outline: Anyone can see published posts
 
 
 #==============
-# Pages that randos can't see
+# Pages and features that randos can't see
 #==============
 
 Scenario Outline: A rando can not visit various post-admin pages 
@@ -63,15 +65,20 @@ Scenario: A rando can not edit posts
 
 Scenario: A rando can not show unpublished posts
   Given I am not logged in
-   When I visit post "nuh uh"
+   When I show post "nuh uh"
    Then I should see the not-allowed page
+
+Scenario: A rando can not see edit links on the index
+  Given I am not logged in
+   When I visit "posts"
+   Then I should not see a link to edit post "abc_1"
 
 
 #==============
 # Admin views and CRUD stuff
 #==============
 
-Scenario: The admin posts index shows drafts first (sorted by updated_at)
+Scenario: The admin posts-index page puts drafts first (sorted by updated_at)
           then published posts (sorted by published_at)
   Given I am logged in as "goose" with "topgun"
    When I visit "posts/admin"
@@ -82,6 +89,12 @@ Scenario: The admin posts index shows drafts first (sorted by updated_at)
         | abc_1    | 2013-07-22 16:04:34 UTC | 2013-07-22 16:04:34 UTC | 2013-07-22 16:04:34 UTC |
         | foo_2    | 2000-05-01 16:04:34 UTC | 2000-05-01 16:04:34 UTC | 2000-05-01 16:04:34 UTC |
         | xyz_3    | 1979-03-09 16:04:34 UTC | 1979-03-09 16:04:34 UTC | 1979-03-09 16:04:34 UTC |
+
+Scenario: The admin posts-index has links to show and edit pages
+  Given I am logged in as "goose" with "topgun"
+   When I visit "posts/admin"
+   Then I should see a link to show post "abc_1"
+    And I should see a link to edit post "abc_1"
 
 Scenario: The new-post form should have "Published?" start as unchecked
   Given I am logged in as "goose" with "topgun"

@@ -5,7 +5,7 @@
 	</tr>
 <% @posts.each {|p| %>
 	<tr>
-		<td><%=p.headline%></td>
+		<td><%=link_to p.headline, p%></td>
 		<td><%=p.published_at%></td>
 	</tr>
 <% } %>
