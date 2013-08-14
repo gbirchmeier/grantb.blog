@@ -73,6 +73,14 @@ Scenario: A rando can not see edit links on the index
    When I visit "posts"
    Then I should not see a link to edit post "abc_1"
 
+#TODO - rename admin to admin_index
+
+#TODO - show page - rando sees no link to edit or admin-index
+#TODO - index page - rando sees no link to admin-index
+
+#TODO - show page - admin sees link to edit
+#TODO - index - admin sees link to admin-index
+
 
 #==============
 # Admin views and CRUD stuff
