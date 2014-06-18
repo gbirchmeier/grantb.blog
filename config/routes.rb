@@ -6,8 +6,8 @@ GrantbBlog::Application.routes.draw do
 
   get "admin"=>"admin#index"
 
-  get "wutang"=>"sessions#new", :as=>"login"
-  get "logout"=>"sessions#destroy", :as=>"logout"
+  get "sign/in"=>"sessions#new", :as=>"login"
+  get "sign/out"=>"sessions#destroy", :as=>"logout"
   resources :sessions
 
   get "posts/admin/"=>"posts#admin", :as=>"posts_admin"

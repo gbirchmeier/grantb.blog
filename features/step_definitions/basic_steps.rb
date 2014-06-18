@@ -1,3 +1,6 @@
+When /^I visit "\/?([^"]*)"\s*$/ do |uri|
+  visit "/#{uri}"
+end
 
 # Then I pause 4.5 seconds
 # Then I sleep 4.5

@@ -1,3 +1,7 @@
+When /^I visit the logon page$/ do
+  visit "/sign/in"
+end
+
 Given /^I am not logged in$/ do
   visit "/"
   step("I should see that no one is logged in")
@@ -7,8 +11,8 @@ Given /^I (?:log ?in|am logged in) as "([^"]*)" with "([^"]*)"$/ do |username, p
   if username.empty? and pw.empty?
     step("I am not logged in")
   else
-    visit "/logout"
-    visit "/wutang"
+    visit "/sign/out"
+    visit "/sign/in"
     fill_in "Username", :with => username
     fill_in "Password", :with => pw
     click_button("Submit")
@@ -18,7 +22,7 @@ end
 # When I logout
 # When I log out
 When /^I log ?out/ do
-  visit '/logout'
+  visit '/sign/out'
 end
 
 Then /^I should see that I am logged in$/ do

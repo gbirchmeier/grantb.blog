@@ -1,4 +1,9 @@
 grantb.blog
 ===========
 
-my blog, yo
+Just using bundler for now.
+
+
+Testing
+---
+Just `rake cucumber` for now
