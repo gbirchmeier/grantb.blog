@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130813190300) do
+ActiveRecord::Schema.define(version: 20140618230850) do
 
   create_table "posts", force: true do |t|
-    t.string   "headline",     null: false
-    t.string   "content",      null: false
+    t.string   "headline",                          null: false
+    t.string   "content",                           null: false
     t.datetime "published_at"
-    t.integer  "user_id",      null: false
+    t.integer  "user_id",                           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "markup_type",  default: "markdown", null: false
   end
 
   create_table "users", force: true do |t|

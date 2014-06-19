@@ -13,7 +13,7 @@ Updated #{post.updated_at}<br/>
 Created #{post.created_at}<br/>
 </div>
 
-<div>#{post.content}</div>
+<div>#{post.content_as_html}</div>
 </div><!--post-->
 END
     html.html_safe

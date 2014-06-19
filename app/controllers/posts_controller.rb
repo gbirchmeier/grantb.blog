@@ -63,7 +63,7 @@ class PostsController < ApplicationController
 
 private
   def post_params
-    params.require(:post).permit(:headline,:content)
+    params.require(:post).permit(:headline,:content,:markup_type)
   end
 
 end

@@ -8,6 +8,11 @@
 </div>
 
 <div>
+  <%=f.label :markup_type %>
+  <%=f.select(:markup_type,Post::MARKUP_TYPES)%>
+</div>
+
+<div>
   <%=f.label :content %>
   <%=f.text_area :content %>
 </div>
