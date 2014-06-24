@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Grant Birchmeier<%= "- #{@page_title}" if @page_title %></title>
+<title>GrantB.net<%= "- #{@page_title}" if @page_title %></title>
 <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 <%= csrf_meta_tags %>
 </head>
-<body>
-<div id="site_content">
+<body id="blogbody">
+<div class="content">
+
+<% if @current_user %>
+	<div id="userbox">
+		Hello, <%=@current_user.username%><br/>
+		<%=link_to "Admin menu", admin_path %><br/><br/>
+		<%=link_to "Log out", logout_path%>
+	</div>
+<% end %>
+
+<% flash.each do |k, v| %>
+	<% alert_class = (k == :error ? "alert alert-error" : "alert") %>
+	<div class="<%= alert_class %>" id="<%= k %>"><%= v %></div>
+<% end %>
 
 
-<div id="site_header">
-	<h1>H1 header</h1><!--Grant is a decent programmer but a shitty graphic designer</h1>-->
-
-	<% if @current_user %>
-		<div id="userbox">
-			Hello, <%=@current_user.username%><br/>
-			<%=link_to "Admin menu", admin_path %><br/><br/>
-			<%=link_to "Log out", logout_path%>
-		</div>
-	<% end %>
-</div>
-
-
-<div id="site_body">
-	<% flash.each do |k, v| %>
-		<% alert_class = (k == :error ? "alert alert-error" : "alert") %>
-		<div class="<%= alert_class %>" id="<%= k %>"><%= v %></div>
-	<% end %>
+<div class="main_wrap">
+<div class="main">
 <%= yield %>
-</div><!-- site_body -->
+</div></div><!--main-->
+
+
+<div class="sidebar_wrap">
+<div class="sidebar">
+poop
+</div></div><!--sidebar-->
+
+
 
 
 </div><!-- site_content -->

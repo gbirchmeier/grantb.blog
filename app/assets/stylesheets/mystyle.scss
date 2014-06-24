@@ -1,0 +1,34 @@
+body#blogbody {
+
+	div.content {
+		width: 90%;
+		min-width: 800px;
+		margin: 0 auto;
+
+		div.main_wrap {
+			float: left;
+			margin-right: -220px;
+			width: 100%;
+			background-color: #ddddff;
+
+			div.main {
+				margin-right: 220px;
+				background-color: #eeeeff;
+			}
+
+		}
+
+		div.sidebar_wrap {
+			float: right;
+			width: 200px;
+			margin: auto 0;
+			background-color: #ddffdd;
+
+			div.sidebar {}
+		}
+	}
+
+
+}
+
+
