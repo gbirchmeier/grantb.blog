@@ -7,28 +7,38 @@ body#blogbody {
 	background-size: cover;
 
 	div.content {
-		width: 90%;
+		width: 100%;
 		min-width: 800px;
 		margin: 100px auto 0 auto;
 
 		div.main_wrap {
 			float: left;
-			margin-right: -220px;
+			margin-right: -300px;
 			width: 100%;
 
 			div.main {
-				margin-right: 220px;
+				margin-right: 300px;
 			}
 
 		}
 
 		div.sidebar_wrap {
 			float: right;
-			width: 200px;
-			margin: auto 0;
-			background-color: #ddffdd;
+			width: 250px;
+			margin: 0 50px 0 auto;
 
-			div.sidebar {}
+			div.sidebar {
+				background-color: rgba(0,0,0,0.8);
+				color: white;
+
+				h1 {
+					font-size: 28pt;
+					text-align: center;
+					margin: 0 0 10px 0;
+				}
+
+				hr { width: 50px; }
+			}
 		}
 	}
 
