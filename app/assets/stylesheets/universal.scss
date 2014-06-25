@@ -1,0 +1,26 @@
+#userbox {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	border: 2px solid green;
+	background-color: rgba(200,255,200,0.6);
+	color: black;
+	width: 200px;
+	font-weight: bold;
+
+	div.logout {
+		position: absolute;
+		right: 2px;	
+		top: 0px;
+		text-align: right;
+	}
+}
+
+.alert {
+	background-color: yellow;
+}
+
+.alert-error {
+	background-color: red;
+}
+

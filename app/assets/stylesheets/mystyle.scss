@@ -1,19 +1,23 @@
 body#blogbody {
 
+	background-image: url("/bg/pigeons.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+
 	div.content {
 		width: 90%;
 		min-width: 800px;
-		margin: 0 auto;
+		margin: 100px auto 0 auto;
 
 		div.main_wrap {
 			float: left;
 			margin-right: -220px;
 			width: 100%;
-			background-color: #ddddff;
 
 			div.main {
 				margin-right: 220px;
-				background-color: #eeeeff;
 			}
 
 		}
@@ -29,6 +33,36 @@ body#blogbody {
 	}
 
 
-}
+	div#no_posts {
+		background-color: white;
+		color: black;
+		width: 400px;
+		height: 400px;
+		line-height: 400px;
+		text-align: center;
+		font-weight: bold;
+		font-size: 24pt;
+	}
 
+
+	div.post {
+		border: white 1px solid;
+		background-color: rgba(255,255,255,0.6);
+		color: black;
+
+		margin-bottom: 20px;
+		margin-left: auto;
+		margin-right: auto;
+
+		width: 80%;
+
+		div.headline {}
+		div.byline {}
+		div.published_at {}
+		div.updated_at {}
+		div.created_at {}
+		div.content {}
+	}
+
+}
 
