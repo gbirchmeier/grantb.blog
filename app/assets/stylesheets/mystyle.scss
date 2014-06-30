@@ -28,11 +28,13 @@ body#blogbody {
 			margin: 0 50px 0 auto;
 
 			div.sidebar {
+				padding: 5px 5px 15px 5px;
 				background-color: rgba(0,0,0,0.8);
 				color: white;
+				text-align: center;
 
 				h1 {
-					font-size: 28pt;
+					font-size: 26pt;
 					text-align: center;
 					margin: 0 0 10px 0;
 				}
@@ -59,6 +61,7 @@ body#blogbody {
 		border: white 1px solid;
 		background-color: rgba(255,255,255,0.6);
 		color: black;
+		padding: 5px;
 
 		margin-bottom: 20px;
 		margin-left: auto;
@@ -66,12 +69,19 @@ body#blogbody {
 
 		width: 80%;
 
-		div.headline {}
-		div.byline {}
-		div.published_at {}
-		div.updated_at {}
-		div.created_at {}
+		h1 {
+			font-size: 20pt;
+			font-weight: bold;
+			margin: 0;
+			padding: 0;
+		}
+		div.published_at {
+			font-size: 8pt;
+		}
+		div.updated_at { display: none; }
+		div.created_at { display: none; }
 		div.content {}
+		div.permalink { font-size: 10pt; }
 	}
 
 }

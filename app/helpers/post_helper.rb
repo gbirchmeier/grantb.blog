@@ -3,17 +3,12 @@ module PostHelper
   def emitPost post
     html =<<END
 <div class="post">
-<div><strong>#{post.headline}</strong></div>
-
-<div>by #{post.user.username}</div>
-
-<div>
-Published #{post.published_at}<br/>
-Updated #{post.updated_at}<br/>
-Created #{post.created_at}<br/>
-</div>
-
+<h1>#{post.headline}</h1>
+<div class="published_at">#{post.published_at}</div>
+<div class="created_at">#{post.created_at}</div>
+<div class="updated_at">#{post.updated_at}</div>
 <div>#{post.content_as_html}</div>
+<div class="permalink"><a href="#{post_path(post)}">Permalink</a></div>
 </div><!--post-->
 END
     html.html_safe
