@@ -4,6 +4,8 @@ class Post < ActiveRecord::Base
   scope :published, -> { where("published_at IS NOT NULL") }
   scope :unpublished, -> { where("published_at IS NULL") }
 
+  validates :headline, :content, :user, presence: true
+
   module MarkupType
     MARKDOWN = 'markdown'
     HTML = 'html'
@@ -13,6 +15,10 @@ class Post < ActiveRecord::Base
 
   def published?
     !published_at.nil?
+  end
+
+  def self.recent(i)
+    Post.published.order("published_at DESC").limit(i)
   end
 
   def get_renderer
