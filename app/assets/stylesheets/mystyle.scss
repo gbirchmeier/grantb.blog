@@ -44,7 +44,6 @@ body#blogbody {
 		}
 	}
 
-
 	div#no_posts {
 		background-color: white;
 		color: black;
@@ -55,7 +54,6 @@ body#blogbody {
 		font-weight: bold;
 		font-size: 24pt;
 	}
-
 
 	div.post {
 		border: white 1px solid;
@@ -82,6 +80,26 @@ body#blogbody {
 		div.created_at { display: none; }
 		div.content {}
 		div.permalink { font-size: 10pt; }
+	}
+
+	div#posts_index {
+		border: white 1px solid;
+		background-color: rgba(255,255,255,0.6);
+		color: black;
+		padding: 5px;
+
+		margin-bottom: 20px;
+		margin-left: auto;
+		margin-right: auto;
+
+		width: 80%;
+
+		h1 {
+			font-size: 20pt;
+			font-weight: bold;
+			margin: 0 0 20px 0;
+			padding: 0;
+		}
 	}
 
 }

@@ -1,15 +1,1 @@
-<h1>Post view</h1>
-
-<div><strong><%=@post.headline%></strong></div>
-
-<div>by <%=@post.user.username%></div>
-
-<div>
-Published <%=@post.published_at%><br/>
-Updated <%=@post.updated_at%><br/>
-Created <%=@post.created_at%><br/>
-</div>
-
-<div style="border: black solid 1px">
-<%= @post.content_as_html.html_safe %>
-</div>
+<%= emitPost @post %>
