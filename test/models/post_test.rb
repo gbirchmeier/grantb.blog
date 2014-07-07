@@ -17,7 +17,7 @@ class PostTest < ActiveSupport::TestCase
     assert_equal "bbb", unpublished[0].headline
   end
 
-  test "::recent" do
+  test "recent" do
     u = User.create!(username:"x",email:"x",password:"x",password_confirmation:"x")
     Post.new(headline:"aaa",content:"z",user:u,published_at:DateTime.new(2014,01,01)).save!
     Post.new(headline:"bbb",content:"z",user:u,published_at:DateTime.new(2014,01,02)).save!
@@ -30,10 +30,12 @@ class PostTest < ActiveSupport::TestCase
     assert_equal "ddd",a[0].headline
     assert_equal "ccc",a[1].headline
     assert_equal "bbb",a[2].headline
+    assert_nil a.index {|p| p.headline=="eee"}
     
     a = Post.recent(12)
     assert_equal 4, a.length
     assert_equal "aaa",a.last.headline
+    assert_nil a.index {|p| p.headline=="eee"}
   end
 
 end
