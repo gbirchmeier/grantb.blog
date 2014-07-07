@@ -17,6 +17,11 @@ class Post < ActiveRecord::Base
     !published_at.nil?
   end
 
+  def short_pub_date
+    return nil unless published?
+    published_at.strftime("%b %e, %Y")
+  end
+
   def self.recent(i)
     Post.published.order("published_at DESC").limit(i)
   end

@@ -31,21 +31,27 @@
 </div></div><!--main-->
 
 
-<div class="sidebar_wrap">
 <div class="sidebar">
+<div class="about">
 <h1><a href="/">GRANTB.NET</a></h1>
-<hr/>
 Grant Birchmeier
-<hr/>
-Random personal ramblings.
 <hr/>
 Topics may include programming, spaghetti westerns, classic console games,
 kung fu flicks, or giant cartoon robots.
 <hr/>
 I'm from Michigan, but I live in Chicago's suburbs.
-</div></div><!--sidebar-->
+</div><!--about-->
 
-
+<div class="recent">
+<h2>Other recent posts:</h2>
+<% Post.recent(3).each {|post| %>
+<div class="entry">
+<div class="headline"><a href="#{post_path(post)}"><%=post.headline%></a></div>
+<div class="published_at"><%=post.short_pub_date%></div>
+</div>
+<% } %>
+</div><!--recent-->
+</div><!--sidebar-->
 
 
 </div><!-- site_content -->
