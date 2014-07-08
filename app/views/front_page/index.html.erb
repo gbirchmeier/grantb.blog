@@ -3,5 +3,6 @@
 <% end %>
 
 <% @posts.each{|p| %>
-   <%=emitPost p%>
+   <% @post = p %>
+   <%=render 'shared/post'%>
 <% } %>

@@ -3,7 +3,7 @@ prev = @post.previous
 nnext = @post.next
 %>
 
-<%= emitPost @post %>
+<%= render 'shared/post' %>
 
 <div id="prev_next">
 <div class="prev <%='prev_content' if prev%>"><%=if prev then link_to(prev.headline,post_path(prev)) else '&nbsp;'.html_safe end%></div>
