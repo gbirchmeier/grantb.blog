@@ -6,4 +6,4 @@ Just using bundler for now.
 
 Testing
 ---
-Just `rake cucumber` for now
+Just `rake test` and `rake cucumber` for now
