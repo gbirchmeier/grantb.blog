@@ -1,1 +1,13 @@
+<%
+prev = @post.previous
+nnext = @post.next
+%>
+
 <%= emitPost @post %>
+
+<div id="prev_next">
+<div class="prev <%='prev_content' if prev%>"><%=if prev then link_to(prev.headline,post_path(prev)) else '&nbsp;'.html_safe end%></div>
+<div class="next <%='next_content' if nnext%>"><%=if nnext then link_to(nnext.headline,post_path(nnext)) else '&nbsp;'.html_safe end%></div>
+<div class="archive"><%=link_to "Archive", posts_path%></div>
+</div>
+

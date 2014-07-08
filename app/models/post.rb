@@ -26,6 +26,14 @@ class Post < ActiveRecord::Base
     Post.published.order("published_at DESC").limit(i)
   end
 
+  def previous
+    Post.published.where("published_at < ?", self.published_at).order("published_at DESC").limit(1).first
+  end
+
+  def next
+    Post.published.where("published_at > ?", self.published_at).order("published_at ASC").limit(1).first
+  end
+
   def get_renderer
     @renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML,
       :fenced_code_blocks=>true,

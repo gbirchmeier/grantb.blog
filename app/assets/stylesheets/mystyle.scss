@@ -19,7 +19,6 @@ body#blogbody {
 			div.main {
 				margin-right: 300px;
 			}
-
 		}
 
 		div.sidebar {
@@ -126,6 +125,38 @@ body#blogbody {
 			font-weight: bold;
 			margin: 0 0 20px 0;
 			padding: 0;
+		}
+	}
+
+	div#prev_next {
+		border: 1px solid white;
+		background-color: rgba(0,0,0,0.8);
+		color: white;
+		padding: 10px;
+		font-size: 10pt;
+
+		margin-bottom: 20px;
+		margin-left: auto;
+		margin-right: auto;
+
+		width: 50%;
+
+		div.prev_content:before { content: "< " }
+		div.prev {
+			float: left;
+			width: 30%;
+			text-align: left;
+		}
+
+		div.next_content:after { content: " >" }
+		div.next {
+			float: right;
+			width: 30%;
+			text-align: right;
+		}
+
+		div.archive {
+			text-align: center;
 		}
 	}
 

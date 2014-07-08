@@ -38,5 +38,19 @@ class PostTest < ActiveSupport::TestCase
     assert_nil a.index {|p| p.headline=="eee"}
   end
 
+  test "previous and next" do
+    u = User.create!(username:"x",email:"x",password:"x",password_confirmation:"x")
+
+    Post.new(headline:"000",content:"z",user:u,published_at:DateTime.new(2014,01,01)).save
+    Post.new(headline:"aaa",content:"z",user:u,published_at:DateTime.new(2014,01,02)).save
+    Post.new(headline:"bbb",content:"z",user:u,published_at:DateTime.new(2014,01,03)).save
+    Post.new(headline:"ccc",content:"z",user:u,published_at:DateTime.new(2014,01,04)).save
+    Post.new(headline:"111",content:"z",user:u,published_at:DateTime.new(2014,01,05)).save
+
+    p = Post.find_by(headline:"bbb")
+    assert_equal "aaa", p.previous.headline
+    assert_equal "ccc", p.next.headline
+  end
+
 end
 
