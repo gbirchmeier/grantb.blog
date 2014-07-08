@@ -1,8 +1,12 @@
 <% if @posts.count==0 %>
   <div id="no_posts">No posts.</div>
-<% end %>
+<% else %>
 
 <% @posts.each{|p| %>
    <% @post = p %>
    <%=render 'shared/post'%>
 <% } %>
+
+<%=render 'shared/prev_next'%>
+
+<% end %>

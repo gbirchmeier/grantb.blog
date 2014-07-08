@@ -1,0 +1,15 @@
+<%
+prev_classes = ["prev"]
+prev_classes << "prev_content" if @prev_post
+prev_content = @prev_post ? link_to(@prev_post.headline,post_path(@prev_post)) : "&nbsp;"
+
+next_classes = ["next"]
+next_classes << "next_content" if @next_post
+next_content = @next_post ? link_to(@next_post.headline,post_path(@next_post)) : "&nbsp;"
+%>
+<div id="prev_next">
+<div class="<%=prev_classes.join(" ")%>"><%=prev_content.html_safe%></div>
+<div class="<%=next_classes.join(" ")%>"><%=next_content.html_safe%></div>
+<div class="archive"><%=link_to "Archive", posts_path%></div>
+</div>
+
