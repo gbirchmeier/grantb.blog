@@ -30,12 +30,12 @@ class PostTest < ActiveSupport::TestCase
     assert_equal "ddd",a[0].headline
     assert_equal "ccc",a[1].headline
     assert_equal "bbb",a[2].headline
-    assert_nil a.index {|p| p.headline=="eee"}
+    assert_nil a.find {|p| p.headline=="eee"}
     
     a = Post.recent(12)
     assert_equal 4, a.length
     assert_equal "aaa",a.last.headline
-    assert_nil a.index {|p| p.headline=="eee"}
+    assert_nil a.find {|p| p.headline=="eee"}
   end
 
   test "previous and next" do
