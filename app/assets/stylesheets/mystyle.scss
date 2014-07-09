@@ -1,3 +1,7 @@
+$sidebar_width: 300px;
+$main_margin_right: $sidebar_width+20;
+$main_width: 80%;
+
 body#blogbody {
 
 	background-image: url("/bg/pigeons.jpg");
@@ -6,52 +10,43 @@ body#blogbody {
 	background-position: center;
 	background-size: cover;
 
+	margin-top: 50px;
+
+
 	div.content {
 		width: 100%;
-		min-width: 800px;
-		margin: 100px auto 0 auto;
-
-		div.main_wrap {
-			float: left;
-			margin-right: -300px;
-			width: 100%;
-
-			div.main {
-				margin-right: 300px;
-			}
-		}
 
 		div.sidebar {
-			float: right;
-			width: 250px;
-			margin: 0 50px 0 auto;
-
+			position: absolute;
+			right: 20px;
+			width: $sidebar_width;
+	
 			div.about {
 				padding: 5px 5px 15px 5px;
 				background-color: rgba(0,0,0,0.8);
 				color: white;
 				text-align: center;
 				margin-bottom: 20px;
-
+	
 				h1 {
 					font-size: 26pt;
 					text-align: center;
 					margin: 0 0 10px 0;
 				}
-
+	
 				hr { width: 50px; }
 			}
-
+	
 			div.recent {
 				padding: 5px 5px 15px 5px;
 				background-color: rgba(0,0,0,0.8);
 				color: white;
-
+	
 				h2 {
 					font-size: 12pt;
 					margin: 0 0 10px 0;
 				}
-
+	
 				div.entry {
 					margin-left: 20px;
 					margin-bottom: 10px;
@@ -62,12 +57,30 @@ body#blogbody {
 						font-size: 10px;
 					}
 				}
-
+	
 				div.archive {
 					text-align: center;
 				}
 			}
 		}
+
+		div.main_wrap {
+			float: left;
+			margin-right: -1 * $main_margin_right;
+			width: 100%;
+
+			div.main_wrap2 {
+				margin-right: $main_margin_right;
+
+				div.main {
+					width: $main_width;
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
+		}
+
+
 	}
 
 	div#no_posts {
@@ -87,11 +100,7 @@ body#blogbody {
 		color: black;
 		padding: 5px;
 
-		margin-bottom: 20px;
-		margin-left: auto;
-		margin-right: auto;
-
-		width: 80%;
+		margin-bottom: 80px;
 
 		h1 {
 			font-size: 20pt;
@@ -115,10 +124,6 @@ body#blogbody {
 		padding: 5px;
 
 		margin-bottom: 20px;
-		margin-left: auto;
-		margin-right: auto;
-
-		width: 80%;
 
 		h1 {
 			font-size: 20pt;
@@ -136,10 +141,6 @@ body#blogbody {
 		font-size: 10pt;
 
 		margin-bottom: 20px;
-		margin-left: auto;
-		margin-right: auto;
-
-		width: 50%;
 
 		div.prev_content:before { content: "< " }
 		div.prev {
@@ -159,6 +160,5 @@ body#blogbody {
 			text-align: center;
 		}
 	}
-
 }
 

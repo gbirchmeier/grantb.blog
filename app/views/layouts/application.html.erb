@@ -9,6 +9,8 @@
 <body id="blogbody">
 <div class="content">
 
+
+
 <% if @current_user %>
 	<div id="userbox">
 		Hello, <%=@current_user.username%><br/>
@@ -19,16 +21,12 @@
 	</div>
 <% end %>
 
+
 <% flash.each do |k, v| %>
 	<% alert_class = (k == :error ? "alert alert-error" : "alert") %>
 	<div class="<%= alert_class %>" id="<%= k %>"><%= v %></div>
 <% end %>
 
-
-<div class="main_wrap">
-<div class="main">
-<%= yield %>
-</div></div><!--main-->
 
 
 <div class="sidebar">
@@ -46,13 +44,23 @@ I'm from Michigan, but I live in Chicago's suburbs.
 <h2>Other recent posts:</h2>
 <% Post.recent(3).each {|post| %>
 <div class="entry">
-<div class="headline"><a href="#{post_path(post)}"><%=post.headline%></a></div>
+<div class="headline"><a href="<%=post_path(post)%>"><%=post.headline%></a></div>
 <div class="published_at"><%=post.short_pub_date%></div>
 </div>
 <% } %>
 <div class="archive"><%=link_to "Archive", posts_path%></div>
 </div><!--recent-->
 </div><!--sidebar-->
+
+
+
+
+<div class="main_wrap">
+<div class="main_wrap2">
+<div class="main">
+<%= yield %>
+</div></div></div><!--main-->
+
 
 
 </div><!-- site_content -->
