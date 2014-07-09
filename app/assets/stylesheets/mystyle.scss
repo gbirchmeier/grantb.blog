@@ -36,32 +36,6 @@ body#blogbody {
 	
 				hr { width: 50px; }
 			}
-	
-			div.recent {
-				padding: 5px 5px 15px 5px;
-				background-color: rgba(0,0,0,0.8);
-				color: white;
-	
-				h2 {
-					font-size: 12pt;
-					margin: 0 0 10px 0;
-				}
-	
-				div.entry {
-					margin-left: 20px;
-					margin-bottom: 10px;
-					div.headline {
-						text-align: left;
-					}
-					div.published_at {
-						font-size: 10px;
-					}
-				}
-	
-				div.archive {
-					text-align: center;
-				}
-			}
 		}
 
 		div.main_wrap {

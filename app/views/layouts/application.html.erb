@@ -39,17 +39,6 @@ kung fu flicks, or giant cartoon robots.
 <hr/>
 I'm from Michigan, but I live in Chicago's suburbs.
 </div><!--about-->
-
-<div class="recent">
-<h2>Other recent posts:</h2>
-<% Post.recent(3).each {|post| %>
-<div class="entry">
-<div class="headline"><a href="<%=post_path(post)%>"><%=post.headline%></a></div>
-<div class="published_at"><%=post.short_pub_date%></div>
-</div>
-<% } %>
-<div class="archive"><%=link_to "Archive", posts_path%></div>
-</div><!--recent-->
 </div><!--sidebar-->
 
 
