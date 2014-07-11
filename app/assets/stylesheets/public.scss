@@ -4,6 +4,10 @@ $main_width: 80%;
 
 body#blogbody {
 
+	a { color: #aabbff; }
+	a:visited { color: #ddddff; } // #ddbbdd; }
+	a:hover { color: #ddddff; }
+
 	background-image: url("/bg/pigeons.jpg");
 	background-attachment: fixed;
 	background-repeat: no-repeat;
@@ -25,9 +29,10 @@ body#blogbody {
 				padding: 5px 5px 15px 5px;
 				background-color: rgba(0,0,0,0.8);
 				color: white;
-				text-align: center;
 				margin-bottom: 20px;
 	
+				text-align: center;
+
 				h1 {
 					font-size: 26pt;
 					text-align: center;
@@ -92,10 +97,12 @@ body#blogbody {
 	}
 
 	div#posts_index {
-		border: white 1px solid;
-		background-color: rgba(255,255,255,0.6);
-		color: black;
-		padding: 5px;
+		border: 1px solid white;
+		padding: 5px 5px 15px 5px;
+		background-color: rgba(0,0,0,0.8);
+		color: white;
+		margin-bottom: 20px;
+
 
 		margin-bottom: 20px;
 
@@ -114,16 +121,14 @@ body#blogbody {
 		padding: 10px;
 		font-size: 10pt;
 
-		margin-bottom: 20px;
-
-		div.prev_content:before { content: "< " }
+		div.prev_content:before { content: "<< " }
 		div.prev {
 			float: left;
 			width: 30%;
 			text-align: left;
 		}
 
-		div.next_content:after { content: " >" }
+		div.next_content:after { content: " > >" }
 		div.next {
 			float: right;
 			width: 30%;
