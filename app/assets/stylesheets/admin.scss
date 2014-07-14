@@ -1,9 +1,13 @@
-body.adminbody {
-	background-color: black;
-	color: lime;
+$fg-color: #1fbd43;
 
-	a { color: lime; }
-	a:visited { color: lime; }
+body.adminbody {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+	background-color: black;
+	color: $fg-color;
+
+	a { color: $fg-color; }
+	a:visited { color: $fg-color; }
 	a:hover { color: white; }
 }
 
