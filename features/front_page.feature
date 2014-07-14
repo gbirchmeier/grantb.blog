@@ -8,7 +8,7 @@ Background:
 Scenario Outline: Show the front page
   Given I am logged in as "<user>" with "<password>"
    When I visit "/"
-   Then I should see an element "#site_content"
+   Then I should see an element "body.blogbody"
   Examples:
         | user  | password |
         | goose | topgun   |

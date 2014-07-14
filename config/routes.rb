@@ -1,19 +1,18 @@
 GrantbBlog::Application.routes.draw do
 
   root 'front_page#index'
-  # Another option is to use a redirect:
-  # root :to => redirect("/home")
-
-  get "admin"=>"admin#index"
 
   get "sign/in"=>"sessions#new", :as=>"login"
   get "sign/out"=>"sessions#destroy", :as=>"logout"
   resources :sessions
 
+  get '/no', :to=>redirect('/no.html'), :as=>"not_allowed"
+
   get "posts/admin/"=>"posts#admin", :as=>"posts_admin"
   resources :posts
 
-  get '/no', :to=>redirect('/no.html'), :as=>"not_allowed"
+
+  get "admin"=>"admin_dashboard#index"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

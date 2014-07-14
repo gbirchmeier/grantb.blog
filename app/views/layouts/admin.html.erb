@@ -6,10 +6,10 @@
 <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 <%= csrf_meta_tags %>
 </head>
-<body class="blogbody">
+<body class="adminbody">
 <div class="content">
 
-
+<h1>GrantB.net Administration</h1>
 
 <% if @current_user %>
 	<div id="userbox">
@@ -28,27 +28,9 @@
 <% end %>
 
 
-
-<div class="sidebar">
-<div class="about">
-<h1><a href="/">GRANTB.NET</a></h1>
-Grant Birchmeier
-<hr/>
-Topics may include programming, spaghetti westerns, classic console games,
-kung fu flicks, or giant cartoon robots.
-<hr/>
-I'm from Michigan, but I live in Chicago's suburbs.
-</div><!--about-->
-</div><!--sidebar-->
-
-
-
-
-<div class="main_wrap">
-<div class="main_wrap2">
 <div class="main">
 <%= yield %>
-</div></div></div><!--main-->
+</div><!--main-->
 
 
 
