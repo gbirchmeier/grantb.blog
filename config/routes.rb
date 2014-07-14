@@ -2,17 +2,23 @@ GrantbBlog::Application.routes.draw do
 
   root 'front_page#index'
 
-  get "sign/in"=>"sessions#new", :as=>"login"
-  get "sign/out"=>"sessions#destroy", :as=>"logout"
+  get "sign/in"=>"sessions#new", as: "login"
+  get "sign/out"=>"sessions#destroy", as: "logout"
   resources :sessions
 
-  get '/no', :to=>redirect('/no.html'), :as=>"not_allowed"
+  get '/no', to: redirect('/no.html'), as: "not_allowed"
 
-  get "posts/admin/"=>"posts#admin", :as=>"posts_admin"
-  resources :posts
-
+  resources :posts, only: [:index,:show]
 
   get "admin"=>"admin_dashboard#index"
+
+  scope 'admin', as: 'admin' do
+    resources :posts, controller: :admin_posts
+  end
+
+
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

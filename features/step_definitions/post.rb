@@ -57,28 +57,17 @@ Then /^the DB should not have post "([^"]*)"/ do |headline|
   assert_nil Post.find_by_headline(headline)
 end
 
-When /^I ((?:show|edit)) post "([^"]*)"/ do |cmd,headline|
+When /^I show post "([^"]*)"/ do |headline|
   p = Post.find_by_headline(headline)
-  case cmd
-    when "show" then visit "/posts/#{p.id}"
-    when "edit" then visit "/posts/#{p.id}/edit"
-    else raise "invalid cmd"
-  end
+  visit "/posts/#{p.id}"
 end
 
-Then /^I should( not)? see a link to ((?:show|edit)) post "([^"]*)"/ do |neg,cmd,headline|
+When /^I edit post "([^"]*)"/ do |headline|
   p = Post.find_by_headline(headline)
-  url = ""
-  case cmd
-    when "show" then url="/posts/#{p.id}"
-    when "edit" then url="/posts/#{p.id}/edit"
-    else raise "invalid cmd"
-  end
-
-  found = has_xpath?("//a[@href=\"#{url}\"]")
-  if neg
-    assert !found, "found link when I expected not to"
-  else
-    assert found, "no link found"
-  end
+  visit "/admin/posts/#{p.id}/edit"
 end
+
+Then /^I should see the invalid-post message/ do
+  page.find("#invalid_post")
+end
+

@@ -18,6 +18,14 @@ $main_width: 80%;
 	a:hover { color: #cc0000;; }
 }
 
+@mixin error-scheme {
+	padding: 20px;
+	background-color: white;
+	color: black;
+	font-weight: bold;
+	font-size: 20pt;
+}
+
 body.blogbody {
 
 	background-image: url("/bg/pigeons.jpg");
@@ -72,14 +80,11 @@ body.blogbody {
 	}
 
 	div#no_posts {
-		background-color: white;
-		color: black;
-		width: 400px;
-		height: 400px;
-		line-height: 400px;
-		text-align: center;
-		font-weight: bold;
-		font-size: 24pt;
+		@include error-scheme();
+	}
+
+	div#invalid_post {
+		@include error-scheme();
 	}
 
 	div.post {
