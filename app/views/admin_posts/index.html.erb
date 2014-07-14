@@ -2,8 +2,8 @@
 def post_row p
   <<ROW
 	<tr>
-		<td>#{link_to p.headline, p}</td>
-		<td>#{link_to "edit", edit_post_path(p)}</td>
+		<td>#{link_to p.headline, admin_post_path(p)}</td>
+		<td>#{link_to "edit", edit_admin_post_path(p)}</td>
 		<td>#{p.published_at}</td>
 		<td>#{p.updated_at}</td>
 		<td>#{p.created_at}</td>
@@ -14,7 +14,7 @@ end
 
 <h2>Post management</h2>
 
-<p><%= link_to "New post", new_post_path %></p>
+<p><%= link_to "New post", new_admin_post_path %></p>
 
 <table id="posts_tbl">
 	<tr>
