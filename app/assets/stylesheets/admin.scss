@@ -20,6 +20,23 @@ body.adminbody {
 		padding: 20px;
 		margin-top: 0;
 	}
+
+	table#posts_tbl {
+		border-collapse: collapse;
+		margin-left: auto;
+		margin-right: auto;
+
+		a { text-decoration: none; }
+
+		td {
+			padding: 5px 15px 5px 15px;
+			border-top: solid 1px $fg-color;
+		}
+
+		td.left { padding: 5px 15px 5px 5px; }
+		td.right { padding: 5px 5px 5px 15px; }
+		td.date { text-align: center; }
+	}
 }
 
 

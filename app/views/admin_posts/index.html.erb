@@ -2,11 +2,11 @@
 def post_row p
   <<ROW
 	<tr>
-		<td>#{link_to p.headline, admin_post_path(p)}</td>
+		<td class="left">#{link_to p.headline, admin_post_path(p)}</td>
 		<td>#{link_to "edit", edit_admin_post_path(p)}</td>
-		<td>#{p.published_at}</td>
-		<td>#{p.updated_at}</td>
-		<td>#{p.created_at}</td>
+		<td class="date">#{pretty_short_date(p.published_at)}</td>
+		<td class="date">#{pretty_short_date(p.updated_at)}</td>
+		<td class="date right">#{pretty_short_date(p.created_at)}</td>
 	</tr>
 ROW
 end
@@ -19,7 +19,7 @@ end
 <table id="posts_tbl">
 	<tr>
 		<th>Headline</th>
-		<th>Edit</th>
+		<th>&nbsp;</th>
 		<th>Published</th>
 		<th>Updated</th>
 		<th>Created</th>

@@ -13,4 +13,9 @@ EOS
     rv.html_safe
   end
 
+  def pretty_short_date(d)
+    return "" if nil
+    d.strftime("%b %d, %Y")
+  end
+
 end
