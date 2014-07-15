@@ -1,7 +1,9 @@
 $fg-color: #1fbd43;
+$regular-size: 12pt;
 
 body.adminbody {
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: $regular-size;
 
 	background-color: black;
 	color: $fg-color;
@@ -9,6 +11,15 @@ body.adminbody {
 	a { color: $fg-color; }
 	a:visited { color: $fg-color; }
 	a:hover { color: white; }
+
+	a.head_link { text-decoration: none; }
+	h1 {
+		display: inline-block;
+		font-size: $regular-size + 4;
+		border: solid 1px $fg-color;
+		padding: 20px;
+		margin-top: 0;
+	}
 }
 
 
