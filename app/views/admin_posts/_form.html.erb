@@ -2,27 +2,29 @@
 
   <%=emit_form_errors(@post)%>
 
-<div>
+<div class="field">
   <%=f.label :headline %>
   <%=f.text_field :headline %>
 </div>
 
-<div>
+<div class="field">
   <%=f.label :markup_type %>
   <%=f.select(:markup_type,Post::MARKUP_TYPES)%>
 </div>
 
-<div>
-  <%=f.label :content %>
-  <%=f.text_area :content %>
-</div>
-
-<div>
+<div class="field">
   <label for="is_published">Published?</label>
   <input type="checkbox" name="is_published" id="is_published" <%="checked" unless @post.published_at.nil?%> />
 </div>
 
+<div class="field">
+  <%=f.label :content %>
+  <%=f.text_area :content %>
+</div>
+
+<div class="action">
 <%= f.submit %>
+</div>
 
 <% end %>
 

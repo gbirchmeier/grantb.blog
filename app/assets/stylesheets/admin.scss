@@ -6,6 +6,16 @@ $regular-size: 12pt;
 	border: solid 1px $fg-color;
 	text-decoration: none;
 	padding: $padding;
+	background-color: black;
+	color: $fg-color;
+}
+
+@mixin forminput {
+	font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+	border: 1px solid $fg-color;
+	background-color: #202620;
+	color: $fg-color;
+	font-size: $regular-size;
 }
 
 body.adminbody {
@@ -29,6 +39,13 @@ body.adminbody {
 	h2 {
 		text-align: center;
 	}
+
+	div.menu_items {
+		text-align: center;
+		a { margin: 15px; }
+	}
+	a.menu_item { @include boxylink(20px); }
+	a.menu_item:hover { color: black; background-color: $fg-color; }
 
 	div.new_thing {
 		text-align: center;
@@ -59,6 +76,41 @@ body.adminbody {
 		td.left { padding: 5px 15px 5px 5px; }
 		td.right { padding: 5px 5px 5px 15px; }
 		td.date { text-align: center; }
+	}
+
+	form {
+		div.field {
+			margin-bottom: 10px;
+			label {
+				width: 150px;
+				text-align: right;
+				float: left;
+				margin-right: 10px;
+			}
+			input {
+				@include forminput();
+				width: 600px;
+				text-align: left;
+
+			}
+			textarea {
+				@include forminput();
+				width: 600px;
+				height: 400px;
+			}
+		}
+
+		div.action {
+			text-align: center;
+			input {
+				@include boxylink(10px);
+				font-size: $regular-size;
+			}
+			input:hover {
+				background-color: $fg-color;
+				color: black;
+			}
+		}
 	}
 }
 
