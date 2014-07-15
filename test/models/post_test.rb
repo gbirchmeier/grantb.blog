@@ -3,10 +3,8 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
 
   test "published and unpublished scopes" do
-    u = User.new(username:"x",email:"x",password:"x",password_confirmation:"x")
-    u.save!
-    Post.new(headline:"aaa",content:"z",user:u,published_at:DateTime.now).save!
-    Post.new(headline:"bbb",content:"z",user:u).save!
+    FactoryGirl.create(:post, headline: "aaa", published_at: DateTime.now)
+    FactoryGirl.create(:post, headline: "bbb", published_at: nil)
 
     published = Post.published
     unpublished = Post.unpublished
@@ -18,12 +16,11 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test "recent" do
-    u = User.create!(username:"x",email:"x",password:"x",password_confirmation:"x")
-    Post.new(headline:"aaa",content:"z",user:u,published_at:DateTime.new(2014,01,01)).save!
-    Post.new(headline:"bbb",content:"z",user:u,published_at:DateTime.new(2014,01,02)).save!
-    Post.new(headline:"ccc",content:"z",user:u,published_at:DateTime.new(2014,01,03)).save!
-    Post.new(headline:"ddd",content:"z",user:u,published_at:DateTime.new(2014,01,04)).save!
-    Post.new(headline:"eee",content:"z",user:u).save!
+    FactoryGirl.create(:post, headline: "aaa", published_at: DateTime.new(2014,01,01))
+    FactoryGirl.create(:post, headline: "bbb", published_at: DateTime.new(2014,01,02))
+    FactoryGirl.create(:post, headline: "ccc", published_at: DateTime.new(2014,01,03))
+    FactoryGirl.create(:post, headline: "ddd", published_at: DateTime.new(2014,01,04))
+    FactoryGirl.create(:post, headline: "eee", published_at: nil)
 
     a = Post.recent(3)
     assert_equal 3, a.length
@@ -39,13 +36,11 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test "previous and next" do
-    u = User.create!(username:"x",email:"x",password:"x",password_confirmation:"x")
-
-    Post.new(headline:"000",content:"z",user:u,published_at:DateTime.new(2014,01,01)).save
-    Post.new(headline:"aaa",content:"z",user:u,published_at:DateTime.new(2014,01,02)).save
-    Post.new(headline:"bbb",content:"z",user:u,published_at:DateTime.new(2014,01,03)).save
-    Post.new(headline:"ccc",content:"z",user:u,published_at:DateTime.new(2014,01,04)).save
-    Post.new(headline:"111",content:"z",user:u,published_at:DateTime.new(2014,01,05)).save
+    FactoryGirl.create(:post, headline: "000", published_at: DateTime.new(2014,01,01))
+    FactoryGirl.create(:post, headline: "aaa", published_at: DateTime.new(2014,01,02))
+    FactoryGirl.create(:post, headline: "bbb", published_at: DateTime.new(2014,01,03))
+    FactoryGirl.create(:post, headline: "ccc", published_at: DateTime.new(2014,01,04))
+    FactoryGirl.create(:post, headline: "111", published_at: DateTime.new(2014,01,05))
 
     p = Post.find_by(headline:"bbb")
     assert_equal "aaa", p.previous.headline
