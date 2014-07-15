@@ -3,7 +3,7 @@ def post_row p
   <<ROW
 	<tr>
 		<td class="left">#{link_to p.headline, admin_post_path(p)}</td>
-		<td>#{link_to "edit", edit_admin_post_path(p)}</td>
+		<td>#{link_to "edit", edit_admin_post_path(p), class: "edit" }</td>
 		<td class="date">#{pretty_short_date(p.published_at)}</td>
 		<td class="date">#{pretty_short_date(p.updated_at)}</td>
 		<td class="date right">#{pretty_short_date(p.created_at)}</td>
@@ -14,7 +14,7 @@ end
 
 <h2>Post management</h2>
 
-<p><%= link_to "New post", new_admin_post_path %></p>
+<div class="new_thing"><%= link_to "Create a new post", new_admin_post_path %></div>
 
 <table id="posts_tbl">
 	<tr>
