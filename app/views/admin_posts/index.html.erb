@@ -2,7 +2,7 @@
 def post_row p
   <<ROW
 	<tr>
-		<td class="left">#{link_to p.headline, admin_post_path(p)}</td>
+		<td class="left">#{link_to p.headline, admin_post_path(p), class: "headline" }</td>
 		<td>#{link_to "edit", edit_admin_post_path(p), class: "edit" }</td>
 		<td class="date">#{pretty_short_date(p.published_at)}</td>
 		<td class="date">#{pretty_short_date(p.updated_at)}</td>

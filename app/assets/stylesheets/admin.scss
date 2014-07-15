@@ -43,6 +43,8 @@ body.adminbody {
 
 		a { text-decoration: none; }
 
+		a.headline:hover { background-color: black; color: white; }
+
 		a.edit {
 			@include boxylink(5px);
 			padding-left: 10px;
