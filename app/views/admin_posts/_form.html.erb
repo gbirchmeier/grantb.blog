@@ -1,4 +1,4 @@
-<%= form_for(@post) do |f| %>
+<%= form_for(@post, url: "/admin/posts/#{@post.id}", html:{class: "field_list"}) do |f| %>
 
   <%=emit_form_errors(@post)%>
 
@@ -16,6 +16,13 @@
   <label for="is_published">Published?</label>
   <input type="checkbox" name="is_published" id="is_published" <%="checked" unless @post.published_at.nil?%> />
 </div>
+
+<!--
+<div class="field">
+  <%= f.label :tags %>
+  <input id="post_tags" name="post[tags]" type="text" value="ignored">
+</div>
+-->
 
 <div class="field">
   <%=f.label :content %>

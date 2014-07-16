@@ -43,7 +43,7 @@ class AdminPostsController < ApplicationController
     end 
 
     if @post.update_attributes(post_params)
-      redirect_to @post, notice: "Post was successfully updated."
+      redirect_to admin_post_path(@post), notice: "Post was successfully updated."
     else
       render :action=>"edit"
     end 

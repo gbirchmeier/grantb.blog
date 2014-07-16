@@ -9,6 +9,10 @@ $regular-size: 12pt;
 	background-color: black;
 	color: $fg-color;
 }
+@mixin boxylink_hover {
+	color: black;
+	background-color: $fg-color;
+}
 
 @mixin forminput {
 	font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
@@ -16,6 +20,19 @@ $regular-size: 12pt;
 	background-color: #202620;
 	color: $fg-color;
 	font-size: $regular-size;
+}
+
+@mixin fieldheader {
+	font-weight: bold;
+	width: 150px;
+	text-align: right;
+	float: left;
+	margin-right: 10px;
+}
+
+@mixin fieldvalue {
+	width: 600px;
+	text-align: left;
 }
 
 body.adminbody {
@@ -34,10 +51,10 @@ body.adminbody {
 		margin-top: 0;
 
 		a { @include boxylink(20px); }
+		a:hover { @include boxylink_hover(); }
 	}
 
 	h2 {
-		text-align: center;
 	}
 
 	div.menu_items {
@@ -45,12 +62,13 @@ body.adminbody {
 		a { margin: 15px; }
 	}
 	a.menu_item { @include boxylink(20px); }
-	a.menu_item:hover { color: black; background-color: $fg-color; }
+	a.menu_item:hover { @include boxylink_hover(); }
 
 	div.new_thing {
 		text-align: center;
 		margin-bottom: 30px;
 		a { @include boxylink(10px); }
+		a:hover { @include boxylink_hover(); }
 	}
 
 	table#posts_tbl {
@@ -67,6 +85,7 @@ body.adminbody {
 			padding-left: 10px;
 			padding-right: 10px;
 		}
+		a.edit:hover { @include boxylink_hover(); }
 
 		td {
 			padding: 5px 15px 5px 15px;
@@ -78,38 +97,38 @@ body.adminbody {
 		td.date { text-align: center; }
 	}
 
-	form {
+	.field_list {
+		display: inline-block;
+		margin-left: auto;
+		margin-right: auto;
 		div.field {
 			margin-bottom: 10px;
-			label {
-				width: 150px;
-				text-align: right;
-				float: left;
-				margin-right: 10px;
-			}
-			input {
-				@include forminput();
-				width: 600px;
-				text-align: left;
 
+			// for show pages
+			div.label { @include fieldheader(); }
+			div.value { @include fieldvalue(); }
+
+			// for edit pages
+			label { @include fieldheader(); }
+			input {
+				@include fieldvalue();
+				@include forminput();
 			}
 			textarea {
+				@include fieldvalue();
 				@include forminput();
-				width: 600px;
 				height: 400px;
 			}
 		}
 
 		div.action {
-			text-align: center;
+			text-align: right;
+			margin-top: 40pt;
 			input {
 				@include boxylink(10px);
 				font-size: $regular-size;
 			}
-			input:hover {
-				background-color: $fg-color;
-				color: black;
-			}
+			input:hover { @include boxylink_hover(); }
 		}
 	}
 }
