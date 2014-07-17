@@ -53,7 +53,7 @@ class AdminPostsController < ApplicationController
     @post = Post.find(params[:id])
     dead = @post.headline
     @post.destroy
-    redirect_to posts_path, notice: "Successfully deleted post with headline '<em>#{dead}</em>'."
+    redirect_to admin_posts_path, notice: "Successfully deleted post with headline '<em>#{dead}</em>'."
   end
 
 private
