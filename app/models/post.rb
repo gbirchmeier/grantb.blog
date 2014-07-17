@@ -36,6 +36,10 @@ class Post < ActiveRecord::Base
     Post.published.where("published_at > ?", self.published_at).order("published_at ASC").limit(1).first
   end
 
+  def pretty_path
+    "/posts/#{self.nice_url || self.id}"
+  end
+
   def get_renderer
     @renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML,
       :fenced_code_blocks=>true,

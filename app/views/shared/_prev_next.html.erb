@@ -1,11 +1,11 @@
 <%
 prev_classes = ["prev"]
 prev_classes << "prev_content" if @prev_post
-prev_content = @prev_post ? link_to(@prev_post.headline,post_path(@prev_post)) : "&nbsp;"
+prev_content = @prev_post ? link_to(@prev_post.headline,@prev_post.pretty_path) : "&nbsp;"
 
 next_classes = ["next"]
 next_classes << "next_content" if @next_post
-next_content = @next_post ? link_to(@next_post.headline,post_path(@next_post)) : "&nbsp;"
+next_content = @next_post ? link_to(@next_post.headline,@next_post.pretty_path) : "&nbsp;"
 %>
 <div id="prev_next">
 <div class="<%=prev_classes.join(" ")%>"><%=prev_content.html_safe%></div>
