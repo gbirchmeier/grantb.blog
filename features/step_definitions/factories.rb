@@ -34,6 +34,7 @@ Given /^the following posts:$/ do |things|
     h[:user] = get_user(row["author"])
     h[:headline] = row["headline"]
     h[:content] = row["content"]
+    h[:nice_url] = row["nice_url"]
     h[:published_at] = row["published_at"] if row["published_at"]
     h[:created_at] = row["created_at"] if row["created_at"]
     h[:updated_at] = row["updated_at"] if row["updated_at"]

@@ -11,7 +11,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'redcarpet'
-gem 'factory_girl_rails'
+gem 'attribute_normalizer'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -38,4 +38,5 @@ group :test do
   gem 'capybara'
   gem 'cucumber-rails', :require=>false
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
 end

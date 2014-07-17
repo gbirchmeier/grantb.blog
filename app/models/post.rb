@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
   belongs_to :user, :inverse_of=>:posts
 
+  normalize_attributes :nice_url
+
   scope :published, -> { where("published_at IS NOT NULL") }
   scope :unpublished, -> { where("published_at IS NULL") }
 

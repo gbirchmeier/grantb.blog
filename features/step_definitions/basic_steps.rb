@@ -39,6 +39,10 @@ end
 Then /^what$/ do
   puts
   puts "==================================================="
+#Post.all.each{|p|
+#  puts "#{p.inspect}"
+#}
+  puts current_path
   puts page.source
   puts "==================================================="
 end

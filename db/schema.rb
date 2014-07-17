@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140624191033) do
+ActiveRecord::Schema.define(version: 20140717130717) do
 
   create_table "posts", force: true do |t|
     t.string   "headline",                          null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140624191033) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "markup_type",  default: "markdown", null: false
+    t.string   "nice_url"
   end
 
   create_table "users", force: true do |t|
