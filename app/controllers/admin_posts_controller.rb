@@ -28,7 +28,7 @@ class AdminPostsController < ApplicationController
     @post.published_at = DateTime.now if params[:is_published]
     @post.user = @current_user
     if @post.save
-      redirect_to @post, notice: "Post was successfully created."
+      redirect_to admin_post_path(@post), notice: "Post was successfully created."
     else
       render :action=>"new"
     end 
