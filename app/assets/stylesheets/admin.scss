@@ -36,6 +36,21 @@ $regular-size: 12pt;
 }
 
 body.adminbody {
+	.alert {
+		color: #FFFF88;
+		background-color: black;
+		border: 1px solid #FFFF88;
+		padding: 5px;
+		margin-bottom: 10px;
+	}
+	.alert-error {
+		color: red;
+		background-color: black;
+		border: 1px solid red;
+		padding: 5px;
+		margin-bottom: 10px;
+	}
+
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 	font-size: $regular-size;
 

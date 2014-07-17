@@ -28,6 +28,23 @@ $main_width: 80%;
 
 body.blogbody {
 
+	.alert {
+		color: black;
+		background-color: yellow;
+		border: 1px solid black;
+		padding: 10px;
+		margin-bottom: 10px;
+		font-weight: bold;
+	}
+	.alert-error {
+		color: black;
+		background-color: red;
+		border: 1px solid black;
+		padding: 10px;
+		margin-bottom: 10px;
+		font-weight: bold;
+	}
+
 	background-image: url("/bg/pigeons.jpg");
 	background-attachment: fixed;
 	background-repeat: no-repeat;
@@ -35,7 +52,6 @@ body.blogbody {
 	background-size: cover;
 
 	margin-top: 50px;
-
 
 	div.content {
 		width: 100%;

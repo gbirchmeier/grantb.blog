@@ -20,11 +20,6 @@
 <% end %>
 
 
-<% flash.each do |k, v| %>
-	<% alert_class = (k == :error ? "alert alert-error" : "alert") %>
-	<div class="<%= alert_class %>" id="<%= k %>"><%= v %></div>
-<% end %>
-
 
 
 <div class="sidebar">
@@ -45,6 +40,12 @@ I'm from Michigan, but I live in Chicago's suburbs.
 <div class="main_wrap">
 <div class="main_wrap2">
 <div class="main">
+
+<% flash.each do |k, v| %>
+	<% alert_class = (k == :error ? "alert-error" : "alert") %>
+	<div class="<%= alert_class %>" id="<%= k %>"><%= v %></div>
+<% end %>
+
 <%= yield %>
 </div></div></div><!--main-->
 

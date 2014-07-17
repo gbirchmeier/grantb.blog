@@ -21,7 +21,7 @@
 
 
 <% flash.each do |k, v| %>
-	<% alert_class = (k == :error ? "alert alert-error" : "alert") %>
+	<% alert_class = (k == :error ? "alert-error" : "alert") %>
 	<div class="<%= alert_class %>" id="<%= k %>"><%= v %></div>
 <% end %>
 
