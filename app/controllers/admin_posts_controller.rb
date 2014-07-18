@@ -58,7 +58,7 @@ class AdminPostsController < ApplicationController
 
 private
   def post_params
-    params.require(:post).permit(:headline,:content,:markup_type)
+    params.require(:post).permit(:headline,:content,:markup_type,:nice_url)
   end
 
   def credit_check

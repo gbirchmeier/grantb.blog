@@ -47,5 +47,15 @@ class PostTest < ActiveSupport::TestCase
     assert_equal "ccc", p.next.headline
   end
 
+  test "validates/nilifies nice_url" do
+    #valid
+    assert_nil FactoryGirl.create(:post,nice_url:"").nice_url
+    assert_nil FactoryGirl.create(:post,nice_url:"   ").nice_url
+    assert_equal "123-Pants_", FactoryGirl.create(:post,nice_url:" 123-Pants_ ").nice_url
+
+    #not valid
+    assert_equal false, FactoryGirl.build(:post,nice_url:"no&specialchars").valid?
+  end
+
 end
 

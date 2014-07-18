@@ -8,6 +8,7 @@ fields = [
   ["Created at",@post.created_at.to_s],
   ["Updated at",@post.updated_at.to_s],
 #  ["Tags",@post.tags.collect{|t| t.name}.join(" ")],
+  ["Nice URL", @post.nice_url || "- -"],
   ["Content",@post.content_as_html.html_safe],
 ]
 %>
