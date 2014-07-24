@@ -10,15 +10,10 @@ GrantbBlog::Application.routes.draw do
 
   resources :posts, only: [:index,:show]
 
-  get "admin", to: "admin_dashboard#index"
-
-  scope 'admin', as: 'admin' do
-    resources :posts, controller: :admin_posts
+  namespace :admin do
+    get "/", to: "dashboard#index"
+    resources :posts
   end
-
-
-
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.

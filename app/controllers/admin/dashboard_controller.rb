@@ -1,4 +1,4 @@
-class AdminDashboardController < ApplicationController
+class Admin::DashboardController < ApplicationController
   layout "admin"
 
   before_action :credit_check
