@@ -31,11 +31,10 @@ Scenario: The admin posts-index page puts drafts first (sorted by updated_at)
         | foo_2    | May 1, 2000  | May 1, 2000  | May 1, 2000  |
         | xyz_3    | Mar 9, 1979  | Mar 9, 1979  | Mar 9, 1979  |
 
-@wip
 Scenario: The admin posts-index has links to show and edit pages
   Given I am logged in as "goose" with "topgun"
    When I visit "admin/posts"
-   Then I should see a link to show post "abc_1"
+   Then I should see a link to admin-show post "abc_1"
     And I should see a link to edit post "abc_1"
 
 Scenario: The new-post form should have "Published?" start as unchecked

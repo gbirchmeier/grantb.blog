@@ -87,3 +87,15 @@ Then /^I should see the invalid-post message/ do
   page.find("#invalid_post")
 end
 
+Then(/^I should see a link to admin\-show post "(.*?)"$/) do |headline|
+  post = Post.find_by(headline: headline)
+  url = "/admin/posts/#{post.id}"
+  #find("a", :href=>url)
+  find(:xpath, "//a[@href='#{url}']")
+end
+
+Then(/^I should see a link to edit post "(.*?)"$/) do |headline|
+  post = Post.find_by(headline: headline)
+  url = "/admin/posts/#{post.id}/edit"
+  find(:xpath, "//a[@href='#{url}']")
+end
