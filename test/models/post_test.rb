@@ -57,5 +57,36 @@ class PostTest < ActiveSupport::TestCase
     assert_equal false, FactoryGirl.build(:post,nice_url:"no&specialchars").valid?
   end
 
+  test "basic tagging" do
+    FactoryGirl.create(:post, headline: "aaa")
+    assert Post.first.tags.empty?
+
+    assert_equal 0, Tag.count
+    Post.first.tags << Tag.new(name:"bing")
+    Post.first.tags << Tag.new(name:"bong")
+    assert_equal "bing bong", Post.first.tags_as_string
+    assert_equal 2, Tag.count
+    assert_equal 2, PostTag.count
+  end
+
+  test "assign_tags_from_string" do
+    p = FactoryGirl.create(:post, headline: "aaa")
+    p.assign_tags_from_string("red gold")
+    assert_equal 2, Tag.count
+    assert_equal "gold red", Post.find_by(headline:"aaa").tags_as_string
+
+    p.assign_tags_from_string("red yellow")
+    assert_equal 3, Tag.count # "gold" still there, even though not used
+    assert_equal "red yellow", Post.find_by(headline:"aaa").tags_as_string
+
+    p.assign_tags_from_string("green")
+    assert_equal "green", Post.find_by(headline:"aaa").tags_as_string
+    assert_equal 4, Tag.count
+
+    p.assign_tags_from_string("") #nil also works
+    assert_equal "", Post.find_by(headline:"aaa").tags_as_string
+    assert_equal 4, Tag.count
+  end
+
 end
 

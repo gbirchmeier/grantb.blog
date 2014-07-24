@@ -14,8 +14,8 @@ EOS
   end
 
   def pretty_short_date(d)
-    return "" if nil
-    d.strftime("%b %d, %Y")
+    return "" if d.nil?
+    d.strftime("%b %e, %Y")
   end
 
 end

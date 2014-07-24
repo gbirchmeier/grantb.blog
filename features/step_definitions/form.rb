@@ -30,3 +30,6 @@ When /^I uncheck "([^"]*)"$/ do |page_el|
   uncheck(page_el)
 end
 
+Then(/^I should see that field "(.*?)" contains "(.*?)"$/) do |label,expected|
+  assert_equal expected, find_field(label).value
+end

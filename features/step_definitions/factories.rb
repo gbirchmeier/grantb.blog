@@ -45,6 +45,8 @@ Given /^the following posts:$/ do |things|
     p = Post.create(h)
     p.save!
 
+    p.assign_tags_from_string(row[:tags]) if row[:tags]
+
     ActiveRecord::Base.record_timestamps = true
   }
 end

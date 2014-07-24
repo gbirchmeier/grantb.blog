@@ -46,28 +46,5 @@ Scenario: Can see post via the nice_url
    When I visit "/posts/be_nice"
    Then I should see "batman"
 
-#==============
-# Pages and features that randos can't see
-#==============
-
-Scenario Outline: A rando can not visit various post-admin pages 
-  Given I am not logged in
-   When I visit "<path>"
-   Then I should see the not-allowed page
-  Examples:
-        | path                   |
-        | /admin/posts/new       |
-        | /admin/posts/admin     |
-
-Scenario: A rando can not edit posts
-  Given I am not logged in
-   When I edit post "abc_1"
-   Then I should see the not-allowed page
-
-Scenario: A rando can not show unpublished posts
-  Given I am not logged in
-   When I show post "nuh uh"
-   Then I should see the invalid-post message
-
 
 

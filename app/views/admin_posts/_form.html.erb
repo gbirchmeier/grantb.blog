@@ -17,12 +17,10 @@
   <input type="checkbox" name="is_published" id="is_published" <%="checked" unless @post.published_at.nil?%> />
 </div>
 
-<!--
 <div class="field">
   <%= f.label :tags %>
-  <input id="post_tags" name="post[tags]" type="text" value="ignored">
+  <input id="post_tags" name="post[tags]" type="text" value="<%=@post.tags_as_string%>">
 </div>
--->
 
 <div class="field">
   <%=f.label :nice_url %>

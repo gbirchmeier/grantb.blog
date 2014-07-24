@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140717130717) do
+ActiveRecord::Schema.define(version: 20140721033211) do
+
+  create_table "post_tags", force: true do |t|
+    t.integer "post_id", null: false
+    t.integer "tag_id",  null: false
+  end
+
+  add_index "post_tags", ["post_id"], name: "index_post_tags_on_post_id", using: :btree
+  add_index "post_tags", ["tag_id"], name: "index_post_tags_on_tag_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "headline",                          null: false
@@ -22,6 +30,10 @@ ActiveRecord::Schema.define(version: 20140717130717) do
     t.datetime "updated_at"
     t.string   "markup_type",  default: "markdown", null: false
     t.string   "nice_url"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string "name", null: false
   end
 
   create_table "users", force: true do |t|

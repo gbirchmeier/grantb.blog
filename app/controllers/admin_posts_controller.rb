@@ -10,9 +10,6 @@ class AdminPostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
-    if @post
-      @post = nil unless @post.published?
-    end
   end
 
   def new 
@@ -28,6 +25,7 @@ class AdminPostsController < ApplicationController
     @post.published_at = DateTime.now if params[:is_published]
     @post.user = @current_user
     if @post.save
+      @post.assign_tags_from_string(params[:post][:tags])
       redirect_to admin_post_path(@post), notice: "Post was successfully created."
     else
       render :action=>"new"
@@ -43,6 +41,7 @@ class AdminPostsController < ApplicationController
     end 
 
     if @post.update_attributes(post_params)
+      @post.assign_tags_from_string(params[:post][:tags])
       redirect_to admin_post_path(@post), notice: "Post was successfully updated."
     else
       render :action=>"edit"

@@ -1,6 +1,6 @@
 Then /^I should be at the show page for post "([^"]*)"/ do |headline|
   post = Post.find_by_headline(headline)
-  assert_equal "/posts/#{post.id}",current_path
+  assert_equal "/admin/posts/#{post.id}",current_path
 end
 
 
@@ -36,6 +36,15 @@ def dump_posts
   Post.all.collect{|x| x.inspect}.join("\n")
 end
 
+def dump_post_tags
+  Post.all.collect{|x| "#{x.id} #{x.headline} #{x.tags_as_string}"}.join("\n")
+end
+
+Then /^dump posts/ do
+  puts dump_posts
+  puts dump_post_tags
+end
+
 Then /^the DB should have (?:this post|these posts):$/ do |expected_table|
   hashes = expected_table.hashes
   hashes.each{|h|
@@ -49,7 +58,9 @@ Then /^the DB should have (?:this post|these posts):$/ do |expected_table|
     where_published_at = where_published_at(h)
 
     result = Post.where(target).where(where_published_at)
-    refute result.empty?, "Couldn't find #{h.inspect} \n#{dump_posts}"
+    assert result.present?, "Couldn't find #{h.inspect} \n#{dump_posts}"
+
+    assert_equal(h[:tags], result.first.tags_as_string,"Tags comparison failed\n#{dump_post_tags}") if h[:tags]
   }
 end
 
@@ -60,6 +71,11 @@ end
 When /^I show post "([^"]*)"/ do |headline|
   p = Post.find_by_headline(headline)
   visit "/posts/#{p.id}"
+end
+
+When /^I admin-show post "([^"]*)"/ do |headline|
+  p = Post.find_by_headline(headline)
+  visit "/admin/posts/#{p.id}"
 end
 
 When /^I edit post "([^"]*)"/ do |headline|

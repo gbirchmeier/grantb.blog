@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
   belongs_to :user, :inverse_of=>:posts
+  has_many :post_tags
+  has_many :tags, :through => :post_tags
 
   normalize_attributes :nice_url
 
@@ -62,5 +64,19 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def assign_tags_from_string(list)
+    a = []
+    if list.present?
+      list.split(/#{Tag::TAG_SEPARATOR}+/).each {|tagname|
+        tag = Tag.find_by(name: tagname) || Tag.new(name: tagname)
+        a << tag
+      }
+    end
+    self.tags = a
+  end
+
+  def tags_as_string
+    tags.order(:name).collect(&:name).join(Tag::TAG_SEPARATOR)
+  end
 end
 
