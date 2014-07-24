@@ -1,7 +1,4 @@
-class Admin::PostsController < ApplicationController
-  layout "admin"
-
-  before_action :credit_check
+class Admin::PostsController < Admin::AdminController
 
   def index
     @published_posts = Post.published.order(:published_at).reverse_order
@@ -60,7 +57,4 @@ private
     params.require(:post).permit(:headline,:content,:markup_type,:nice_url)
   end
 
-  def credit_check
-    redirect_to not_allowed_path unless @current_user
-  end
 end
