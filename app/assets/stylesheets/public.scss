@@ -125,7 +125,7 @@ body.blogbody {
 		div.permalink { font-size: 10pt; }
 	}
 
-	div#posts_index {
+	div#list_index {
 		@include dark-scheme();
 		border: 1px solid white;
 		padding: 5px 5px 15px 5px;

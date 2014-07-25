@@ -1,0 +1,16 @@
+<div id="list_index">
+<h1>Tags index</h1>
+
+<table id="posts_tbl">
+	<tr>
+		<th>Tag</th>
+		<th>Number of posts</th>
+	</tr>
+<% @tags.each {|t| %>
+	<tr>
+		<td><%=link_to t.name, t.pretty_path%></td>
+		<td><%=t.posts.count%></td>
+	</tr>
+<% } %>
+</table>
+</div>

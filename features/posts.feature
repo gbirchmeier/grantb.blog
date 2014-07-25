@@ -1,4 +1,4 @@
-Feature: Posts crud
+Feature: Public post views
 
 Background:
   Given the following users:

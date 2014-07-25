@@ -10,6 +10,8 @@ GrantbBlog::Application.routes.draw do
 
   resources :posts, only: [:index,:show]
 
+  resources :tags, only: [:index,:show]
+
   namespace :admin do
     get "/", to: "dashboard#index"
     resources :posts

@@ -1,0 +1,26 @@
+<div id="list_index">
+<h1>Posts tagged "<%=@name%>"</h1>
+
+<%if @tag==nil || @tag.posts.count < 1%>
+  None.
+
+<%else%>
+
+<table>
+	<tr>
+		<th>Headline</th>
+		<th>Published</th>
+	</tr>
+<% @tag.posts.published.order(:published_at).reverse_order.each {|p| %>
+	<tr>
+		<td><%=link_to p.headline, p.pretty_path%></td>
+		<td><%=p.short_pub_date%></td>
+	</tr>
+<% } %>
+
+<%end%>
+
+</table>
+
+</div>
+
