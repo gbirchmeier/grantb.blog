@@ -18,15 +18,16 @@ Background:
 # Pages anyone can see
 #==============
 
+@working
 Scenario Outline: Anyone can see the posts index, which shows the
                   published headlines, most-recently-published first.
   Given I am logged in as "<user>" with "<password>"
    When I visit "posts"
    Then I should see the following posts:
-        | Headline | Published               |
-        | abc_1    | 2013-07-22 16:04:34 UTC |
-        | foo_2    | 2000-05-01 16:04:34 UTC |
-        | xyz_3    | 1979-03-09 16:04:34 UTC |
+        | Headline | Published    |
+        | abc_1    | Jul 22, 2013 |
+        | foo_2    | May 1, 2000  |
+        | xyz_3    | Mar 9, 1979  |
   Examples:
         | user  | password |
         | goose | topgun   |

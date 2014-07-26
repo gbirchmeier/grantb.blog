@@ -9,7 +9,7 @@
 <% @posts.each {|p| %>
 	<tr>
 		<td><%=link_to p.headline, p.pretty_path%></td>
-		<td><%=p.published_at%></td>
+		<td><%=p.short_pub_date%></td>
 	</tr>
 <% } %>
 </table>
