@@ -15,7 +15,7 @@ $main_width: 80%;
 	color: black;
 	a { color: #0000cc; }
 	a:visited { color: #7700cc; }
-	a:hover { color: #cc0000;; }
+	a:hover { color: #cc0000; }
 }
 
 @mixin error-scheme {
@@ -117,12 +117,21 @@ body.blogbody {
 			padding: 0;
 		}
 		div.published_at {
-			font-size: 8pt;
+			font-size: 10pt;
 		}
 		div.updated_at { display: none; }
 		div.created_at { display: none; }
 		div.content {}
 		div.permalink { font-size: 10pt; }
+
+		div.tags {
+			font-size: 10pt;
+			div.tag {
+				display: inline-block;
+				margin-left: 2px;
+				margin-right: 2px;
+			}
+		}
 	}
 
 	div#list_index {

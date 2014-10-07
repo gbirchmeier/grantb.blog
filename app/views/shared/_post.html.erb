@@ -1,8 +1,11 @@
 <div class="post">
 <h1><%=@post.headline%></h1>
-<div class="published_at"><%=@post.published_at%></div>
+<div class="published_at"><%=@post.pub_date_and_time%></div>
 <div class="created_at"><%=@post.created_at%></div>
 <div class="updated_at"><%=@post.updated_at%></div>
+<div class="tags">Tags:
+<% @post.tags.each{|t| %><div class="tag"><%=link_to t.name,t%></div><% } %>
+</div>
 <div><%=@post.content_as_html.html_safe%></div>
 <div class="permalink"><%=link_to "Permalink", @post.pretty_path%></div>
 </div><!--post-->
