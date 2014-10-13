@@ -62,6 +62,6 @@ namespace :deploy do
       #   execute :rake, 'cache:clear'
       # end
 #    end
-  end
+#  end
 
 end
