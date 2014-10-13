@@ -26,9 +26,6 @@ end
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
@@ -40,3 +37,10 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
 end
+
+group :development do
+  gem 'capistrano', '~> 3.2.0'
+  gem 'capistrano-rails', '~> 1.1.1'
+  gem 'capistrano-bundler'
+end
+
