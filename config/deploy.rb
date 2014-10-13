@@ -3,7 +3,6 @@ lock '3.2.1'
 
 set :application, 'grantb.blog'
 set :repo_url, 'git@github.com:gbirchmeier/grantb.blog.git'
-set :branch, 'master'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
