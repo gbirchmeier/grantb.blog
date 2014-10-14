@@ -7,6 +7,11 @@
 <%= csrf_meta_tags %>
 </head>
 <body class="adminbody">
+
+<% unless Rails.env.production? %>
+<div class="platform_notice"><%=Rails.env.upcase%></div>
+<% end %>
+
 <div class="content">
 
 <h1><a href="/admin">GrantB.net Administration</a></h1>

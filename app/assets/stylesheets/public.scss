@@ -28,6 +28,20 @@ $main_width: 80%;
 
 body.blogbody {
 
+	.platform_notice {
+		background-color: fuchsia;
+		color: white;
+		border: 1px solid white;
+		padding: 10px;
+		margin-bottom: 10px;
+		font-weight: bold;
+		width: 50%;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+		font-size: 20px;
+	}
+
 	.alert {
 		color: black;
 		background-color: yellow;
