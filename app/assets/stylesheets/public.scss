@@ -11,8 +11,9 @@ $main_width: 80%;
 }
 
 @mixin light-scheme {
-	background-color: rgba(255,255,255,0.6);
+	background-color: rgba(255,255,255,0.8);
 	color: black;
+	border: white 1px solid;
 	a { color: #0000cc; }
 	a:visited { color: #7700cc; }
 	a:hover { color: #cc0000; }
@@ -70,6 +71,19 @@ body.blogbody {
 	div.content {
 		width: 100%;
 
+		div#login-form-container {
+			width: 200px;
+			margin-left: auto;
+			margin-right: auto;
+
+			form {
+				@include light-scheme();
+				display: inline-block;
+				padding: 10px 20px;
+				margin-top: 40px;
+			}
+		}
+
 		div.sidebar {
 			position: absolute;
 			right: 20px;
@@ -119,7 +133,6 @@ body.blogbody {
 
 	div.post {
 		@include light-scheme();
-		border: white 1px solid;
 
 		padding: 5px;
 		margin-bottom: 60px;
