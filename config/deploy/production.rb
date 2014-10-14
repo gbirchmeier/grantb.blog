@@ -1,12 +1,28 @@
+role :web, %w{172.245.32.193}
+role :app, %w{172.245.32.193}
+role :db,  %w{172.245.32.193}
+
+set :deploy_to, '/home/blog/production'
+set :branch, 'deploy-prod'
+set :pid_file, '/home/blog/pids/grantb.blog.prod.pid'
+set :server_port, 3222
+
+set :password, ask('Server password:', nil)
+server "172.245.32.193", roles: %{web db app}, ssh_options: {
+    user: "blog",
+    forward_agent: true,
+    auth_methods: %w(password),
+    password: fetch(:password)
+}
+
+
+
 # Simple Role Syntax
 # ==================
 # Supports bulk-adding hosts to roles, the primary server in each group
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-role :app, %w{deploy@example.com}
-role :web, %w{deploy@example.com}
-role :db,  %w{deploy@example.com}
 
 
 # Extended Server Syntax
@@ -15,7 +31,7 @@ role :db,  %w{deploy@example.com}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
+#server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
 
 
 # Custom SSH Options
@@ -43,3 +59,4 @@ server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+
