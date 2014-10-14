@@ -18,7 +18,6 @@ Background:
 # Pages anyone can see
 #==============
 
-@working
 Scenario Outline: Anyone can see the posts index, which shows the
                   published headlines, most-recently-published first.
   Given I am logged in as "<user>" with "<password>"
