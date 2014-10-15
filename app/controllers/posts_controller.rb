@@ -5,12 +5,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    if(id.match(/^\d+$/))
-      @post = Post.find_by(id: params[:id])
-    else
-      @post = Post.find_by(nice_url: params[:id])
-    end
+    @post = Post.find_by(nice_url: params[:id])
     render "invalid_post" unless (@post && @post.published?)
   end
 

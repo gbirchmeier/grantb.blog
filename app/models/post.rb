@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
   scope :published, -> { where("published_at IS NOT NULL") }
   scope :unpublished, -> { where("published_at IS NULL") }
 
-  validates :headline, :content, :user, presence: true
+  validates :headline, :content, :user, :nice_url, presence: true
   validates_format_of :nice_url, with: /\A\s*[0-9a-zA-Z\-_]+\s*\z/, allow_blank: true
 
   module MarkupType

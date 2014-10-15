@@ -42,9 +42,12 @@ Given /^the following posts:$/ do |things|
     ActiveRecord::Base.record_timestamps = true
     ActiveRecord::Base.record_timestamps = false if h[:created_at] or h[:updated_at]
 
-    p = Post.create(h)
-    p.save!
+    unless h[:nice_url]
+      @nice_url_counter ||= 0
+      h[:nice_url] = "nice-#{@nice_url_counter=@nice_url_counter+1}"
+    end
 
+    p = FactoryGirl.create(:post,h)
     p.assign_tags_from_string(row[:tags]) if row[:tags]
 
     ActiveRecord::Base.record_timestamps = true

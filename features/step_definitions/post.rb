@@ -68,7 +68,7 @@ Then /^the DB should not have post "([^"]*)"/ do |headline|
   assert_nil Post.find_by_headline(headline)
 end
 
-When /^I show post "([^"]*)"/ do |headline|
+When(/^I visit an id\-based url for post "(.*?)"$/) do |headline|
   p = Post.find_by_headline(headline)
   visit "/posts/#{p.id}"
 end
@@ -107,3 +107,4 @@ end
 Given(/^I should see no posts table/) do
   assert_no_selector("#posts_tbl")
 end
+

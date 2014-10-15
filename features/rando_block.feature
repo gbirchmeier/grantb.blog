@@ -6,9 +6,9 @@ Background:
   | goose    | topgun   |
 
   Given the following posts:
-  | author | headline | content | published_at      | created_at        | updated_at        |
-  | goose  | abc_1    | batman  | 20130722 16:04:34 | 20130722 16:04:34 | 20130722 16:04:34 |
-  | goose  | nuh uh   | x       |                   | 20050505 05:05:05 | 20070707 07:07:07 |
+  | author | headline | content | published_at      | created_at        | updated_at        | nice_url |
+  | goose  | abc_1    | batman  | 20130722 16:04:34 | 20130722 16:04:34 | 20130722 16:04:34 | abc_1    |
+  | goose  | nuh uh   | x       |                   | 20050505 05:05:05 | 20070707 07:07:07 | nuh_uh   |
 
 
 Scenario Outline: A rando can not visit various admin pages 
@@ -29,5 +29,6 @@ Scenario: A rando can not edit posts
 
 Scenario: A rando can not show unpublished posts
   Given I am not logged in
-   When I show post "nuh uh"
+   When I visit "/posts/nuh_uh"
    Then I should see the invalid-post message
+

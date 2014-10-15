@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140721033211) do
+ActiveRecord::Schema.define(version: 20141015133525) do
 
   create_table "post_tags", force: true do |t|
     t.integer "post_id", null: false
@@ -29,8 +29,10 @@ ActiveRecord::Schema.define(version: 20140721033211) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "markup_type",  default: "markdown", null: false
-    t.string   "nice_url"
+    t.string   "nice_url",                          null: false
   end
+
+  add_index "posts", ["nice_url"], name: "index_posts_on_nice_url", unique: true, using: :btree
 
   create_table "tags", force: true do |t|
     t.string "name", null: false

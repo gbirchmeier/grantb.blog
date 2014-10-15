@@ -70,6 +70,7 @@ Scenario: I can create a new published post from the creation form
     And I fill in "Headline" with "The new one"
     And I fill in "Content" with "blah blah"
     And I fill in "Tags" with "foo bar"
+    And I fill in "Nice url" with "the-new-one"
     And I check "Published?"
     And I press "Create Post"
    Then I should see a creation notice
@@ -84,6 +85,7 @@ Scenario: I can create a new draft post from the creation form
    When I visit "admin/posts/new"
     And I fill in "Headline" with "The new one"
     And I fill in "Content" with "blah blah"
+    And I fill in "Nice url" with "the-new-one"
     And I uncheck "Published?"
     And I press "Create Post"
    Then I should see a creation notice
