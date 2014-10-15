@@ -1,0 +1,7 @@
+change password
+
+admin form hint text for Nice Url (popup maybe?)
+
+front-page post view - if no tags, say "no tags" or something
+
+/admin/posts/1 should give a link back to posts index
