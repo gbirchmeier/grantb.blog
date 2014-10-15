@@ -1,14 +1,14 @@
-* tags
+* url to tags by name only
+
+* tags - allow only alpha-num and dashes
+
+* tags - need tests
+
+* admin-post form needs cleanup - breadcrumb trail
 
 * admin-post form hint text for Nice Url (popup maybe?)
 
 * change password
-
-* admin-post form needs cleanup - breadcrumb trail
-
-* front-page post view - if no tags, say "no tags" or something
-
-* /admin/posts/1 should give a link back to posts index
 
 * post.user_id should be nullable, in case of deleted user
   (should be non-null on post-creation though)
