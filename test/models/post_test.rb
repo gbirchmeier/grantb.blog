@@ -52,7 +52,7 @@ class PostTest < ActiveSupport::TestCase
     assert_equal "123-Pants_", FactoryGirl.create(:post,nice_url:" 123-Pants_ ").nice_url
 
     #not valid
-    assert_equal false, FactoryGirl.build(:post,nice_url:"no&specialchars").valid?
+    refute FactoryGirl.build(:post,nice_url:"no&specialchars").valid?
   end
 
   test "basic tagging" do
