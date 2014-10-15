@@ -31,6 +31,12 @@ Scenario: The admin posts-index page puts drafts first (sorted by updated_at)
         | foo_2    | May 1, 2000  | May 1, 2000  | May 1, 2000  |
         | xyz_3    | Mar 9, 1979  | Mar 9, 1979  | Mar 9, 1979  |
 
+Scenario: The admin posts-index page doesn't show an empty table if there are no posts
+  Given I am logged in as "goose" with "topgun"
+    And this test deletes all posts
+   When I visit "admin/posts"
+   Then I should see no posts table
+
 Scenario: The admin posts-index has links to show and edit pages
   Given I am logged in as "goose" with "topgun"
    When I visit "admin/posts"

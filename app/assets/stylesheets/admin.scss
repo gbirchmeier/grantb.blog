@@ -79,12 +79,15 @@ body.adminbody {
 	h1 {
 		font-size: $regular-size + 4;
 		margin-top: 0;
+		margin-bottom: 0;
 
 		a { @include boxylink(20px); }
 		a:hover { @include boxylink_hover(); }
 	}
 
 	h2 {
+		margin-top: 0;
+		margin-bottom: 0;
 	}
 
 	div.menu_items {

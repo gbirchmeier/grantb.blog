@@ -99,3 +99,11 @@ Then(/^I should see a link to edit post "(.*?)"$/) do |headline|
   url = "/admin/posts/#{post.id}/edit"
   find(:xpath, "//a[@href='#{url}']")
 end
+
+Given(/^this test deletes all posts/) do
+  Post.delete_all
+end
+
+Given(/^I should see no posts table/) do
+  assert_no_selector("#posts_tbl")
+end

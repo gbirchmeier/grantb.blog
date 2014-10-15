@@ -16,6 +16,12 @@ end
 
 <div class="new_thing"><%= link_to "Create a new post", new_admin_post_path %></div>
 
+<% if @draft_posts.count + @published_posts.count < 1 %>
+
+<center><p>There are no posts.</p></center>
+
+<% else %>
+
 <table id="posts_tbl">
 	<tr>
 		<th>Headline</th>
@@ -31,3 +37,5 @@ end
   <%=post_row(p).html_safe%>
 <% } %>
 </table>
+
+<% end %>
