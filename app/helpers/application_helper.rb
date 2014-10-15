@@ -2,11 +2,11 @@ module ApplicationHelper
 
   def emit_form_errors(obj)
     return "" unless obj.errors.any?
-    rv <<-EOS
-<div id="form_errors">
+    rv = <<-EOS
+<div id="form-errors">
 	<h2>#{pluralize(obj.errors.count,"error")} prohibited this object from being saved:</h2>
 	<ul>
-#{obj.errors.full_messages.collect {|msg| rv << "<li>#{msg}</li>"}.join("\n") + "\n"}
+#{obj.errors.full_messages.collect {|msg| "<li>#{msg}</li>"}.join("\n")}
 	</ul>
 </div>
 EOS

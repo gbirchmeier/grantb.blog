@@ -104,6 +104,10 @@ body.adminbody {
 		a:hover { @include boxylink_hover(); }
 	}
 
+	#form-errors {
+		color: red;
+	}
+
 	table#posts_tbl {
 		border-collapse: collapse;
 		margin-left: auto;
