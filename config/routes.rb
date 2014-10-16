@@ -9,6 +9,7 @@ GrantbBlog::Application.routes.draw do
   get '/no', to: redirect('/no.html'), as: "not_allowed"
 
   resources :posts, only: [:index,:show]
+  get '/all', to: "front_page#all"
 
   resources :tags, only: [:index,:show]
 
