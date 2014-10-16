@@ -8,7 +8,7 @@
 	</tr>
 <% @tags.each {|t| %>
 	<tr>
-		<td><%=link_to t.name, t.pretty_path%></td>
+		<td><%=link_to t.name, t.path%></td>
 		<td><%=t.posts.count%></td>
 	</tr>
 <% } %>
