@@ -1,12 +1,18 @@
-* tags - allow only alpha-num and dashes
+* admin breadcrumb trail and styling
 
-* tags - need tests
-
-* admin-post form needs cleanup - breadcrumb trail
+* delete post
 
 * admin-post form hint text for Nice Url (popup maybe?)
+
+* tags
+  - cuke tests
+  - admin interface
+  - tag deletion
 
 * change password
 
 * post.user_id should be nullable, in case of deleted user
   (should be non-null on post-creation though)
+
+* change redcarpet render usage to be like this:
+  http://icelab.com.au/articles/render-single-line-markdown-text-with-redcarpet/
