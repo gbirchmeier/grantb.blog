@@ -7,9 +7,4 @@ class FrontPageController < ApplicationController
     @prev_post = @posts.pop if @posts.count > 1
   end
 
-  def all
-    @posts = Post.published.order("published_at DESC")
-    render "index"
-  end
-
 end
