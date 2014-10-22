@@ -1,3 +1,5 @@
+require 'redcarpet_renderers'
+
 class Post < ActiveRecord::Base
   belongs_to :user, :inverse_of=>:posts
   has_many :post_tags
@@ -58,6 +60,15 @@ class Post < ActiveRecord::Base
     )
   end
 
+  def get_blockless_renderer
+    @blockless_renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::HTMLWithoutBlockElements,
+      :strikethrough => true,
+      :superscript => true,
+      :underline => true,
+      :highlight => true,
+    )
+  end
+
   def content_as_html
     case self.markup_type
     when Post::MarkupType::HTML
@@ -67,6 +78,10 @@ class Post < ActiveRecord::Base
     else
       "Can't render content.  Unknown markup type '#{self.markup_type}'"
     end
+  end
+
+  def headline_as_html
+    get_blockless_renderer.render(self.headline)
   end
 
   def assign_tags_from_string(list)

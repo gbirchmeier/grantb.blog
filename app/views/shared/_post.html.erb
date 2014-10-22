@@ -1,5 +1,5 @@
 <div class="post">
-<h1><%=@post.headline%></h1>
+<h1><%=@post.headline_as_html.html_safe%></h1>
 <div class="published_at"><%=@post.pub_date_and_time%></div>
 <div class="created_at"><%=@post.created_at%></div>
 <div class="updated_at"><%=@post.updated_at%></div>
