@@ -1,19 +1,25 @@
 class Admin::PostsController < Admin::AdminController
 
+  before_filter :set_controller_crumb, only: [:index,:new,:edit,:show]
+
   def index
+    @action_crumb = "Index"
     @published_posts = Post.published.order(:published_at).reverse_order
     @draft_posts = Post.unpublished.order(:updated_at).reverse_order
   end
 
   def show
+    @action_crumb = "Post Details"
     @post = Post.find_by(id: params[:id])
   end
 
   def new 
+    @action_crumb = "New Post"
     @post = Post.new
   end 
 
   def edit
+    @action_crumb = "Edit Post"
     @post = Post.find(params[:id])
   end 
 
@@ -55,6 +61,10 @@ class Admin::PostsController < Admin::AdminController
 private
   def post_params
     params.require(:post).permit(:headline,:content,:markup_type,:nice_url)
+  end
+
+  def set_controller_crumb
+    @controller_crumb = {label: "Posts", path: admin_posts_path}
   end
 
 end

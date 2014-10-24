@@ -12,8 +12,6 @@ ROW
 end
 %>
 
-<h2>Post management</h2>
-
 <div class="new_thing"><%= link_to "Create a new post", new_admin_post_path %></div>
 
 <% if @draft_posts.count + @published_posts.count < 1 %>

@@ -1,5 +1,3 @@
-* admin breadcrumb trail and styling
-
 * delete post
 
 * admin-post form hint text for Nice Url (popup maybe?)
@@ -7,7 +5,7 @@
 * tags
   - cuke tests
   - admin interface
-  - tag deletion
+  - tag deletion effects (delete post / delete tag)
 
 * change password
 

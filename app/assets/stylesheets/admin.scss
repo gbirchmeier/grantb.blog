@@ -41,14 +41,13 @@ body.adminbody {
 		background-color: fuchsia;
 		color: white;
 		border: 1px solid white;
-		padding: 10px;
 		margin-bottom: 10px;
 		font-weight: bold;
 		width: 50%;
 		margin-left: auto;
 		margin-right: auto;
 		text-align: center;
-		font-size: 20px;
+		font-size: $regular-size + 4;
 	}
 
 	.alert {
@@ -76,18 +75,40 @@ body.adminbody {
 	a:visited { color: $fg-color; }
 	a:hover { color: black; background-color: $fg-color; }
 
-	h1 {
-		font-size: $regular-size + 4;
+	#header-crumbs {
 		margin-top: 0;
-		margin-bottom: 0;
+		margin-bottom: 20px;
+		font-size: $regular-size + 4 !important;
+		font-weight: bold !important;
 
-		a { @include boxylink(20px); }
-		a:hover { @include boxylink_hover(); }
-	}
+		h1 {
+			display: inline-block;
+			font-size: $regular-size + 4;
+			margin: 0 4px 0 0;
+	
+			a { @include boxylink(20px); }
+			a:hover { @include boxylink_hover(); }
+		}
+	
+		h2 {
+			display: inline-block;
+			font-size: $regular-size + 4;
+			margin: 0 4px 0 0;
+			vertical-align: bottom;
 
-	h2 {
-		margin-top: 0;
-		margin-bottom: 0;
+			a { @include boxylink(10px); }
+			a:hover { @include boxylink_hover(); }
+		}
+		h2:before { content: " >> "; }
+	
+		h3 {
+			display: inline-block;
+			font-size: $regular-size + 4;
+			margin: 0;
+			padding: 11px 0 11px 0;
+			vertical-align: bottom;
+		}
+		h3:before { content: " >> "; }
 	}
 
 	div.menu_items {
@@ -99,7 +120,7 @@ body.adminbody {
 
 	div.new_thing {
 		text-align: center;
-		margin-bottom: 30px;
+		margin-bottom: 20px;
 		a { @include boxylink(10px); }
 		a:hover { @include boxylink_hover(); }
 	}

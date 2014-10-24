@@ -14,8 +14,6 @@
 
 <div class="content">
 
-<h1><a href="/admin">GrantB.net Administration</a></h1>
-
 <% if @current_user %>
 	<div id="userbox">
 		<div class="userline">Hello, <%=@current_user.username%></div>
@@ -23,6 +21,13 @@
 		<div class="logout"><%=link_to "Log out", logout_path%></div>
 	</div>
 <% end %>
+
+
+<div id="header-crumbs">
+<h1><a href="/admin">GrantB.net Administration</a></h1>
+<%if @controller_crumb%><h2><%=link_to @controller_crumb[:label], @controller_crumb[:path]%></h2><%end%>
+<%if @action_crumb%><h3><%=@action_crumb%></h3><%end%>
+</div>
 
 
 <% flash.each do |k, v| %>
