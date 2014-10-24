@@ -9,7 +9,7 @@
 <body class="adminbody">
 
 <% unless Rails.env.production? %>
-<div class="platform_notice"><%=Rails.env.upcase%></div>
+<div id="platform-notice"><%=Rails.env.upcase%></div>
 <% end %>
 
 <div class="content">
