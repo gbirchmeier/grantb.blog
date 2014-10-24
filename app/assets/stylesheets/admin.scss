@@ -37,6 +37,14 @@ $regular-size: 12pt;
 
 body.adminbody {
 
+	hr {
+		background-color: $fg-color;
+		border-width: 0;
+		height: 1px;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
 	.platform_notice {
 		background-color: fuchsia;
 		color: white;
@@ -80,6 +88,10 @@ body.adminbody {
 		margin-bottom: 20px;
 		font-size: $regular-size + 4 !important;
 		font-weight: bold !important;
+
+		hr {
+			margin-top: 5px;
+		}
 
 		h1 {
 			display: inline-block;
