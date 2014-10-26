@@ -1,3 +1,4 @@
+$regular-size: 16px;
 $padding: 5px;
 
 #userbox {
@@ -11,6 +12,7 @@ $padding: 5px;
 	color: black;
 	font-weight: bold;
 	padding: $padding;
+	font-size: $regular-size;
 
 	a { color: black; }
 	a:visited { color: black; }

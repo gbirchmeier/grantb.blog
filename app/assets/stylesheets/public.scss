@@ -1,3 +1,5 @@
+$regular-size: 16px;
+$small-size: 12px;
 $sidebar_width: 300px;
 $main_margin_right: $sidebar_width+20;
 $main_width: 80%;
@@ -24,7 +26,7 @@ $main_width: 80%;
 	background-color: white;
 	color: black;
 	font-weight: bold;
-	font-size: 20pt;
+	font-size: $regular-size + 2;
 }
 
 body.blogbody {
@@ -83,7 +85,7 @@ body.blogbody {
 				text-align: center;
 
 				h1 {
-					font-size: 26pt;
+					font-size: 26px;
 					text-align: center;
 					margin: 0 0 10px 0;
 				}
@@ -124,21 +126,21 @@ body.blogbody {
 		margin-bottom: 60px;
 
 		h1 {
-			font-size: 20pt;
+			font-size: $regular-size + 2;
 			font-weight: bold;
 			margin: 0;
 			padding: 0;
 		}
 		div.published_at {
-			font-size: 10pt;
+			font-size: $small-size;
 		}
 		div.updated_at { display: none; }
 		div.created_at { display: none; }
 		div.content {}
-		div.permalink { font-size: 10pt; }
+		div.permalink { font-size: $small-size; }
 
 		div.tags {
-			font-size: 10pt;
+			font-size: $small-size;
 			div.tag {
 				display: inline-block;
 				margin-left: 2px;
@@ -154,7 +156,7 @@ body.blogbody {
 		margin-bottom: 20px;
 
 		h1 {
-			font-size: 20pt;
+			font-size: $regular-size + 4;
 			font-weight: bold;
 			margin: 0 0 20px 0;
 			padding: 0;
@@ -165,7 +167,7 @@ body.blogbody {
 		@include dark-scheme();
 		border: 1px solid white;
 		padding: 10px;
-		font-size: 10pt;
+		font-size: $regular-size;
 
 		div.prev_content:before { content: "<< " }
 		div.prev {
