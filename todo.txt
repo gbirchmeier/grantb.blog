@@ -1,5 +1,3 @@
-* admin margin below hr - make it not be there for alerts
-
 * show/edit post: content not positioned nice
 
 * tags
