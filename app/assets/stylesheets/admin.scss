@@ -1,6 +1,7 @@
 $fg-color: #1fbd43;
 $danger-color: #ff3333;
-$regular-size: 16px;
+$header-size: 20px;
+$regular-size: 14px;
 
 @mixin boxylink($padding) {
 	display: inline-block;
@@ -109,8 +110,8 @@ body.adminbody {
 	#header-crumbs {
 		margin-top: 0;
 		margin-bottom: 20px;
-		font-size: $regular-size + 4 !important;
-		font-weight: bold !important;
+		font-size: $header-size;
+		font-weight: bold;
 
 		hr {
 			margin-top: 5px;
@@ -118,7 +119,7 @@ body.adminbody {
 
 		h1 {
 			display: inline-block;
-			font-size: $regular-size + 4;
+			font-size: $header-size;
 			margin: 0 4px 0 0;
 	
 			a { @include boxylink(20px); }
@@ -127,7 +128,7 @@ body.adminbody {
 	
 		h2 {
 			display: inline-block;
-			font-size: $regular-size + 4;
+			font-size: $header-size;
 			margin: 0 4px 0 0;
 			vertical-align: bottom;
 
@@ -138,7 +139,7 @@ body.adminbody {
 	
 		h3 {
 			display: inline-block;
-			font-size: $regular-size + 4;
+			font-size: $header-size;
 			margin: 0;
 			padding: 11px 0 11px 0;
 			vertical-align: bottom;
