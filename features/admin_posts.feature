@@ -19,10 +19,12 @@ Background:
 # Admin views and CRUD stuff
 #==============
 
+@working
 Scenario: The admin posts-index page puts drafts first (sorted by updated_at)
           then published posts (sorted by published_at)
   Given I am logged in as "goose" with "topgun"
    When I visit "admin/posts"
+Then dump posts
    Then I should see the following posts:
         | Headline | Published    | Updated      | Created      |
         | nuh uh   |              | Jul 7, 2007  | May 5, 2005  |
@@ -139,4 +141,10 @@ Scenario: I can change a post's tags
         | headline    | published_at | user  | tags         |
         | abc_1       | non-null     | goose | green purple |
 
+Scenario: I can delete a post
+  Given I am logged in as "goose" with "topgun"
+   When I visit the delete page for post "foo_2"
+    And I confirm deletion
+   Then I should be at the posts admin-index page
+    And the DB should not have post "foo 2"
 

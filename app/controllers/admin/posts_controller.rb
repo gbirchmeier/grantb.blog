@@ -1,6 +1,6 @@
 class Admin::PostsController < Admin::AdminController
 
-  before_filter :set_controller_crumb, only: [:index,:new,:edit,:show]
+  before_filter :set_controller_crumb, only: [:index,:new,:edit,:show,:delete]
 
   def index
     @action_crumb = "Index"
@@ -22,6 +22,11 @@ class Admin::PostsController < Admin::AdminController
     @action_crumb = "Edit Post"
     @post = Post.find(params[:id])
   end 
+
+  def delete
+    @action_crumb = "Delete Post"
+    @post = Post.find(params[:id])
+  end
 
   def create
     @post = Post.new(post_params)
@@ -55,7 +60,7 @@ class Admin::PostsController < Admin::AdminController
     @post = Post.find(params[:id])
     dead = @post.headline
     @post.destroy
-    redirect_to admin_posts_path, notice: "Successfully deleted post with headline '<em>#{dead}</em>'."
+    redirect_to admin_posts_path, notice: "Successfully deleted post with headline '#{dead}'."
   end
 
 private

@@ -1,8 +1,11 @@
 Then /^I should be at the show page for post "([^"]*)"/ do |headline|
-  post = Post.find_by_headline(headline)
+  post = Post.find_by!(headline: headline)
   assert_equal "/admin/posts/#{post.id}",current_path
 end
 
+Then(/^I should be at the posts admin-index page/) do
+  assert_equal "/admin/posts", current_path
+end
 
 Then /^I should see the following posts:/ do |expected_table|
   table = nil
@@ -52,7 +55,7 @@ Then /^the DB should have (?:this post|these posts):$/ do |expected_table|
     target[:headline] = h["headline"] if h["headline"]
     target[:content] = h["content"] if h["content"]
     if h["user"]
-      target[:user] = User.find_by_username(h["user"])
+      target[:user] = User.find_by!(username: h["user"])
       raise "no user '#{h[:user]}'" unless target[:user]
     end
     where_published_at = where_published_at(h)
@@ -65,21 +68,26 @@ Then /^the DB should have (?:this post|these posts):$/ do |expected_table|
 end
 
 Then /^the DB should not have post "([^"]*)"/ do |headline|
-  assert_nil Post.find_by_headline(headline)
+  assert !Post.exists?(headline: headline)
 end
 
 When(/^I visit an id\-based url for post "(.*?)"$/) do |headline|
-  p = Post.find_by_headline(headline)
+  p = Post.find_by!(headline: headline)
   visit "/posts/#{p.id}"
 end
 
 When /^I admin-show post "([^"]*)"/ do |headline|
-  p = Post.find_by_headline(headline)
+  p = Post.find_by!(headline: headline)
   visit "/admin/posts/#{p.id}"
 end
 
+When /^I visit the delete page for post "([^"]*)"/ do |headline|
+  p = Post.find_by!(headline: headline)
+  visit "/admin/posts/#{p.id}/delete"
+end
+
 When /^I edit post "([^"]*)"/ do |headline|
-  p = Post.find_by_headline(headline)
+  p = Post.find_by!(headline: headline)
   visit "/admin/posts/#{p.id}/edit"
 end
 
@@ -88,14 +96,14 @@ Then /^I should see the invalid-post message/ do
 end
 
 Then(/^I should see a link to admin\-show post "(.*?)"$/) do |headline|
-  post = Post.find_by(headline: headline)
+  post = Post.find_by!(headline: headline)
   url = "/admin/posts/#{post.id}"
   #find("a", :href=>url)
   find(:xpath, "//a[@href='#{url}']")
 end
 
 Then(/^I should see a link to edit post "(.*?)"$/) do |headline|
-  post = Post.find_by(headline: headline)
+  post = Post.find_by!(headline: headline)
   url = "/admin/posts/#{post.id}/edit"
   find(:xpath, "//a[@href='#{url}']")
 end

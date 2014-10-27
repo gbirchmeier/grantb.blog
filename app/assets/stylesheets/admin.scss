@@ -117,10 +117,14 @@ body.adminbody {
 	a.menu_item { @include boxylink(20px); }
 	a.menu_item:hover { @include boxylink_hover(); }
 
-	div.new_thing {
+	div.op_bar {
 		text-align: center;
 		margin-bottom: 20px;
-		a { @include boxylink(10px); }
+		a {
+			@include boxylink(10px);
+			margin-left: 5px;
+			margin-right: 5px;
+		}
 		a:hover { @include boxylink_hover(); }
 	}
 
@@ -137,12 +141,12 @@ body.adminbody {
 
 		a.headline:hover { background-color: black; color: white; }
 
-		a.edit {
+		a.button {
 			@include boxylink(5px);
 			padding-left: 10px;
 			padding-right: 10px;
 		}
-		a.edit:hover { @include boxylink_hover(); }
+		a.button:hover { @include boxylink_hover(); }
 
 		td {
 			padding: 5px 15px 5px 15px;

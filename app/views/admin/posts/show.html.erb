@@ -1,24 +1,6 @@
-<div class="field_list">
-
-<%
-fields = [
-  ["Headline",@post.headline],
-  ["Published at",@post.published_at.to_s],
-  ["Created at",@post.created_at.to_s],
-  ["Updated at",@post.updated_at.to_s],
-  ["Tags",@post.tags_as_string],
-  ["Nice URL", @post.nice_url || "- -"],
-  ["Content",@post.content_as_html.html_safe],
-]
-%>
-
-<% fields.each{|f| %>
-  <% val = f[1] %>
-  <% val = "&nbsp;".html_safe if f[1].strip.empty? %>
-<div class="field">
-<div class="label"><%=f[0]%></div>
-<div class="value"><%=val%></div>
+<div class="op_bar">
+<%= link_to "Edit this post", edit_admin_post_path(@post) %>
+<%= link_to "Delete this post", delete_admin_post_path(@post) %>
 </div>
-<% } %>
 
-</div>
+<%= render 'details' %>

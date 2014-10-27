@@ -9,5 +9,13 @@ class PostsController < ApplicationController
     render "invalid_post" unless (@post && @post.published?)
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    headline = @post.headline
+    @post.destroy
+
+    redirect_to posts_url, notice: "Post '#{headline}' was successfully deleted."
+  end 
+
 end
 

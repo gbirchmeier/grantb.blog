@@ -1,4 +1,4 @@
-* delete post
+* admin margin below hr - make it not be there for alerts
 
 * admin-post form hint text for Nice Url (popup maybe?)
 

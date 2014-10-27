@@ -3,16 +3,17 @@ def post_row p
   <<ROW
 	<tr>
 		<td class="left">#{link_to p.headline, admin_post_path(p), class: "headline" }</td>
-		<td>#{link_to "edit", edit_admin_post_path(p), class: "edit" }</td>
+		<td>#{link_to "edit", edit_admin_post_path(p), class: "button" }</td>
 		<td class="date">#{pretty_short_date(p.published_at)}</td>
 		<td class="date">#{pretty_short_date(p.updated_at)}</td>
 		<td class="date right">#{pretty_short_date(p.created_at)}</td>
+		<td>#{link_to "delete", delete_admin_post_path(p), class: "button" }</td>
 	</tr>
 ROW
 end
 %>
 
-<div class="new_thing"><%= link_to "Create a new post", new_admin_post_path %></div>
+<div class="op_bar"><%= link_to "Create a new post", new_admin_post_path %></div>
 
 <% if @draft_posts.count + @published_posts.count < 1 %>
 
@@ -27,6 +28,7 @@ end
 		<th>Published</th>
 		<th>Updated</th>
 		<th>Created</th>
+		<th>&nbsp;</th>
 	</tr>
 <% @draft_posts.each {|p| %>
   <%=post_row(p).html_safe%>
