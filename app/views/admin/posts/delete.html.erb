@@ -1,6 +1,12 @@
+<div class="danger-danger">
+
+<div class="op_bar">
 <%= form_for :post, url: admin_post_path(@post), method: :delete do  %>
   <%= submit_tag "PLEASE CONFIRM: Delete this post?", id: "confirm-deletion" %>
 <% end %>
+</div>
 
 
 <%= render 'details' %>
+
+</div>

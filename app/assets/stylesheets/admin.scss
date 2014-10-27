@@ -1,4 +1,5 @@
 $fg-color: #1fbd43;
+$danger-color: #ff3333;
 $regular-size: 16px;
 
 @mixin boxylink($padding) {
@@ -37,6 +38,12 @@ $regular-size: 16px;
 
 body.adminbody {
 
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: $regular-size;
+
+	background-color: black;
+	color: $fg-color;
+
 	hr {
 		background-color: $fg-color;
 		border-width: 0;
@@ -60,15 +67,43 @@ body.adminbody {
 		margin-bottom: 10px;
 	}
 
-	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-	font-size: $regular-size;
+	#form-errors {
+		color: red;
+	}
 
-	background-color: black;
-	color: $fg-color;
+	input[type=submit] {
+		font-size: $regular-size;
+		@include boxylink(10px);
+	}
+	input[type=submit]:hover {
+		@include boxylink_hover();
+	}
+
 
 	a { color: $fg-color; }
 	a:visited { color: $fg-color; }
 	a:hover { color: black; background-color: $fg-color; }
+
+
+	div.menu_items {
+		text-align: center;
+		a { margin: 15px; }
+	}
+	a.menu_item { @include boxylink(20px); }
+	a.menu_item:hover { @include boxylink_hover(); }
+
+
+	div.op_bar {
+		text-align: center;
+		margin-bottom: 20px;
+		a {
+			@include boxylink(10px);
+			margin-left: 5px;
+			margin-right: 5px;
+		}
+		a:hover { @include boxylink_hover(); }
+	}
+
 
 	#header-crumbs {
 		margin-top: 0;
@@ -108,28 +143,6 @@ body.adminbody {
 			vertical-align: bottom;
 		}
 		h3:before { content: " >> "; }
-	}
-
-	div.menu_items {
-		text-align: center;
-		a { margin: 15px; }
-	}
-	a.menu_item { @include boxylink(20px); }
-	a.menu_item:hover { @include boxylink_hover(); }
-
-	div.op_bar {
-		text-align: center;
-		margin-bottom: 20px;
-		a {
-			@include boxylink(10px);
-			margin-left: 5px;
-			margin-right: 5px;
-		}
-		a:hover { @include boxylink_hover(); }
-	}
-
-	#form-errors {
-		color: red;
 	}
 
 	table#posts_tbl {
@@ -190,6 +203,24 @@ body.adminbody {
 				font-size: $regular-size;
 			}
 			input:hover { @include boxylink_hover(); }
+		}
+	}
+
+	.danger-danger {
+		color: $danger-color;
+
+		a { color: $danger-color; }
+		a:visited { color: $danger-color; }
+		a:hover { color: black; background-color: $danger-color; }
+
+		input[type=submit] {
+			color: $danger-color;
+			border-color: $danger-color;
+		}
+		input[type=submit]:hover {
+			color: black;
+			background-color: $danger-color;
+			border-color: $danger-color;
 		}
 	}
 }
