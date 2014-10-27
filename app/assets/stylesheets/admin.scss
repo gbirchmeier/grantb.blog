@@ -77,6 +77,7 @@ body.adminbody {
 	}
 	input[type=submit]:hover {
 		@include boxylink_hover();
+		cursor: pointer;
 	}
 
 
@@ -206,12 +207,18 @@ body.adminbody {
 		}
 	}
 
-	.danger-danger {
+	.danger {
 		color: $danger-color;
 
-		a { color: $danger-color; }
+		a {
+			color: $danger-color !important;
+			border-color: $danger-color !important;
+		}
 		a:visited { color: $danger-color; }
-		a:hover { color: black; background-color: $danger-color; }
+		a:hover {
+			color: black !important;
+			background-color: $danger-color !important;
+		}
 
 		input[type=submit] {
 			color: $danger-color;

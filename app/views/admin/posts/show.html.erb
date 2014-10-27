@@ -1,6 +1,6 @@
 <div class="op_bar">
 <%= link_to "Edit this post", edit_admin_post_path(@post) %>
-<%= link_to "Delete this post", delete_admin_post_path(@post) %>
+<span class="danger"><%= link_to "Delete this post", delete_admin_post_path(@post) %></span>
 </div>
 
 <%= render 'details' %>

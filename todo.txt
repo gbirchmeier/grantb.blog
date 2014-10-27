@@ -1,13 +1,19 @@
 * admin margin below hr - make it not be there for alerts
 
-* admin-post form hint text for Nice Url (popup maybe?)
+* show/edit post: content not positioned nice
 
 * tags
   - cuke tests
   - admin interface
   - tag deletion effects (delete post / delete tag)
 
-* change password
+* form hint support
+
+* add form hints
+  - Nice Url
+  - headline
+
+* user crud, including change password
 
 * post.user_id should be nullable, in case of deleted user
   (should be non-null on post-creation though)
