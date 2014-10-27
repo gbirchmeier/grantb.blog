@@ -168,15 +168,24 @@ body.blogbody {
 		border: 1px solid white;
 		padding: 10px;
 		font-size: $regular-size;
+overflow: auto;
 
-		div.prev_content:before { content: "<< " }
+		div.prev_content:before {
+			content: "Older\A";
+			white-space: pre;
+			font-style: italic;
+		}
 		div.prev {
 			float: left;
 			width: 30%;
 			text-align: left;
 		}
 
-		div.next_content:after { content: " > >" }
+		div.next_content:before {
+			content: "Newer\A";
+			white-space: pre;
+			font-style: italic;
+		}
 		div.next {
 			float: right;
 			width: 30%;
@@ -184,7 +193,10 @@ body.blogbody {
 		}
 
 		div.archive {
+			margin-top: 2px;
+			vertical-align: middle;
 			text-align: center;
+			font-size: $regular-size+6;
 		}
 	}
 }

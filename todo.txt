@@ -1,3 +1,10 @@
+* backup cap task
+* SSL
+* Puma
+
+* link to public views on admin post index
+* page titles
+
 * show/edit post: content not positioned nice
 
 * tags
