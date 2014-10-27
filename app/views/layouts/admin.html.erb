@@ -28,13 +28,13 @@
 <%if @controller_crumb%><h2><%=link_to @controller_crumb[:label], @controller_crumb[:path]%></h2><%end%>
 <%if @action_crumb%><h3><%=@action_crumb%></h3><%end%>
 <hr/>
-</div>
-
-
 <% flash.each do |k, v| %>
 	<% alert_class = (k == :error ? "alert-error" : "alert") %>
 	<div class="<%= alert_class %>" id="<%= k %>"><%= v %></div>
 <% end %>
+</div>
+
+
 
 
 <div class="main">

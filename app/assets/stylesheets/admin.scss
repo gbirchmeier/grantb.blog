@@ -59,6 +59,7 @@ body.adminbody {
 		border: 1px solid #FFFF88;
 		padding: 5px;
 		margin-bottom: 10px;
+		margin-top: 10px;
 	}
 	.alert-error {
 		color: red;
@@ -66,6 +67,7 @@ body.adminbody {
 		border: 1px solid red;
 		padding: 5px;
 		margin-bottom: 10px;
+		margin-top: 10px;
 	}
 
 	#form-errors {
@@ -110,8 +112,6 @@ body.adminbody {
 	#header-crumbs {
 		margin-top: 0;
 		margin-bottom: 20px;
-		font-size: $header-size;
-		font-weight: bold;
 
 		hr {
 			margin-top: 5px;
