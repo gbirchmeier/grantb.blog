@@ -3,12 +3,11 @@ def post_row p
   <<ROW
 	<tr>
 		<td class="left">#{link_to p.headline, admin_post_path(p), class: "headline" }</td>
-		<td>#{link_to "public", p.pretty_path, class: "button" }</td>
-		<td>#{link_to "edit", edit_admin_post_path(p), class: "button" }</td>
-		<td class="date">#{pretty_short_date(p.published_at)}</td>
-		<td class="date">#{pretty_short_date(p.updated_at)}</td>
-		<td class="date right">#{pretty_short_date(p.created_at)}</td>
-		<td>#{link_to "delete", delete_admin_post_path(p), class: "button" }</td>
+		<td class="button">#{link_to "public", p.pretty_path, class: "button" }</td>
+		<td class="button">#{link_to "edit", edit_admin_post_path(p), class: "button" }</td>
+		<td class="date">#{numeric_short_date(p.published_at)}</td>
+		<td class="date">#{numeric_short_date(p.created_at)}</td>
+		<td class="button right">#{link_to "delete", delete_admin_post_path(p), class: "button" }</td>
 	</tr>
 ROW
 end
@@ -28,7 +27,6 @@ end
 		<th>&nbsp;</th>
 		<th>&nbsp;</th>
 		<th>Published</th>
-		<th>Updated</th>
 		<th>Created</th>
 		<th>&nbsp;</th>
 	</tr>

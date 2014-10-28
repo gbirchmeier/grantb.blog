@@ -19,19 +19,17 @@ Background:
 # Admin views and CRUD stuff
 #==============
 
-@working
 Scenario: The admin posts-index page puts drafts first (sorted by updated_at)
           then published posts (sorted by published_at)
   Given I am logged in as "goose" with "topgun"
    When I visit "admin/posts"
-Then dump posts
    Then I should see the following posts:
-        | Headline | Published    | Updated      | Created      |
-        | nuh uh   |              | Jul 7, 2007  | May 5, 2005  |
-        | nope     |              | Jun 6, 2006  | Jun 6, 2006  |
-        | abc_1    | Jul 22, 2013 | Jul 22, 2013 | Jul 22, 2013 |
-        | foo_2    | May 1, 2000  | May 1, 2000  | May 1, 2000  |
-        | xyz_3    | Mar 9, 1979  | Mar 9, 1979  | Mar 9, 1979  |
+        | Headline | Published    | Created      |
+        | nuh uh   |              | 2005-05-05   |
+        | nope     |              | 2006-06-06   |
+        | abc_1    | 2013-07-22   | 2013-07-22   |
+        | foo_2    | 2000-05-01   | 2000-05-01   |
+        | xyz_3    | 1979-03-09   | 1979-03-09   |
 
 Scenario: The admin posts-index page doesn't show an empty table if there are no posts
   Given I am logged in as "goose" with "topgun"

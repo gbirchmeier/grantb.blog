@@ -167,9 +167,9 @@ body.adminbody {
 			padding: 5px 15px 5px 15px;
 			border-top: solid 1px $fg-color;
 		}
-
-		td.left { padding: 5px 15px 5px 5px; }
-		td.right { padding: 5px 5px 5px 15px; }
+		td.button { padding-left: 3px; padding-right: 3px; }
+		td.left { padding-left: 5px; }
+		td.right { padding-right: 5px; }
 		td.date { text-align: center; }
 	}
 
