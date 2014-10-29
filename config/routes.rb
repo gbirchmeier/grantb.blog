@@ -9,17 +9,19 @@ GrantbBlog::Application.routes.draw do
   get '/no', to: redirect('/no.html'), as: "not_allowed"
 
   resources :posts, only: [:index,:show]
-
   resources :tags, only: [:index,:show]
 
   namespace :admin do
     get "/", to: "dashboard#index"
     resources :posts
+    resources :users
+
     # TODO figure out how to get this route to be named "fob_admin_post"
     #get "posts/:id/fob", to: "posts#fob", as: "fob_post"
   end
   # TODO move this to namespace when above puzzle is solved
   get "admin/posts/:id/delete", to: "admin/posts#delete", as: "delete_admin_post"
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

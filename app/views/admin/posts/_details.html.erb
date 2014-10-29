@@ -1,7 +1,7 @@
 <%
 fields = [
   ["Headline",@post.headline],
-  ["Nice URL", @post.nice_url || "- -"],
+  ["Nice URL", @post.nice_url],
   ["Published at",@post.published_at.to_s],
   ["Created at",@post.created_at.to_s],
   ["Updated at",@post.updated_at.to_s],

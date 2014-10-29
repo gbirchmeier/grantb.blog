@@ -1,0 +1,34 @@
+<%
+def user_row u
+  <<ROW
+	<tr>
+		<td class="left">#{link_to u.username, admin_user_path(u), class: "showlink" }</td>
+		<td class="button">#{link_to "edit", edit_admin_user_path(u), class: "button" }</td>
+		<td>#{u.first_name}</td>
+		<td class="right">#{u.last_name}</td>
+	</tr>
+ROW
+end
+%>
+
+<div class="op_bar"><%= link_to "Create a new user", new_admin_user_path %></div>
+
+<% if @users.count < 1 %>
+
+<center><p>There are no users.  (So who are you?)</p></center>
+
+<% else %>
+
+<table id="items_tbl">
+	<tr>
+		<th>Username</th>
+		<th>&nbsp;</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+	</tr>
+<% @users.each {|u| %>
+  <%=user_row(u).html_safe%>
+<% } %>
+</table>
+
+<% end %>

@@ -1,0 +1,25 @@
+<%= form_for(@user, url: "/admin/users/#{@user.id}", html:{class: "field_list"}) do |f| %>
+
+  <%=emit_form_errors(@user)%>
+
+<div class="field">
+  <%=f.label :username %>
+  <%=f.text_field :username %>
+</div>
+
+<div class="field">
+  <%=f.label :first_name %>
+  <%=f.text_field :first_name %>
+</div>
+
+<div class="field">
+  <%=f.label :last_name %>
+  <%=f.text_field :last_name %>
+</div>
+
+<div class="action">
+<%= f.submit %>
+</div>
+
+<% end %>
+

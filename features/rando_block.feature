@@ -16,16 +16,15 @@ Scenario Outline: A rando can not visit various admin pages
    When I visit "<path>"
    Then I should see the not-allowed page
   Examples:
-        | path                   |   
-        | /admin                 | 
-        | /admin/posts           |
-        | /admin/posts/new       |
-        | /admin/posts/admin     |
-
-Scenario: A rando can not edit posts
-  Given I am not logged in
-   When I edit post "abc_1"
-   Then I should see the not-allowed page
+        | path                      |   
+        | /admin                    | 
+        | /admin/posts              |
+        | /admin/posts/new          |
+        | /admin/posts/FIRST/edit   |
+        | /admin/posts/FIRST/delete |
+        | /admin/users              |
+        | /admin/users/new          |
+        | /admin/users/FIRST/edit   |
 
 Scenario: A rando can not show unpublished posts
   Given I am not logged in

@@ -11,7 +11,7 @@ Then /^I should see the following posts:/ do |expected_table|
   table = nil
   begin
     sleeping(0.1).seconds.between_tries.failing_after(10).tries do
-      rows = find("table#posts_tbl").all('tr')
+      rows = find("table#items_tbl").all('tr')
       table = rows.map{|r|
         r.all('th,td').map {|c|
           #String.strip doesn't affect unicode spaces, so need to do it explicity
@@ -113,6 +113,6 @@ Given(/^this test deletes all posts/) do
 end
 
 Given(/^I should see no posts table/) do
-  assert_no_selector("#posts_tbl")
+  assert_no_selector("#items_tbl")
 end
 
