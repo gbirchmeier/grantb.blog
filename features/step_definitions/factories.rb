@@ -17,9 +17,10 @@ Given /^the following users:$/ do |things|
     h[:username] = row["username"]
     h[:password] = row["password"]
     h[:password_confirmation] = row["password"]
+    h[:last_name] = row["last_name"] if row["last_name"]
+    h[:first_name] = row["first_name"] if row["first_name"]
 
     h[:email] = row.has_key?("email") ? row["email"] : generate_email_address()
-
 
     u = User.create(h)
     u.save!

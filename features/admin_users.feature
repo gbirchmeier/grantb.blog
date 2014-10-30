@@ -9,8 +9,8 @@ Background:
 
 Scenario: Users index
   Given I am logged in as "blacklion" with "lion1"
-   When I visit 'admin/users'
-   Then I should see the following users:
+   When I visit "admin/users"
+   Then I should see the following items:
         | Username  | Last Name | First Name |
         | blacklion | Kogane    | Keith      |
         | redlion   | McClain   | Lance      |

@@ -22,7 +22,7 @@ Scenario Outline: Anyone can see the posts index, which shows the
                   published headlines, most-recently-published first.
   Given I am logged in as "<user>" with "<password>"
    When I visit "posts"
-   Then I should see the following posts:
+   Then I should see the following items:
         | Headline | Published    |
         | abc_1    | Jul 22, 2013 |
         | foo_2    | May 1, 2000  |

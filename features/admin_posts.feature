@@ -23,7 +23,7 @@ Scenario: The admin posts-index page puts drafts first (sorted by updated_at)
           then published posts (sorted by published_at)
   Given I am logged in as "goose" with "topgun"
    When I visit "admin/posts"
-   Then I should see the following posts:
+   Then I should see the following items:
         | Headline | Published    | Created      |
         | nuh uh   |              | 2005-05-05   |
         | nope     |              | 2006-06-06   |
