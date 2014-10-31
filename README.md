@@ -8,6 +8,9 @@ Testing
 ---
 Just `rake test` and `rake cucumber` for now
 
+Deployment
+---
+`bundle exec cap <env> deploy`
 
 First-time install
 ---
