@@ -20,7 +20,7 @@ module MariadbBackup
 
     cmd = "mysqldump #{mysql_database}"
     cmd << " -u #{mysql_user}"
-    cmd << " -p '#{mysql_password}'" if mysql_password.present?
+    cmd << " -p'#{mysql_password}'" if mysql_password.present?
     cmd << " > #{dest_file}"
 
     puts "Dumping..."
