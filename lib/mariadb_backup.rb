@@ -18,7 +18,10 @@ module MariadbBackup
     dest_file = "#{dest_dir}/#{mysql_database}-#{DateTime.now.strftime("%Y%m%d_%H%M%S")}.sql"
     puts "  Destination: #{dest_file}"
 
-    cmd = "mysqldump #{mysql_database} -u #{mysql_user} -P '#{mysql_password}' > #{dest_file}"
+    cmd = "mysqldump #{mysql_database}"
+    cmd << " -u #{mysql_user}"
+    cmd << " -P '#{mysql_password}'" if mysql_password.present?
+    cmd << " > #{dest_file}"
 
     puts "Dumping..."
     result = system(cmd)
