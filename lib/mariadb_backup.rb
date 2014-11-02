@@ -1,5 +1,5 @@
 module MariadbBackup
-  def self.save(dest_dir)
+  def self.save(destination_filepath)
     puts "Making backup for:"
     puts "  Rails env: #{Rails.env}"
 
@@ -14,20 +14,20 @@ module MariadbBackup
     mysql_password = info[Rails.env]["password"]
     puts "  DB: #{mysql_database}"
 
+    dest_dir = File.dirname(destination_filepath)
     FileUtils.mkdir_p dest_dir
-    dest_file = "#{dest_dir}/#{mysql_database}-#{DateTime.now.strftime("%Y%m%d_%H%M%S")}.sql"
-    puts "  Destination: #{dest_file}"
+    puts "  Destination: #{destination_filepath}"
 
     cmd = "mysqldump #{mysql_database}"
     cmd << " -u #{mysql_user}"
     cmd << " -p'#{mysql_password}'" if mysql_password.present?
-    cmd << " > #{dest_file}"
+    cmd << " > #{destination_filepath}"
 
     puts "Dumping..."
     result = system(cmd)
     raise("error, process exited with status #{$?.exitstatus}") unless result
 
-    f = File.open(dest_file)
-    puts "Success!  File #{dest_file} written (#{f.size} bytes)."
+    f = File.open(destination_filepath)
+    puts "Success!  File #{destination_filepath} written (#{f.size} bytes)."
   end
 end
