@@ -1,43 +1,5 @@
-* backup cap task
-  -> mysqldump -u blog -p grantbblog_production > bac
+* Clean old grantb.net, tell Martin I'm out.
 
-   def Mysqldump.full_backup           
-        if Rails.env.production?           
-           env = "production"
-        else
-           env = "development"
-        end                    
- 
-        info = YAML::load(IO.read(RAILS_ROOT + "/config/database.yml"))
-        mysql_database = info[env]["database"]
-        mysql_user = info[env]["username"]
-        mysql_password = info[env]["password"]  
-        
-        
-        @temp_dir = "/tmp/mysql-backup"
-        FileUtils.mkdir_p @temp_dir
-        dump_file = "#{@temp_dir}/dump.sql.gz"
- 
-        cmd = "mysqldump #{mysql_database} -u #{mysql_user} -p'#{mysql_password}' "
-        cmd += "  > #{dump_file}"   
-        #"  #{mysql_database}  | gzip > #{dump_file}"
-        run(cmd)
- 
-        ret = File.new(dump_file).read
-        FileUtils.rm_rf(@temp_dir)   
-        ret              
-   end #full_backup
-        
- 
-   def Mysqldump.run(command)
-     result = system(command)
-     raise("error, process exited with status #{$?.exitstatus}") unless result
-   end
-
-
-
-
-* SSL
 * Puma
 
 * page titles
@@ -55,7 +17,7 @@
   - Nice Url
   - headline
 
-* user crud, including change password
+* user change password
 
 * post.user_id should be nullable, in case of deleted user
   (should be non-null on post-creation though)
