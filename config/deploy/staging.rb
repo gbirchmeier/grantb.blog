@@ -7,12 +7,12 @@ set :branch, 'deploy-staging'
 set :pid_file, '/home/blog/pids/grantb.blog.staging.pid'
 set :server_port, 3111
 
-set :password, ask('Server password:', nil)
+#set :password, ask('Server password:', nil)
 server "172.245.32.193", roles: %{web db app}, ssh_options: {
     user: "blog",
     forward_agent: true,
     auth_methods: %w(password),
-    password: fetch(:password)
+#    password: fetch(:password)
 }
 
 
