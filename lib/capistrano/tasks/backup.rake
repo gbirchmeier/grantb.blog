@@ -3,7 +3,7 @@ namespace :backup do
   task :db do
     remote_rails_env = fetch(:rails_env)
     remote_dest_path = "/var/tmp/grantb.blog/"
-    filename_base = "grantbblog_#{remote_rails_env}-#{DateTime.now.strftime("%Y%m%d_%H%M%S")}"
+    filename_base = "grantbblog_#{remote_rails_env}_db-#{DateTime.now.strftime("%Y%m%d_%H%M%S")}"
 
     local_dest = ENV['dest'] || "."
     local_dest += "/" unless local_dest[-1]=="/"
