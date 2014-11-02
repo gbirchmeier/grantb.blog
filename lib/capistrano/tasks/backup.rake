@@ -6,7 +6,7 @@ namespace :backup do
     filename_base = "grantbblog_#{remote_rails_env}-#{DateTime.now.strftime("%Y%m%d_%H%M%S")}"
 
     local_dest = ENV['dest'] || "."
-    local_dest += "/" unless local_dest.last=="/"
+    local_dest += "/" unless local_dest[-1]=="/"
 
     on roles(:db) do
       within release_path do
