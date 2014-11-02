@@ -13,7 +13,7 @@ namespace :backup do
         with rails_env: remote_rails_env do
           execute :rake, "db:backup dest=#{remote_dest_path}#{filename_base}.sql"
           execute "cd #{remote_dest_path} && gzip #{filename_base}.sql"
-          download! "#{remote_dest_path}#{filename_base}.gz", local_dest
+          download! "#{remote_dest_path}#{filename_base}.sql.gz", local_dest
         end
       end
     end
