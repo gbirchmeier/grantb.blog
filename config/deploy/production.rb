@@ -11,7 +11,8 @@ set :server_port, 3222
 server "172.245.32.193", roles: %{web db app}, ssh_options: {
     user: "blog",
     forward_agent: true,
-    auth_methods: %w(password),
+    auth_methods: %w(publickey)
+#    auth_methods: %w(password),
 #    password: fetch(:password)
 }
 
