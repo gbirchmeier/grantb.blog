@@ -1,15 +1,23 @@
-<%
-prev_classes = ["prev"]
-prev_classes << "prev_content" if @prev_post
-prev_content = @prev_post ? link_to(@prev_post.headline,@prev_post.pretty_path) : "&nbsp;"
-
-next_classes = ["next"]
-next_classes << "next_content" if @next_post
-next_content = @next_post ? link_to(@next_post.headline,@next_post.pretty_path) : "&nbsp;"
-%>
 <div id="prev_next">
-<div class="<%=prev_classes.join(" ")%>"><%=prev_content.html_safe%></div>
-<div class="<%=next_classes.join(" ")%>"><%=next_content.html_safe%></div>
+
+<div class="prev">
+<%-if @prev_post%>
+	<div class="prev_content"><%=link_to(@prev_post.headline,@prev_post.pretty_path)%></div>
+	<div class="date"><%=pretty_short_date(@prev_post.published_at)%></div>
+<%-else%>
+	&nbsp;
+<%-end%>
+</div>
+
+<div class="next">
+<%-if @next_post%>
+	<div class="next_content"><%=link_to(@next_post.headline,@next_post.pretty_path)%></div>
+	<div class="date"><%=pretty_short_date(@next_post.published_at)%></div>
+<%-else%>
+	&nbsp;
+<%-end%>
+</div>
+
 <div class="archive"><%=link_to "Archive", posts_path%></div>
 </div>
 

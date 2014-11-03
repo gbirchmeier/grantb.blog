@@ -1,4 +1,4 @@
-* Clean old grantb.net, tell Martin I'm out.
+* restore botcon galleries
 
 * Puma
 
