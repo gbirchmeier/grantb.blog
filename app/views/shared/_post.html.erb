@@ -10,6 +10,6 @@ Tags: <% @post.tags.each{|t| %><div class="tag"><%=link_to t.name,t.path%></div>
 (no tags)
 <% end %>
 </div>
-<div><%=@post.content_as_html.html_safe%></div>
 <div class="permalink"><%=link_to "Permalink", @post.pretty_path%></div>
+<div><%=@post.content_as_html.html_safe%></div>
 </div><!--post-->
