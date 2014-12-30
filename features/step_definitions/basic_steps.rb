@@ -1,7 +1,7 @@
 When /^I visit "\/?([^"]*)"\s*$/ do |uri|
   if uri.include?("FIRST")
     model_name = uri.match(/([a-z_]+s)\/FIRST/)[1].capitalize.chop
-    id = model_name.constantize.first.id#reflection magic here
+    id = model_name.constantize.first.id #reflection magic here
     uri.sub!("FIRST",id.to_s)
   end
   visit "/#{uri}"

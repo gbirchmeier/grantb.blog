@@ -19,6 +19,8 @@
 
 * user change password
 
+* email password reset
+
 * post.user_id should be nullable, in case of deleted user
   (should be non-null on post-creation though)
 

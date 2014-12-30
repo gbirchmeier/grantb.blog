@@ -7,6 +7,9 @@ class Tag < ActiveRecord::Base
 
   TAG_SEPARATOR = " "
 
+  scope :published, -> { joins(:posts).merge(Post.published) }
+
+
   def path
     "/tags/#{self.name}"
   end

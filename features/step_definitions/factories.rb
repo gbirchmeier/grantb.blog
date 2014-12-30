@@ -10,6 +10,10 @@ def get_user name
   u
 end
 
+Given /^user "([^"]*)"$/ do |username|
+  FactoryGirl.create(:user, username: username)
+end
+
 Given /^the following users:$/ do |things|
   ActiveRecord::Base.record_timestamps = true #in case somehow left in false state
   things.hashes.each {|row|
