@@ -46,3 +46,10 @@ so I installed 1.6.6.
 * `yum install MariaDB-devel.x86_64`
 * `yum install nodejs (not sure why)`
 
+Sysadmin stuff I always forget
+---
+
+* `chkconfig --list`
+* `chkconfig mysql on`
+* `service mysql start` or `restart`
+
