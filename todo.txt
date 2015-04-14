@@ -1,4 +1,12 @@
+* make a static dir
+
 * restore botcon galleries
+  - find what the url should be
+  - nginx config to that url
+  - upload
+  - fix email image
+
+* /posts - headlines aren't markdownified
 
 * Puma
 
