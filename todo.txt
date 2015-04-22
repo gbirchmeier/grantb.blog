@@ -6,7 +6,6 @@
   - upload
   - fix email image
 
-* /posts - headlines aren't markdownified
 
 * Puma
 

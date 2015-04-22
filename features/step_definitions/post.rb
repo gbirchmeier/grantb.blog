@@ -51,7 +51,7 @@ Then /^the DB should not have post "([^"]*)"/ do |headline|
   assert !Post.exists?(headline: headline)
 end
 
-When(/^I visit an id\-based url for post "(.*?)"$/) do |headline|
+When(/^I visit the id\-based url for post "(.*?)"$/) do |headline|
   p = Post.find_by!(headline: headline)
   visit "/posts/#{p.id}"
 end

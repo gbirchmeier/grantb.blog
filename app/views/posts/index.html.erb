@@ -8,7 +8,7 @@
 	</tr>
 <% @posts.each {|p| %>
 	<tr>
-		<td><%=link_to p.headline, p.pretty_path%></td>
+		<td><%=link_to p.headline_as_html.html_safe, p.pretty_path%></td>
 		<td><%=p.short_pub_date%></td>
 	</tr>
 <% } %>

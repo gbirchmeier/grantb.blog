@@ -31,6 +31,14 @@ Scenario: The admin posts-index page puts drafts first (sorted by updated_at)
         | foo_2    | 2000-05-01   | 2000-05-01   |
         | xyz_3    | 1979-03-09   | 1979-03-09   |
 
+Scenario: Headlines are markdown-ified
+  Given the following posts:
+        | author | headline       | content | published_at      | created_at        | updated_at        | tags     |
+        | goose  | uno *dos* tres | batman  | 20130722 16:04:34 | 20130722 16:04:34 | 20130722 16:04:34 | red blue |
+  Given I am logged in as "goose" with "topgun"
+   When I visit "admin/posts"
+   Then I should see "dos" is in italics
+
 Scenario: The admin posts-index page doesn't show an empty table if there are no posts
   Given I am logged in as "goose" with "topgun"
     And this test deletes all posts

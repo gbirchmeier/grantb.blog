@@ -1,5 +1,6 @@
 When /^I visit "\/?([^"]*)"\s*$/ do |uri|
   if uri.include?("FIRST")
+    # changes e.g. "/admin/posts/FIRST/edit" to "/admin/posts/6/edit"
     model_name = uri.match(/([a-z_]+s)\/FIRST/)[1].capitalize.chop
     id = model_name.constantize.first.id #reflection magic here
     uri.sub!("FIRST",id.to_s)
@@ -38,6 +39,10 @@ end
 
 Then /^I should not see an element "([^"]*)"$/ do |el|
   assert has_no_css?(el)
+end
+
+Then /^I should see "([^"]*)" is in italics$/ do |text|
+  find("em",text:text)
 end
 
 # for sleazy debugging
