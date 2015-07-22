@@ -44,7 +44,7 @@ so I installed 1.6.6.
 **Other deps**
 * `yum install mariadb`
 * `yum install MariaDB-devel.x86_64`
-* `yum install nodejs (not sure why)`
+* `yum install nodejs` (not sure why, but Rails wants it)
 
 Sysadmin stuff I always forget
 ---
