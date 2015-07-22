@@ -1,3 +1,5 @@
+* hide secret_key_base
+
 * make a static dir
 
 * restore botcon galleries
@@ -10,8 +12,6 @@
 * Puma
 
 * page titles
-
-* show/edit post: content not positioned nice
 
 * tags
   - cuke tests

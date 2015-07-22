@@ -23,4 +23,11 @@ EOS
     d.strftime("%Y-%m-%d")
   end
 
+  def nnne(s)
+    # Returns non-nil non-empty string.  Empty string is converted to "&nbsp;".
+    # It is expected that callers will use .html_safe on the result.
+    return "&nbsp;" if s.nil? or s.strip.empty?
+    s
+  end
+
 end

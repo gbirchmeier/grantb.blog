@@ -13,13 +13,11 @@ fields = [
 
 <div class="field_list">
 
-<% fields.each{|f| %>
-  <% val = f[1] %>
-  <% val = "&nbsp;".html_safe if f[1].strip.empty? %>
-<div class="field">
-<div class="label"><%=f[0]%></div>
-<div class="value"><%=val%></div>
-</div>
+<% fields.each{ |label,value| %>
+  <div class="field">
+    <div class="label"><%=label%></div>
+    <div class="value"><%=nnne(value).html_safe%></div>
+  </div>
 <% } %>
 
 </div>
