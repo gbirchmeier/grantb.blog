@@ -1,3 +1,6 @@
+* Admin: graceful invalid-page handling
+* Admin: redo crumbs to be an array?
+
 * hide secret_key_base
 
 * make a static dir
@@ -10,8 +13,6 @@
 
 
 * Puma
-
-* page titles
 
 * tags
   - cuke tests

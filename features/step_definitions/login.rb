@@ -34,5 +34,5 @@ Then /^I should see that no one is logged in$/ do
 end
 
 Then /^I should see a logout notice$/ do
-  assert has_content?("You are logged out")
+  assert has_content?("You are signed out")
 end

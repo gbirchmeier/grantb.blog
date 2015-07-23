@@ -3,6 +3,7 @@ class Admin::PostsController < Admin::AdminController
   before_filter :set_controller_crumb, only: [:index,:new,:edit,:show,:delete]
 
   def index
+    @page_title = "Posts index"
     @action_crumb = "Index"
     @published_posts = Post.published.order(:published_at).reverse_order
     @draft_posts = Post.unpublished.order(:updated_at).reverse_order
@@ -11,21 +12,25 @@ class Admin::PostsController < Admin::AdminController
   def show
     @action_crumb = "Post Details"
     @post = Post.find_by(id: params[:id])
+    @page_title = "Show post: &quot;#{@post.headline}&quot;"
   end
 
   def new 
-    @action_crumb = "New Post"
+    @action_crumb = "New post"
     @post = Post.new
+    @page_title = "New post"
   end 
 
   def edit
     @action_crumb = "Edit Post"
     @post = Post.find(params[:id])
+    @page_title = "Show post: &quot;#{@post.headline}&quot;"
   end 
 
   def delete
     @action_crumb = "Delete Post"
     @post = Post.find(params[:id])
+    @page_title = "DELETE POST: &quot;#{@post.headline}&quot;"
   end
 
   def create

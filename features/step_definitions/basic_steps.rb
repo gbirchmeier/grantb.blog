@@ -45,6 +45,10 @@ Then /^I should see "([^"]*)" is in italics$/ do |text|
   find("em",text:text)
 end
 
+Then /^the html title should be "(.*)"$/ do |titletext|
+  assert_equal titletext, page.title
+end
+
 # for sleazy debugging
 Then /^what$/ do
   puts

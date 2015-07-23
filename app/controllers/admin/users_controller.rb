@@ -3,24 +3,27 @@ class Admin::UsersController < Admin::AdminController
   before_filter :set_controller_crumb, only: [:index,:new,:edit,:show]
 
   def index
+    @page_title = "Users index"
     @action_crumb = "Index"
     @users = User.order(:username)
-p @users
   end
 
   def show
     @action_crumb = "User Details"
     @user = User.find(params[:id])
+    @page_title = "Show user: &quot;#{@user.username}&quot;"
   end
 
   def new
     @action_crumb = "New User"
     @user = User.new
+    @page_title = "New user"
   end
 
   def edit
     @action_crumb = "Edit User"
     @user = User.find(params[:id])
+    @page_title = "Edit user: &quot;#{@user.username}&quot;"
   end
 
   def create
