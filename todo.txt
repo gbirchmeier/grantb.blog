@@ -3,15 +3,6 @@
 
 * hide secret_key_base
 
-* make a static dir
-
-* restore botcon galleries
-  - find what the url should be
-  - nginx config to that url
-  - upload
-  - fix email image
-
-
 * Puma
 
 * tags
@@ -34,3 +25,5 @@
 
 * change redcarpet render usage to be like this:
   http://icelab.com.au/articles/render-single-line-markdown-text-with-redcarpet/
+
+* Maybe do something about /home/blog/legacy_files.  Maybe.
