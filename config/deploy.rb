@@ -36,21 +36,13 @@ set :repo_url, 'git@github.com:gbirchmeier/grantb.blog.git'
 
 namespace :deploy do
 
-  before 'deploy:updated', 'custom:symlink_db_config'
-
-
-  desc 'bug demo'
-  task :bugdemo do
-    on roles(:app), in: :sequence, wait: 5 do
-      within release_path do
-        execute "cd #{fetch(:deploy_to)}/current && ls Gemfile"  #kludge
-
-        execute 'pwd'         # behaves as expected
-        execute 'ls'          # See Gemfile in listing
-        execute 'ls Gemfile'  # "No such file..." BUT YOU JUST SAW IT!
-      end
+  before 'deploy:updated' do
+    on roles(:web,:app,:db) do
+      execute "ln -nfs /home/blog/config/database.yml #{release_path}/config/database.yml"
+      execute "ln -nfs /home/blog/config/initializers/secret_token.rb #{release_path}/config/secret_token.rb"
     end
   end
+
 
   desc 'Restart application'
   task :restart do
@@ -71,14 +63,5 @@ namespace :deploy do
   end
 
   after :publishing, :restart
-
-#  after :restart, :clear_cache do
-#    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-#    end
-#  end
 
 end
