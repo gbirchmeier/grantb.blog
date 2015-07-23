@@ -33,7 +33,7 @@ Scenario: Can't view posts using id-based urls
         | author | headline | content | published_at      | created_at        | updated_at        | nice_url |
         | goose  | abc_1    | batman  | 20130722 16:04:34 | 20130722 16:04:34 | 20130722 16:04:34 | be_nice  |
    When I visit the id-based url for post "abc_1"
-   Then I should see the invalid-post message
+   Then I should see the invalid-item message
 
 
 Scenario: The posts index markdown-ifies the headlines

@@ -71,10 +71,6 @@ When /^I edit post "([^"]*)"/ do |headline|
   visit "/admin/posts/#{p.id}/edit"
 end
 
-Then /^I should see the invalid-post message/ do
-  page.find("#invalid_post")
-end
-
 Then(/^I should see a link to admin\-show post "(.*?)"$/) do |headline|
   post = Post.find_by!(headline: headline)
   url = "/admin/posts/#{post.id}"

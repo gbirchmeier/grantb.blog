@@ -29,5 +29,5 @@ Scenario Outline: A rando can not visit various admin pages
 Scenario: A rando can not show unpublished posts
   Given I am not logged in
    When I visit "/posts/nuh_uh"
-   Then I should see the invalid-post message
+   Then I should see the invalid-item message
 

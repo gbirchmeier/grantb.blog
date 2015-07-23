@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @page_title = @post.try(:headline)
     unless @post && @post.published?
       @page_title = "Invalid Page"
-      render "invalid_post"
+      render "shared/invalid_item"
     end
   end
 

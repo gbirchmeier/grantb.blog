@@ -15,3 +15,6 @@ Then /^I should see the no-posts-with-tag message$/ do
   assert has_css?('#no-posts-with-tag')
 end
 
+Then /^I should see the invalid-item message/ do
+  page.find("#invalid_item")
+end
