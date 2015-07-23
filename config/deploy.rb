@@ -36,7 +36,7 @@ set :repo_url, 'git@github.com:gbirchmeier/grantb.blog.git'
 
 namespace :deploy do
 
-  before 'deploy:updated' do
+  before :updated, :create_config_symlinks do
     on roles(:web,:app,:db) do
       execute "ln -nfs /home/blog/config/database.yml #{release_path}/config/database.yml"
       execute "ln -nfs /home/blog/config/initializers/secret_token.rb #{release_path}/config/secret_token.rb"
