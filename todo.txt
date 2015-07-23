@@ -1,8 +1,6 @@
 * Admin: graceful invalid-page handling
 * Admin: redo crumbs to be an array?
 
-* hide secret_key_base
-
 * Puma
 
 * tags
