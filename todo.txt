@@ -1,4 +1,3 @@
-* Admin: graceful invalid-page handling
 * Admin: redo crumbs to be an array?
 
 * Puma

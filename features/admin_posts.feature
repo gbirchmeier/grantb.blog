@@ -154,3 +154,10 @@ Scenario: I can delete a post
    Then I should be at the posts admin-index page
     And the DB should not have post "foo 2"
 
+Scenario: Invalid post urls get an appropriate view
+  Given I am logged in as "goose" with "topgun"
+   When I visit an invalid admin-show post url
+   Then I should see the admin-invalid-item message
+   When I visit an invalid edit post url
+   Then I should see the admin-invalid-item message
+

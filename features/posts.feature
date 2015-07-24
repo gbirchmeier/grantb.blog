@@ -43,3 +43,8 @@ Scenario: The posts index markdown-ifies the headlines
    When I visit "/posts/be_nice"
    Then I should see "dos" is in italics
 
+
+Scenario: Invalid post urls get an appropriate view
+   When I visit "/posts/arglebargle"
+   Then I should see the invalid-item message
+

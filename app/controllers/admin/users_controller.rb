@@ -10,8 +10,13 @@ class Admin::UsersController < Admin::AdminController
 
   def show
     @action_crumb = "User Details"
-    @user = User.find(params[:id])
-    @page_title = "Show user: &quot;#{@user.username}&quot;"
+    @user = User.find_by(id: params[:id])
+    if @user
+      @page_title = "Show user: &quot;#{@user.username}&quot;"
+    else
+      @page_title = "Invalid User ID"
+      render "shared/admin/invalid_item"
+    end
   end
 
   def new
@@ -22,8 +27,13 @@ class Admin::UsersController < Admin::AdminController
 
   def edit
     @action_crumb = "Edit User"
-    @user = User.find(params[:id])
-    @page_title = "Edit user: &quot;#{@user.username}&quot;"
+    @user = User.find_by(id: params[:id])
+    if @user
+      @page_title = "Edit user: &quot;#{@user.username}&quot;"
+    else
+      @page_title = "Invalid User ID"
+      render "shared/admin/invalid_item"
+    end
   end
 
   def create

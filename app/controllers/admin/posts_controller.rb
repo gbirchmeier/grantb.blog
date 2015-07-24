@@ -12,7 +12,12 @@ class Admin::PostsController < Admin::AdminController
   def show
     @action_crumb = "Post Details"
     @post = Post.find_by(id: params[:id])
-    @page_title = "Show post: &quot;#{@post.headline}&quot;"
+    if @post
+      @page_title = "Show post: &quot;#{@post.headline}&quot;"
+    else
+      @page_title = "Invalid Post ID"
+      render "shared/admin/invalid_item"
+    end
   end
 
   def new 
@@ -23,8 +28,13 @@ class Admin::PostsController < Admin::AdminController
 
   def edit
     @action_crumb = "Edit Post"
-    @post = Post.find(params[:id])
-    @page_title = "Show post: &quot;#{@post.headline}&quot;"
+    @post = Post.find_by(id: params[:id])
+    if @post
+      @page_title = "Edit post: &quot;#{@post.headline}&quot;"
+    else
+      @page_title = "Invalid Post ID"
+      render "shared/admin/invalid_item"
+    end
   end 
 
   def delete
