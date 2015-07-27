@@ -39,7 +39,7 @@ namespace :deploy do
   before :updated, :create_config_symlinks do
     on roles(:web,:app,:db) do
       execute "ln -nfs /home/blog/config/database.yml #{release_path}/config/database.yml"
-      execute "ln -nfs /home/blog/config/initializers/secret_token.rb #{release_path}/config/secret_token.rb"
+      execute "ln -nfs /home/blog/config/secret_token.rb #{release_path}/config/initializers/secret_token.rb"
     end
   end
 
