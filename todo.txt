@@ -1,3 +1,7 @@
+* Move to grantbnet_static:
+  * /home/blog/legacy_files
+  * /data/static/gk
+
 * Puma
 
 * tags
@@ -18,4 +22,3 @@
 * change redcarpet render usage to be like this:
   http://icelab.com.au/articles/render-single-line-markdown-text-with-redcarpet/
 
-* Maybe do something about /home/blog/legacy_files.  Maybe.

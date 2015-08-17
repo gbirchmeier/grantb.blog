@@ -4,6 +4,13 @@ grantb.blog
 Just using bundler for now.
 
 
+To upload images for use in blog posts:
+---
+* ssh them into `/home/blog/blog_uploads/<env>`
+* web server maps this dir to `/blog_uploads`
+
+
+
 Testing
 ---
 Just `rake test` and `rake cucumber` for now
@@ -30,6 +37,14 @@ Until I implement something better, I suggest just going into `rails console` an
 Running console in deployments:
 ---
 `RAILS\ENV=staging bundle exec rails console`
+
+Backing up the block content:
+---
+`bundle exec cap <env> backup`
+
+And scp these:
+* /home/blog/blog_uploads
+* /home/blog/legacy_files (until I move it to static)
 
 
 Shitty platform issues
