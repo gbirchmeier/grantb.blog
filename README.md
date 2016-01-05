@@ -36,15 +36,15 @@ Until I implement something better, I suggest just going into `rails console` an
 
 Running console in deployments:
 ---
-`RAILS\ENV=staging bundle exec rails console`
+`RAILS_ENV=staging bundle exec rails console`
 
 Backing up the block content:
 ---
 `bundle exec cap <env> backup`
 
 And scp these:
-* /home/blog/blog_uploads
-* /home/blog/legacy_files (until I move it to static)
+* `/home/blog/blog_uploads`
+* `/home/blog/legacy_files` (until I move it to static)
 
 
 Shitty platform issues
