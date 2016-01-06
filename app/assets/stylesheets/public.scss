@@ -3,6 +3,10 @@ $small-size: 13px;
 $sidebar_width: 300px;
 $main_margin_right: $sidebar_width+20;
 $main_width: 80%;
+$fg-color: #1fbd43;
+
+$monospace: Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+
 
 @mixin dark-scheme {
 	background-color: rgba(0,0,0,0.8);
@@ -23,13 +27,28 @@ $main_width: 80%;
 
 @mixin error-scheme {
 	padding: 20px;
-	background-color: white;
-	color: black;
+	background-color: black;
+	border: solid 1px red;
+	color: red;
 	font-weight: bold;
 	font-size: $regular-size + 2;
 }
 
-body.blogbody {
+body.public-default {
+
+	#platform-notice,
+	#userbox {
+		font-family: $monospace;
+	}
+
+
+	background-color: black;
+	color: #1fbd43;
+	font-family: sans-serif;
+
+	padding-top: 5px;
+	padding-left: 30px;
+	padding-right: 30px;
 
 	.alert {
 		color: black;
@@ -48,68 +67,45 @@ body.blogbody {
 		font-weight: bold;
 	}
 
-	background-image: url("/bg/pigeons.jpg");
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
 
+	div.masthead {
+		font-family: $monospace;
+		h1 {
+			padding: 0;
+			margin: 0;
+			font-size: 20px;
 
-	div.content {
-		margin-top: 50px;
-		width: 100%;
-
-		div#login-form-container {
-			width: 200px;
-			margin-left: auto;
-			margin-right: auto;
-
-			form {
-				@include light-scheme();
-				display: inline-block;
-				padding: 10px 20px;
-				margin-top: 40px;
-			}
+			a, a:visited { text-decoration: none; color: $fg-color; }
+			a:hover { color: white; }
 		}
-
-		div.sidebar {
-			position: absolute;
-			right: 20px;
-			width: $sidebar_width;
-	
-			div.about {
-				@include dark-scheme();
-				padding: 5px 5px 15px 5px;
-				margin-bottom: 20px;
-	
-				text-align: center;
-
-				h1 {
-					font-size: 26px;
-					text-align: center;
-					margin: 0 0 10px 0;
-				}
-	
-				hr { width: 50px; }
-			}
+		div {
+			font-size: 12px;
+			margin-top: 3px;
 		}
+		.hi { color: lime; }
 
-		div.main_wrap {
-			float: left;
-			margin-right: -1 * $main_margin_right;
-			width: 100%;
+		margin-bottom: 40px;
+	}
 
-			div.main_wrap2 {
-				margin-right: $main_margin_right;
 
-				div.main {
-					width: $main_width;
-					margin-left: auto;
-					margin-right: auto;
-				}
+	div#login-form-container {
+		width: 200px;
+		margin-left: auto;
+		margin-right: auto;
+
+		border: solid 1px $fg-color;
+		text-align: center;
+
+		form {
+			display: inline-block;
+			padding: 10px 20px;
+
+			.control-group {
+				margin-bottom: 10px;
 			}
 		}
 	}
+
 
 	div#no_posts {
 		@include error-scheme();
@@ -119,14 +115,78 @@ body.blogbody {
 		@include error-scheme();
 	}
 
-	div.post {
-		@include light-scheme();
 
+	div.yieldbox {
+		float: left;
+		max-width: 600px;
+	}
+
+	div.sidebar {
+		float: left;
+		width: 200px;
+		margin-left: 80px;
+
+		div.contact {
+			text-align: center;
+			border: 4px double $fg-color;
+			color: $fg-color;
+			padding: 5px;
+			padding-bottom: 10px;
+			margin-bottom: 30px;
+
+			font-family: $monospace;
+			font-size: 12px;
+
+			a, a:visited { text-decoration: none; color: $fg-color; }
+			a:hover { color: white; }
+
+			h1 {
+				padding: 0;
+				margin: 0;
+				font-size: 20px;
+			}
+
+			div {
+				margin-top: 10px;
+			}
+		}
+
+		div.navigate {
+			text-align: center;
+			border: 1px solid $fg-color;
+			color: $fg-color;
+			padding: 5px;
+			padding-bottom: 10px;
+			margin-bottom: 30px;
+
+			font-family: $monospace;
+			font-size: 12px;
+
+			a, a:visited { color: $fg-color; }
+			a:hover { color: white; }
+
+			h1 {
+				padding: 0;
+				margin: 0;
+				font-size: 20px;
+			}
+
+			div {
+				margin-top: 10px;
+			}
+
+		}
+
+	}
+
+
+	div.post {
+		border: $fg-color 1px solid;
 		padding: 5px;
 		margin-bottom: 60px;
 
 		h1 {
-			font-size: $regular-size + 10;
+			font-size: $regular-size + 6;
 			font-weight: bold;
 			margin: 0;
 			padding: 0;
@@ -165,46 +225,5 @@ body.blogbody {
 		}
 	}
 
-	div#prev_next {
-		@include dark-scheme();
-		border: 1px solid white;
-		padding: 10px;
-		font-size: $regular-size;
-		overflow: auto;
-
-		div.prev {
-			float: left;
-			width: 30%;
-			text-align: left;
-		}
-
-		div.prev_content:before {
-			content: "Older\A";
-			white-space: pre;
-			color: #888888;
-		}
-
-		div.next {
-			float: right;
-			width: 30%;
-			text-align: right;
-		}
-		div.next_content:before {
-			content: "Newer\A";
-			white-space: pre;
-			color: #888888;
-		}
-
-		div.date {
-			font-style: italic;
-		}
-
-		div.archive {
-			margin-top: 2px;
-			vertical-align: middle;
-			text-align: center;
-			font-size: $regular-size+6;
-		}
-	}
 }
 

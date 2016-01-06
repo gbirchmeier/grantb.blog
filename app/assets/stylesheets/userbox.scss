@@ -1,38 +1,29 @@
-$regular-size: 16px;
-$padding: 5px;
-
 #userbox {
-	font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
 	z-index: 1000;
 	position: fixed;
 	right: 0px;
 	top: 0px;
+
 	border: 2px solid green;
 	background-color: rgba(200,255,200,0.8);
 	color: black;
 	font-weight: bold;
-	padding: $padding;
-	font-size: $regular-size;
+	padding: 5px;
 
 	a { color: black; }
 	a:visited { color: black; }
-	a:hover { color: red; background-color: transparent; }
+	a:hover { color: white; background-color: transparent; }
 
-	div.userline {
-		margin-right: 100px;
+	div.user {
+		display: inline-block;
 	}
 
 	div.command {
-		text-align: center;
-		margin-top: 15px;
-		margin-bottom: 15px;
+		display: inline-block;
 	}
 
 	div.logout {
-		position: absolute;
-		right: $padding;	
-		top: $padding;
-		text-align: right;
+		display: inline-block;
 	}
 }
 

@@ -7,8 +7,13 @@ class Tag < ActiveRecord::Base
 
   TAG_SEPARATOR = " "
 
-  scope :published, -> { joins(:posts).merge(Post.published) }
-
+  def self.published_counts_by_name
+    # thanks to http://www.sitepoint.com/tagging-scratch-rails/
+    Tag.select("tags.id, tags.name, count(post_tags.tag_id) as count").
+      joins(:post_tags).
+      group("post_tags.tag_id").
+      order('tags.name')
+  end
 
   def path
     "/tags/#{self.name}"

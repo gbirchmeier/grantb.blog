@@ -2,7 +2,7 @@ class TagsController < ApplicationController
 
   def index
     @page_title = "All Tags"
-    @tags = Tag.published.order(:name)
+    @tags = Tag.published_counts_by_name
   end
 
   def show

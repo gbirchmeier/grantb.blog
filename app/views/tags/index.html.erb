@@ -9,7 +9,7 @@
 <% @tags.each {|t| %>
 	<tr>
 		<td><%=link_to t.name, t.path%></td>
-		<td><%=t.posts.count%></td>
+		<td><%=t.count%></td>
 	</tr>
 <% } %>
 </table>
