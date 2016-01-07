@@ -3,12 +3,14 @@ $small-size: 11px;
 
 $main-color: #1fbd43;
 $hi-color: lime;
-$content-text-color: #cccccc;
-$content-visited-color: #8DB997;
+$content-text-color: #aaaaaa;
+$content-h1-color: #bbbbbb;
+$content-visited-color: #74aa80;
 
 $nav-color: #1fbd43;
 
 $monospace: Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+$sans-serif: Helvetica, Tahoma, Verdana, Arial, sans-serif;
 
 
 @mixin dark-scheme {
@@ -31,6 +33,8 @@ $monospace: Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
 
 
 body.public-default {
+	font-family: $sans-serif;
+
 	background-color: black;
 	color: $main-color;
 
@@ -182,22 +186,22 @@ body.public-default {
 		border: $main-color 1px solid;
 		margin-bottom: 60px;
 
-		.dateline { color: $main-color; }
+		div.dateline {
+			color: $main-color;
+			margin-bottom: 20px;
+		}
 
 		h1 {
-			font-size: $regular-size + 8;
+			font-size: $regular-size + 10;
 			font-weight: bold;
-			background-color: #116926;
-			color: black;
-			font-family: $monospace;
-			padding: 5px;
+			color: $content-h1-color;
+			padding: 5px 5px 0 5px;;
 			margin-bottom: 2px;
 		}
 
 		div.tag {
 			display: inline-block;
-			margin-left: 2px;
-			margin-right: 2px;
+			margin-right: 3px;
 		}
 
 		div.wrap {
