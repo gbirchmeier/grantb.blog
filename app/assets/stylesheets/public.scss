@@ -1,9 +1,12 @@
-$regular-size: 16px;
-$small-size: 13px;
-$sidebar_width: 300px;
-$main_margin_right: $sidebar_width+20;
-$main_width: 80%;
-$fg-color: #1fbd43;
+$regular-size: 14px;
+$small-size: 11px;
+
+$main-color: #1fbd43;
+$hi-color: lime;
+$content-text-color: #cccccc;
+$content-visited-color: #8DB997;
+
+$nav-color: #1fbd43;
 
 $monospace: Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
 
@@ -16,15 +19,6 @@ $monospace: Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
 	a:hover { color: #dd99dd; }
 }
 
-@mixin light-scheme {
-	background-color: rgba(255,255,255,0.8);
-	color: black;
-	border: white 1px solid;
-	a { color: #0000cc; }
-	a:visited { color: #7700cc; }
-	a:hover { color: #cc0000; }
-}
-
 @mixin error-scheme {
 	padding: 20px;
 	background-color: black;
@@ -34,17 +28,22 @@ $monospace: Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
 	font-size: $regular-size + 2;
 }
 
+
+
 body.public-default {
+	background-color: black;
+	color: $main-color;
+
+	h1 { margin: 0; padding: 0; }
+	.small-text { font-size: $small-size; }
+	.hi { color: $hi-color; }
+
 
 	#platform-notice,
 	#userbox {
 		font-family: $monospace;
 	}
 
-
-	background-color: black;
-	color: #1fbd43;
-	font-family: sans-serif;
 
 	padding-top: 5px;
 	padding-left: 30px;
@@ -71,18 +70,14 @@ body.public-default {
 	div.masthead {
 		font-family: $monospace;
 		h1 {
-			padding: 0;
-			margin: 0;
 			font-size: 20px;
 
-			a, a:visited { text-decoration: none; color: $fg-color; }
-			a:hover { color: white; }
+			a, a:visited { text-decoration: none; color: $main-color; }
 		}
 		div {
 			font-size: 12px;
 			margin-top: 3px;
 		}
-		.hi { color: lime; }
 
 		margin-bottom: 40px;
 	}
@@ -93,7 +88,7 @@ body.public-default {
 		margin-left: auto;
 		margin-right: auto;
 
-		border: solid 1px $fg-color;
+		border: solid 1px $main-color;
 		text-align: center;
 
 		form {
@@ -119,6 +114,13 @@ body.public-default {
 	div.yieldbox {
 		float: left;
 		max-width: 600px;
+
+		font-size: $regular-size;
+		color: $content-text-color;
+
+		a { color: $main-color; }
+		a:visited { color: $content-visited-color; }
+		a:hover { color: $hi-color; }
 	}
 
 	div.sidebar {
@@ -128,8 +130,8 @@ body.public-default {
 
 		div.contact {
 			text-align: center;
-			border: 4px double $fg-color;
-			color: $fg-color;
+			border: 4px double $main-color;
+			color: $main-color;
 			padding: 5px;
 			padding-bottom: 10px;
 			margin-bottom: 30px;
@@ -137,24 +139,22 @@ body.public-default {
 			font-family: $monospace;
 			font-size: 12px;
 
-			a, a:visited { text-decoration: none; color: $fg-color; }
-			a:hover { color: white; }
-
 			h1 {
-				padding: 0;
-				margin: 0;
 				font-size: 20px;
 			}
 
 			div {
 				margin-top: 10px;
 			}
+
+			a, a:visited { color: $main-color; }
+			a:hover { color: white; }
 		}
 
 		div.navigate {
 			text-align: center;
-			border: 1px solid $fg-color;
-			color: $fg-color;
+			xborder: 1px solid $nav-color;
+			color: $nav-color;
 			padding: 5px;
 			padding-bottom: 10px;
 			margin-bottom: 30px;
@@ -162,12 +162,10 @@ body.public-default {
 			font-family: $monospace;
 			font-size: 12px;
 
-			a, a:visited { color: $fg-color; }
+			a, a:visited { color: $nav-color; }
 			a:hover { color: white; }
 
 			h1 {
-				padding: 0;
-				margin: 0;
 				font-size: 20px;
 			}
 
@@ -181,33 +179,29 @@ body.public-default {
 
 
 	div.post {
-		border: $fg-color 1px solid;
-		padding: 5px;
+		border: $main-color 1px solid;
 		margin-bottom: 60px;
 
+		.dateline { color: $main-color; }
+
 		h1 {
-			font-size: $regular-size + 6;
+			font-size: $regular-size + 8;
 			font-weight: bold;
-			margin: 0;
-			padding: 0;
-		}
-		div.published_at {
-			font-size: $small-size;
-		}
-		div.updated_at { display: none; }
-		div.created_at { display: none; }
-		div.content {}
-		div.permalink {
-			font-size: $small-size;
+			background-color: #116926;
+			color: black;
+			font-family: $monospace;
+			padding: 5px;
+			margin-bottom: 2px;
 		}
 
-		div.tags {
-			font-size: $small-size;
-			div.tag {
-				display: inline-block;
-				margin-left: 2px;
-				margin-right: 2px;
-			}
+		div.tag {
+			display: inline-block;
+			margin-left: 2px;
+			margin-right: 2px;
+		}
+
+		div.wrap {
+			margin: 0 5px 5px 5px;
 		}
 	}
 
@@ -221,7 +215,6 @@ body.public-default {
 			font-size: $regular-size + 4;
 			font-weight: bold;
 			margin: 0 0 20px 0;
-			padding: 0;
 		}
 	}
 

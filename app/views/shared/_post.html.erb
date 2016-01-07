@@ -1,15 +1,16 @@
 <div class="post">
-<h1><%=@post.headline_as_html.html_safe%></h1>
-<div class="published_at"><%=@post.pub_date_and_time%></div>
-<div class="created_at"><%=@post.created_at%></div>
-<div class="updated_at"><%=@post.updated_at%></div>
-<div class="tags">
-<% if @post.tags.size > 0 %>
-Tags: <% @post.tags.each{|t| %><div class="tag"><%=link_to t.name,t.path%></div><% } %>
-<% else %>
-(no tags)
-<% end %>
-</div>
-<div class="permalink"><%=link_to "Permalink", @post.pretty_path%></div>
-<div><%=@post.content_as_html.html_safe%></div>
+	<h1><%=@post.headline_as_html.html_safe%></h1>
+	<div class="wrap">
+		<div class="small-text dateline">
+			<span class="published_at"><%=@post.pub_date_and_time%></span>
+			<% if @post.tags.size > 0 %>
+				&mdash;
+				<% @post.tags.each{|t| %>
+					<div class="tag"><%=link_to t.name,t.path%></div>
+				<% } %>
+			<% end %>
+		</div>
+		<!--<div class="permalink"><%=link_to "Permalink", @post.pretty_path%></div>-->
+		<div class="content"><%=@post.content_as_html.html_safe%></div>
+	</div>
 </div><!--post-->
