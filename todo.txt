@@ -1,3 +1,14 @@
+* og/twittercard tags
+* next/prev links to individual posts
+* post should have permalink (front page only)
+* front-page next 10
+* footer
+* responsive
+
+
+
+=============================
+
 * Move to grantbnet_static:
   * /home/blog/legacy_files
   * /data/static/gk

@@ -17,7 +17,7 @@
 <% @tag.posts.published.order(:published_at).reverse_order.each {|p| %>
 		<tr>
 			<td><%=link_to p.headline, p.pretty_path%></td>
-			<td class="center"><%=numeric_short_date(p.published_at)%></td>
+			<td class="center"><%=numeric_date(p.published_at)%></td>
 		</tr>
 <% } %>
 	</tbody>

@@ -24,20 +24,6 @@ class Post < ActiveRecord::Base
     !published_at.nil?
   end
 
-  def short_pub_date
-    return nil unless published?
-    published_at.strftime("%b %e, %Y")
-  end
-
-  def pub_date_and_time
-    return nil unless published?
-    published_at.strftime("%b %e, %Y, %l:%M%P")
-  end
-
-  def self.recent(i)
-    Post.published.order("published_at DESC").limit(i)
-  end
-
   def previous
     Post.published.where("published_at < ?", self.published_at).order("published_at DESC").limit(1).first
   end
