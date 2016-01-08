@@ -7,6 +7,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(nice_url: params[:id])
+    @prev_post = @post.previous
+    @next_post = @post.next
+
     @page_title = @post.headline
     unless @post && @post.published?
       @page_title = "Invalid Page"

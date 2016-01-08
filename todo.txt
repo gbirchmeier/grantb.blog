@@ -1,5 +1,4 @@
 * og/twittercard tags
-* next/prev links to individual posts
 * post should have permalink (front page only)
 * front-page next 10
 * footer

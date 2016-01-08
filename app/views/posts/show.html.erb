@@ -1,1 +1,15 @@
 <%= render 'shared/post' %>
+
+<% if @next_post %>
+<div class="prev-next">
+	<h1>Next: </h1>
+	<div><%=numeric_date_and_time(@next_post.published_at)%> <%=link_to(@next_post.headline, @next_post.pretty_path)%></div>
+</div>
+<% end %>
+
+<% if @prev_post %>
+<div class="prev-next">
+	<h1>Previous: </h1>
+	<div><%=numeric_date_and_time(@prev_post.published_at)%> <%=link_to(@prev_post.headline, @prev_post.pretty_path) %></div>
+</div>
+<% end %>

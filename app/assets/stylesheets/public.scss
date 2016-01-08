@@ -34,6 +34,7 @@ body.public-default {
 	h1 { margin: 0; padding: 0; }
 	.small-text { font-size: $small-size; }
 	.hi { color: $hi-color; }
+	.center { text-align: center; }
 
 
 	#platform-notice,
@@ -173,10 +174,9 @@ body.public-default {
 
 	}
 
-
 	div.post {
 		border: $main-color 1px solid;
-		margin-bottom: 60px;
+		margin-bottom: 40px; /* overridden by div.front-page below */
 
 		div.dateline {
 			color: $main-color;
@@ -201,12 +201,27 @@ body.public-default {
 		}
 	}
 
+ 	div.front-page div.post {
+		margin-bottom: 60px;
+	}
+
+ 	div.prev-next {
+		padding: 5px 5px 0 5px;
+		font-size: $regular-size + 4;
+		margin-bottom: 6px;
+
+		h1 {
+			color: $main-color;
+			font-size: $regular-size + 10;
+			font-weight: normal;
+		}
+	}
+
 	div#list_index {
 		display: inline-block;
 		border: 1px solid $main-color;
 		padding: 5px 5px 15px 5px;
 
-		table { border-collapse: collapse; }
 
 		h1 {
 			font-size: $regular-size + 10;
@@ -214,21 +229,22 @@ body.public-default {
 			margin: 0 0 20px 0;
 		}
 
-		tbody tr:hover { background-color: $dull-bg; }
+		table {
+			border-collapse: collapse;
 
-		th {
-			font-size: $regular-size + 6;
-			text-align: left;
-			padding-bottom: 10px;
+			tbody tr:hover { background-color: $dull-bg; }
+
+			th {
+				font-size: $regular-size + 6;
+				text-align: left;
+				padding-bottom: 10px;
+			}
+
+			td {
+				a { text-decoration: none; }
+				padding: 6px 0 6px 0;
+			}
 		}
-
-
-		td {
-			a { text-decoration: none; }
-			padding: 6px 0 6px 0;
-		}
-
-		td.center { text-align: center; }
 	}
 }
 
