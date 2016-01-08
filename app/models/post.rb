@@ -32,6 +32,10 @@ class Post < ActiveRecord::Base
     Post.published.where("published_at > ?", self.published_at).order("published_at ASC").limit(1).first
   end
 
+  def self.before(n,datetime)
+    Post.published.where("published_at < ?", datetime).order("published_at DESC").limit(n)
+  end
+
   def pretty_path
     "/posts/#{self.nice_url || self.id}"
   end

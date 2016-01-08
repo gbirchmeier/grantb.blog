@@ -1,7 +1,7 @@
-* og/twittercard tags
+* og tags - ogp.me
+* twitter card tags - https://dev.twitter.com/cards/overview | https://dev.twitter.com/cards/types/summary
 * post should have permalink (front page only)
 * front-page next 10
-* footer
 * responsive
 
 

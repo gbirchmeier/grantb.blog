@@ -27,6 +27,18 @@ class PostTest < ActiveSupport::TestCase
     assert_equal "ccc", p.next.headline
   end
 
+  test "self.before" do
+    FactoryGirl.create(:post, headline: "xx1", published_at: DateTime.new(2014,01,01))
+    FactoryGirl.create(:post, headline: "aaa", published_at: DateTime.new(2014,01,02))
+    FactoryGirl.create(:post, headline: "bbb", published_at: DateTime.new(2014,01,03))
+    FactoryGirl.create(:post, headline: "xx2", published_at: DateTime.new(2014,01,04))
+
+    d = DateTime.parse("Jan 3, 2014, 8:15pm UTC")
+    a = Post.before(2,d)
+    assert_equal "bbb", a[0].headline
+    assert_equal "aaa", a[1].headline
+  end
+
   test "validates/strips nice_url" do
     #valid
     assert_equal "123-Pants_", FactoryGirl.create(:post,nice_url:" 123-Pants_ ").nice_url
