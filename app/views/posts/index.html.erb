@@ -2,15 +2,19 @@
 <h1>Archive of past posts</h1>
 
 <table id="items_tbl">
-	<tr>
-		<th>Headline</th>
-		<th>Published</th>
-	</tr>
+	<thead>
+		<tr>
+			<th>Headline</th>
+			<th>Published</th>
+		</tr>
+	</thead>
+	<tbody>
 <% @posts.each {|p| %>
-	<tr>
-		<td><%=link_to p.headline_as_html.html_safe, p.pretty_path%></td>
-		<td><%=p.short_pub_date%></td>
-	</tr>
+		<tr>
+			<td><%=link_to p.headline_as_html.html_safe, p.pretty_path%></td>
+			<td class="center"><%=numeric_short_date(p.published_at)%></td>
+		</tr>
 <% } %>
+	</tbody>
 </table>
 </div>

@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(nice_url: params[:id])
-    @page_title = @post.try(:headline)
+    @page_title = @post.headline
     unless @post && @post.published?
       @page_title = "Invalid Page"
       render "shared/invalid_item"

@@ -2,15 +2,20 @@
 <h1>Tags index</h1>
 
 <table id="posts_tbl">
-	<tr>
-		<th>Tag</th>
-		<th>Number of posts</th>
-	</tr>
+	<thead>
+		<tr>
+			<th>Tag</th>
+			<th>#&nbsp;posts</th>
+		</tr>
+	</thead>
+	<tbody>
 <% @tags.each {|t| %>
-	<tr>
-		<td><%=link_to t.name, t.path%></td>
-		<td><%=t.count%></td>
-	</tr>
+		<tr>
+			<td><%=link_to t.name, t.path%></td>
+			<td class="center"><%=t.count%></td>
+		</tr>
 <% } %>
+	</tbody>
 </table>
 </div>
+
