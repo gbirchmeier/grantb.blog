@@ -42,13 +42,9 @@ class FrontPageControllerTest < ActionController::TestCase
     assert_equal @test_post[3].published_at.to_i, assigns(:newer_time)
   end
 
-  test "after - truncated" do
+  test "after - redirect to front" do
     get :after, timeint: @test_post[12].published_at.to_i
-    assert_equal 3, assigns(:posts).length
-    assert_equal @test_post[15], assigns(:posts).first
-    assert_equal @test_post[13], assigns(:posts).last
-    assert_nil assigns(:newer_time)
-    assert_equal @test_post[13].published_at.to_i, assigns(:older_time)
+    assert_response 302
   end
 
 end
