@@ -4,11 +4,19 @@
   <div id="no_posts">No posts.</div>
 <% else %>
 
+
 <% @posts.each{|p| %>
    <% @post = p %>
    <%=render 'shared/post'%>
 <% } %>
 
-<% end %>
 
+  <%-if @older_time %>
+  <div id="time_footer">
+    <div class="link"><a href="/before/<%=@older_time%>">Older Posts</a></div>
+  </div>
+  <%-end %>
+
+
+<% end %>
 </div>

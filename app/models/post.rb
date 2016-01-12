@@ -33,13 +33,13 @@ class Post < ActiveRecord::Base
   end
 
   def self.before(n,datetime)
-    #is exclusive
+    # is exclusive
     Post.published.where("published_at < ?", datetime).order("published_at DESC").limit(n).to_a
   end
 
   def self.after(n,datetime)
-    # is inclusive
-    Post.published.where("published_at >= ?", datetime).order("published_at ASC").limit(n).reverse
+    # is exclusive
+    Post.published.where("published_at > ?", datetime).order("published_at ASC").limit(n).reverse
   end
 
   def pretty_path

@@ -1,6 +1,8 @@
 GrantbBlog::Application.routes.draw do
 
   root 'front_page#index'
+  get 'before/:timeint', to: "front_page#before"
+  get 'after/:timeint', to: "front_page#after"
 
   get "sign/in", to: "sessions#new", as: "login"
   get "sign/out", to: "sessions#destroy", as: "logout"

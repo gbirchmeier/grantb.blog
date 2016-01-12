@@ -46,7 +46,7 @@ class PostTest < ActiveSupport::TestCase
     FactoryGirl.create(:post, headline: "bbb", published_at: DateTime.new(2014,01,03))
     FactoryGirl.create(:post, headline: "xx2", published_at: DateTime.new(2014,01,04))
 
-    d = DateTime.new(2014,01,02) # is inclusive
+    d = DateTime.new(2014,01,01) # is exclusive
     a = Post.after(2,d)
     assert a.is_a? Array
     assert_equal "bbb", a[0].headline
