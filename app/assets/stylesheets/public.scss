@@ -271,8 +271,9 @@ body.public-default {
 
 		h1 {
 			font-size: $regular-size + 10;
-			font-weight: bold;
+			font-weight: normal;
 			margin: 0 0 20px 0;
+			color: $main-color;
 		}
 
 		table {
