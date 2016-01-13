@@ -23,6 +23,19 @@ $sans-serif: Helvetica, Tahoma, Verdana, Arial, sans-serif;
 	font-size: $regular-size + 2;
 }
 
+@mixin boxylink($padding) {
+	display: inline-block;
+	border: solid 1px $main-color;
+	text-decoration: none;
+	padding: $padding;
+	background-color: black;
+	color: $main-color;
+}
+@mixin boxylink_hover {
+	color: black;
+	background-color: $main-color;
+}
+
 
 
 body.public-default {
@@ -215,6 +228,38 @@ body.public-default {
 			color: $main-color;
 			font-size: $regular-size + 10;
 			font-weight: normal;
+		}
+	}
+
+	div#time-header {
+		font-size: $regular-size + 4;
+		text-align: center;
+		color: $main-color;
+		margin-bottom: 20px;
+
+		h1 {
+			font-weight: normal;
+		}
+
+		div.links {
+			margin-top: 10px;
+			div.link {
+				display: inline-block;
+				a { @include boxylink(5px 10px); }
+				a:hover { @include boxylink_hover(); }
+			}
+		}
+	}
+
+	div#time-footer {
+		font-size: $regular-size + 6;
+		margin-top: -20px;
+                margin-bottom: 40px;
+		text-align: center;
+
+		div.link {
+			a { @include boxylink(5px 10px); }
+			a:hover { @include boxylink_hover(); }
 		}
 	}
 

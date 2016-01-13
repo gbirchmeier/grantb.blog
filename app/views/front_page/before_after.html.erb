@@ -5,15 +5,21 @@
 <% else %>
 
 
-  <div id="time_header">
-    <h1>Posts from <%=numeric_date_and_time(@posts.first.published_at)%>
-        back to <%=numeric_date_and_time(@posts.last.published_at)%></h1>
-    <%-if @newer_time %>
-      <div class="link"><a href="/after/<%=@newer_time%>">Newer</a></div>
-    <%-end %>
-    <%-if @older_time %>
-      <div class="link"><a href="/before/<%=@older_time%>">Older</a></div>
-    <%-end %>
+  <div id="time-header">
+    <h1>Older Posts</h1>
+    <div class="fromto">
+      <%=numeric_date_and_time(@posts.first.published_at)%>
+      to
+      <%=numeric_date_and_time(@posts.last.published_at)%>
+    </div>
+    <div class="links">
+      <%-if @newer_time %>
+        <div class="link"><a href="/after/<%=@newer_time%>">&lt; Newer</a></div>
+      <%-end %>
+      <%-if @older_time %>
+        <div class="link"><a href="/before/<%=@older_time%>">Older &gt;</a></div>
+      <%-end %>
+    </div>
   </div>
 
 
@@ -23,11 +29,7 @@
 <% } %>
 
 
-  <%-if @older_time %>
-  <div id="time_footer">
-    <div class="link"><a href="/before/<%=@older_time%>">Older</a></div>
-  </div>
-  <%-end %>
+<%=render 'time_footer'%>
 
 
 <% end %>
