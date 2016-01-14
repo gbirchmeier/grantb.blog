@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include ApplicationHelper
 
   def index
     @page_title = "Posts Archive"
@@ -19,7 +20,7 @@ class PostsController < ApplicationController
     @opengraph = {}
     @opengraph["og:title"] = @post.headline
     @opengraph["og:type"] = "article"
-    @opengraph["og:url"] = request.original_url
+    @opengraph["og:url"] = current_correct_url()
     @opengraph["og:image"] = "og-logo.png"
     @opengraph["og:site_name"] = "GrantB.net"
 
