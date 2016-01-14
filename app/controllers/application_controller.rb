@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
     root = "http://staging.grantb.net" if Rails.env.staging?
     root = "http://grantb.net" if Rails.env.production?
 
-    return "#{root}/#{request.original_fullpath}" if root
+    return "#{root}#{request.original_fullpath}" if root
     return request.original_url
   end
 
