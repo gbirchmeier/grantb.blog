@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  include ApplicationHelper
 
   def index
     @page_title = "Posts Archive"

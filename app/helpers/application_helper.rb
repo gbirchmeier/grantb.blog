@@ -20,9 +20,4 @@ EOS
     s
   end
 
-  def current_correct_url
-    root = Rails.configuration.try(:x).try(:url_root)
-    return "#{root}/#{request.original_fullpath}" if root
-    return request.original_url
-  end
 end
