@@ -15,6 +15,17 @@ class PostsController < ApplicationController
       @page_title = "Invalid Page"
       render "shared/invalid_item"
     end
+
+    @opengraph = {}
+    @opengraph["og:title"] = @post.headline
+    @opengraph["og:type"] = "article"
+    @opengraph["og:url"] = request.original_url
+    @opengraph["og:image"] = "og-logo.png"
+    @opengraph["og:site_name"] = "GrantB.net"
+
+    #do the rest after I can use FB's checker
+
+    #@opengraph["og:article:author"] = "#{@post.user.full_name}"
   end
 
 end
