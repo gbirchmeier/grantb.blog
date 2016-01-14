@@ -77,5 +77,6 @@ GrantbBlog::Application.configure do
 
 
   config.action_controller.asset_host = "http://staging.grantb.net"
-  config.x.url_root = "http://staging.grantb.net"
+  # use this when I upgrade to Rails 4.2
+  #config.x.url_root = "http://staging.grantb.net"
 end

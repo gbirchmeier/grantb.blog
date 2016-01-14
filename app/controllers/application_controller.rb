@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
     false
   end
 
-#private
 
   def current_user
     unless @current_user
@@ -30,6 +29,18 @@ class ApplicationController < ActionController::Base
     Rails.logger.error e.inspect
     session[:user_id] = nil
     nil
+  end
+
+  def current_correct_url
+    # use this when I upgrade to Rails 4.2
+    #root = Rails.configuration.try(:x).try(:url_root)
+
+    # hack for current Rails 4.0
+    root = "http://staging.grantb.net" if Rails.env.staging?
+    root = "http://grantb.net" if Rails.env.production?
+
+    return "#{root}/#{request.original_fullpath}" if root
+    return request.original_url
   end
 
 private
