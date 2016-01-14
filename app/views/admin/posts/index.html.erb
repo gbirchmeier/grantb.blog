@@ -5,8 +5,8 @@ def post_row p
 		<td class="left">#{link_to p.headline_as_html.html_safe, admin_post_path(p), class: "showlink" }</td>
 		<td class="button">#{link_to "public", p.pretty_path, class: "button" }</td>
 		<td class="button">#{link_to "edit", edit_admin_post_path(p), class: "button" }</td>
-		<td>#{numeric_short_date(p.published_at)}</td>
-		<td>#{numeric_short_date(p.created_at)}</td>
+		<td>#{numeric_date(p.published_at)}</td>
+		<td>#{numeric_date(p.created_at)}</td>
 		<td class="button right">#{link_to "delete", delete_admin_post_path(p), class: "button" }</td>
 	</tr>
 ROW

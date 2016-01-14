@@ -13,16 +13,6 @@ EOS
     rv.html_safe
   end
 
-  def pretty_short_date(d)
-    return "" if d.nil?
-    d.strftime("%b %e, %Y")
-  end
-
-  def numeric_short_date(d)
-    return "" if d.nil?
-    d.strftime("%Y-%m-%d")
-  end
-
   def nnne(s)
     # Returns non-nil non-empty string.  Empty string is converted to "&nbsp;".
     # It is expected that callers will use .html_safe on the result.

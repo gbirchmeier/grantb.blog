@@ -2,25 +2,28 @@
 <h1>Posts tagged "<%=@name%>"</h1>
 
 <%if @tag==nil || @tag.posts.published.count < 1 %>
-  <div id="no-posts-with-tag">None.</div>
+	<div id="no-posts-with-tag">None.</div>
 
 <%else%>
 
 <table>
-	<tr>
-		<th>Headline</th>
-		<th>Published</th>
-	</tr>
+	<thead>
+		<tr>
+			<th>Headline</th>
+			<th>Published</th>
+		</tr>
+	</thead>
+	<tbody>
 <% @tag.posts.published.order(:published_at).reverse_order.each {|p| %>
-	<tr>
-		<td><%=link_to p.headline, p.pretty_path%></td>
-		<td><%=p.short_pub_date%></td>
-	</tr>
+		<tr>
+			<td><%=link_to p.headline, p.pretty_path%></td>
+			<td class="center"><%=numeric_date(p.published_at)%></td>
+		</tr>
 <% } %>
+	</tbody>
 
 <%end%>
 
 </table>
-
 </div>
 

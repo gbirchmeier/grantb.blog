@@ -1,63 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>GrantB.net<%= ": #{@page_title}".html_safe if @page_title %></title>
+<title><%= "#{@page_title} | ".html_safe if @page_title %>GrantB.net</title>
+<%= render 'shared/opengraph' %>
 <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 <%= csrf_meta_tags %>
 </head>
-<body class="blogbody">
+<body class="public-default">
+
+
+
+
+
+
+<div class="masthead">
+	<h1><a href="/">GrantB.net</a></h1>
+	<div>Topics may include programming, classic console games,
+		comic books, kung fu flicks, spaghetti westerns, or giant cartoon robots.
+	</div>
+	<div><span class="hi">Grant Birchmeier</span> is from West Michigan but currently lives in Chicagoland.</div>
+</div>
+
+
+
+
+
 
 <% unless Rails.env.production? %>
 <div id="platform-notice"><%=Rails.env.upcase%></div>
 <% end %>
 
-<div class="content">
-
-
-
 <% if @current_user %>
 	<div id="userbox">
-		<div class="userline">Hello, <%=@current_user.username%></div>
-		<div class="command"><%=link_to "Administrate", admin_path %></div>
-		<div class="logout"><%=link_to "Log out", logout_path%></div>
+		<div class="user"><%=@current_user.username%>:</div>
+		<div class="command"><%=link_to "Admin", admin_path %></div>
+		<div class="logout"><%=link_to "Logout", logout_path%></div>
 	</div>
 <% end %>
 
 
 
 
-<div class="sidebar">
-<div class="about">
-<h1><a href="/">GRANTB.NET</a></h1>
-Grant Birchmeier
-<hr/>
-Topics may include programming, spaghetti westerns, classic console games,
-kung fu flicks, or giant cartoon robots.
-<hr/>
-I'm from Michigan, but I live in Chicago's suburbs.
-<hr/>
-<img src="/f/utility_images/grantemail-white_on_black.png" alt="username grant at this domain" height="22" width="190"/>
-</div><!--about-->
-</div><!--sidebar-->
 
 
-
-
-<div class="main_wrap">
-<div class="main_wrap2">
-<div class="main">
-
+<div class="alerts">
 <% flash.each do |k, v| %>
 	<% alert_class = (k == :error ? "alert-error" : "alert") %>
 	<div class="<%= alert_class %>" id="<%= k %>"><%= v %></div>
 <% end %>
+</div>
 
+
+
+
+
+<div class="content">
+
+<div class="yieldbox">
 <%= yield %>
-</div></div></div><!--main-->
+	<div style="visibility: hidden;">
+	Ignore this block if you somehow can see it.
+	It's a hack to force the 'yieldbox' div to be
+	as wide as the viewport allows, even if the content isn't wide.
+	</div>
+</div>
+
+<div class="sidebar">
+	<div class="contact">
+		<h1>Contact</h1>
+		<div><a href="https://twitter.com/GrantBirchmeier">@GrantBirchmeier</a></div>
+		<div><%=image_tag("grantemail-white_on_black.png", height: 11, width: 95, alt: "username grant at this domain")%></div>
+	</div>
+
+	<div class="navigate">
+		<h1>Navigate</h1>
+		<div><a href="/posts">Old posts</a></div>
+		<div><a href="/tags">Tag index</a></div>
+	</div>
+</div>
 
 
 
-</div><!-- content -->
 </body>
 </html>
