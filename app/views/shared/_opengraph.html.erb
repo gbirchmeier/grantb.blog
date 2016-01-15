@@ -1,7 +1,0 @@
-<%-if @opengraph %>
-  <%- @opengraph.each do |k,v| %>
-    <%- v=image_url(v) if k=="og:image"%>
-<meta property="<%=k%>" content="<%=v%>"/>
-  <% end %>
-<% end %>
-

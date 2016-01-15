@@ -1,0 +1,15 @@
+<%-if @meta_info %>
+  <%- h = @meta_info.to_h %>
+
+  <%- h[:names].each do |k,v| %>
+    <%- v=image_url(v) if k.include?('image')%>
+<meta name="<%=k%>" content="<%=v%>"/>
+  <% end %>
+
+  <%- h[:properties].each do |k,v| %>
+    <%- v=image_url(v) if k.include?('image')%>
+<meta property="<%=k%>" content="<%=v%>"/>
+  <% end %>
+
+<% end %>
+
