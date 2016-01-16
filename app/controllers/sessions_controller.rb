@@ -33,7 +33,7 @@ class SessionsController < ApplicationController
 #        session[:return_to] = nil
 #        redirect_to path
 #      else
-        redirect_to root_path
+        redirect_to admin_path
 #      end
     else
       @login_error = "Invalid username or password"
