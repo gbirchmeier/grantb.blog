@@ -164,7 +164,6 @@ body.public-default {
 
 		div.navigate {
 			text-align: center;
-			xborder: 1px solid $nav-color;
 			color: $nav-color;
 			padding: 5px;
 			padding-bottom: 10px;
@@ -203,6 +202,10 @@ body.public-default {
 			color: $content-h1-color;
 			padding: 5px 5px 0 5px;;
 			margin-bottom: 2px;
+
+			a { color: $content-h1-color; text-decoration: none; }
+			a:visited { color: $content-h1-color; }
+			a:hover { color: $hi-color; text-decoration: underline; }
 		}
 
 		div.tag {

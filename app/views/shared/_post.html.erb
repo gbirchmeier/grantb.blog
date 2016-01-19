@@ -1,5 +1,5 @@
 <div class="post">
-	<h1><%=@post.headline_as_html.html_safe%></h1>
+	<h1><%=link_to @post.headline_as_html.html_safe, @post.pretty_path%></h1>
 	<div class="wrap">
 		<div class="small-text dateline">
 			<span class="published_at"><%=numeric_date_and_time(@post.published_at)%></span>
@@ -10,7 +10,6 @@
 				<% } %>
 			<% end %>
 		</div>
-		<!--<div class="permalink"><%=link_to "Permalink", @post.pretty_path%></div>-->
 		<div class="content"><%=@post.content_as_html.html_safe%></div>
 	</div>
 </div><!--post-->
