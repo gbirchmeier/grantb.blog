@@ -6,6 +6,7 @@ fields = [
   ["Created at",@post.created_at.to_s],
   ["Updated at",@post.updated_at.to_s],
   ["Tags",@post.tags_as_string],
+  ["Description",@post.description],
   ["Content",@post.content_as_html.html_safe],
 ]
 %>

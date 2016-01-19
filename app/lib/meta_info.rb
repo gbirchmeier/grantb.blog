@@ -30,6 +30,7 @@ class MetaInfo
     n["twitter:site"] = TWITTER_SITE
     n["twitter:title"] = @title
     n["twitter:description"] = @description || "placeholder"
+    n["twitter:creator"] = "@#{@user.twitter_handle}" if @user.twitter_handle.present?
 
     { properties: p, names: n }
   end

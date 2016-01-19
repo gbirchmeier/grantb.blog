@@ -28,8 +28,13 @@
 </div>
 
 <div class="field">
+  <%=f.label :description %>
+  <%=f.text_area :description, class: "short-text-area" %>
+</div>
+
+<div class="field">
   <%=f.label :content %>
-  <%=f.text_area :content %>
+  <%=f.text_area :content, class: "tall-text-area" %>
 </div>
 
 <div class="action">

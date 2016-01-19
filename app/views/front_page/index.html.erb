@@ -6,8 +6,7 @@
 
 
 <% @posts.each{|p| %>
-   <% @post = p %>
-   <%=render 'shared/post'%>
+   <%=render 'posts/details', post: p%>
 <% } %>
 
 

@@ -80,7 +80,7 @@ class Admin::PostsController < Admin::AdminController
 
 private
   def post_params
-    params.require(:post).permit(:headline,:content,:markup_type,:nice_url)
+    params.require(:post).permit(:headline,:content,:markup_type,:nice_url,:description)
   end
 
   def set_controller_crumb

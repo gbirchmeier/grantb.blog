@@ -1,8 +1,10 @@
 <%
+
 fields = [
   ["Username",@user.username],
   ["First Name", @user.first_name],
   ["Last Name",@user.last_name],
+  ["Twitter", @user.twitter_handle.present? ? "@#{@user.twitter_handle}" : "" ],
 ]
 %>
 

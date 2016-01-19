@@ -38,7 +38,11 @@ $regular-size: 14px;
 	margin-left: 160px;
 }
 
+
 body.adminbody {
+
+	.align-left { text-align: left; }
+	.align-right { text-align: right; }
 
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 	font-size: $regular-size;
@@ -193,8 +197,10 @@ body.adminbody {
 			textarea {
 				@include fieldvalue();
 				@include forminput();
-				height: 400px;
 			}
+
+			textarea.short-text-area { height: 50px; }
+			textarea.tall-text-area { height: 400px; }
 		}
 
 		div.action {
