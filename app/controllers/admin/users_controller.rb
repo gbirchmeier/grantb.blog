@@ -56,7 +56,7 @@ class Admin::UsersController < Admin::AdminController
 
 private
   def user_params
-    params.require(:user).permit(:username,:first_name,:last_name)
+    params.require(:user).permit(:username,:first_name,:last_name,:twitter_handle)
   end
 
   def set_controller_crumb

@@ -193,8 +193,10 @@ body.adminbody {
 			textarea {
 				@include fieldvalue();
 				@include forminput();
-				height: 400px;
 			}
+
+			textarea.short-text-area { height: 50px; }
+			textarea.tall-text-area { height: 400px; }
 		}
 
 		div.action {
