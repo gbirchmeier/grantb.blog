@@ -38,7 +38,11 @@ $regular-size: 14px;
 	margin-left: 160px;
 }
 
+
 body.adminbody {
+
+	.align-left { text-align: left; }
+	.align-right { text-align: right; }
 
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 	font-size: $regular-size;

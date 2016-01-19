@@ -4,8 +4,13 @@ def user_row u
 	<tr>
 		<td class="left">#{link_to u.username, admin_user_path(u), class: "showlink" }</td>
 		<td class="button">#{link_to "edit", edit_admin_user_path(u), class: "button" }</td>
-		<td>#{u.first_name}</td>
-		<td class="right">#{u.last_name}</td>
+		<td class="align-right">#{u.first_name}</td>
+		<td class="align-left">#{u.last_name}</td>
+		<td class="right">#{
+			u.twitter_handle.present? ?
+				link_to("@#{u.twitter_handle}", "https://twitter.com/#{u.twitter_handle}") :
+				""
+                }</td>
 	</tr>
 ROW
 end
@@ -25,6 +30,7 @@ end
 		<th>&nbsp;</th>
 		<th>First Name</th>
 		<th>Last Name</th>
+		<th>Twitter</th>
 	</tr>
 <% @users.each {|u| %>
   <%=user_row(u).html_safe%>
