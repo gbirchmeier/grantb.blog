@@ -20,7 +20,7 @@ class PostsController < ApplicationController
       @post.user,
       @post.headline,
       current_correct_url(),
-      nil
+      @post.description.present? ? @post.description : nil
     )
   end
 
