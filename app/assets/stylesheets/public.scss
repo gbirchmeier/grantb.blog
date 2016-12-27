@@ -38,6 +38,12 @@ $sans-serif: Helvetica, Tahoma, Verdana, Arial, sans-serif;
 
 
 
+
+
+
+
+
+
 body.public-default {
 	font-family: $sans-serif;
 
@@ -80,6 +86,7 @@ body.public-default {
 
 	div.masthead {
 		font-family: $monospace;
+		font-size: 12px;
 		h1 {
 			font-size: 20px;
 
@@ -87,7 +94,9 @@ body.public-default {
 			a:hover { color: white; }
 		}
 		div {
-			font-size: 12px;
+			margin-top: 6px;
+		}
+		div.first-line {
 			margin-top: 3px;
 		}
 
@@ -297,4 +306,41 @@ body.public-default {
 		}
 	}
 }
+
+
+
+
+/*
+iphone portrait: 320px
+iphone landscape: 480px
+ipad portrait: 768px
+ipad landscape: 1024px
+should be about 10px width on either side
+
+ @media (min-width: 992px)
+*/
+
+
+@media (max-device-width: 400px)
+{
+	body.public-default {
+		div.masthead {
+			font-size: 24px;
+			h1 {
+				font-size: 100px;
+			}
+		}
+
+		div.yieldbox {
+			font-size: 14px;
+		}
+
+		div.post {
+			h1 {
+				font-size: 40px;
+			}
+		}
+	}
+}
+
 
