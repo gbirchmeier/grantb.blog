@@ -49,7 +49,7 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       pid_file = fetch(:pid_file)
 
-      # yes, this sucks.  Will switch to puma or something in the near future.
+      # this is hacky, I'm aware
       within release_path do
         execute "((ls #{pid_file} && ps -p `cat #{pid_file}`) && kill -9 `cat #{pid_file}`) || true"
         execute "(ls #{pid_file} && /bin/rm #{pid_file}) || true"
