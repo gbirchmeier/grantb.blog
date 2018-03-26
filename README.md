@@ -1,7 +1,11 @@
 grantb.blog
 ===========
 
-Just using bundler for now.
+It's my blog.  I work on it in fits and starts.
+Sometimes years pass between updates.
+
+It's not as good as my professional work because
+nobody pays me for this.
 
 To upload images for use in blog posts:
 ---
@@ -15,6 +19,11 @@ Just `rake test` and `rake cucumber` for now
 Deployment
 ---
 `bundle exec cap <env> deploy`
+
+* "production" deploys branch `deploy-prod`
+* "staging" deploys branch `deploy-staging`
+
+You have to manually merge to the above branches.
 
 First-time install
 ---
