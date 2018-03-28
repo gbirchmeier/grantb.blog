@@ -8,7 +8,6 @@ class DataController < ApplicationController
         french: "cinq"
       }
       format.json { render json: rv }
-      format.html { render text: rv }
     end
   end
 
@@ -16,7 +15,6 @@ class DataController < ApplicationController
     respond_to do |format|
       rv = { count: Post.count }
       format.json { render json: rv }
-      format.html { render text: rv }
     end
   end
 

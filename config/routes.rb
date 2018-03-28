@@ -24,8 +24,8 @@ GrantbBlog::Application.routes.draw do
   # TODO move this to namespace when above puzzle is solved
   get "admin/posts/:id/delete", to: "admin/posts#delete", as: "delete_admin_post"
 
-  get "data/five", to: "data#five", as: "data_five"
-  get "data/postcount", to: "data#postcount", as: "data_postcount"
+  get "data/five", to: "data#five"
+  get "data/postcount", to: "data#postcount"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
