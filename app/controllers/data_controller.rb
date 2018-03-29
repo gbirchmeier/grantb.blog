@@ -11,6 +11,16 @@ class DataController < ApplicationController
     end
   end
 
+  def twelve
+    reponsd_to do |format|
+      rv = {
+        english: "twelve",
+        spanish: "doce"
+      }
+      format.json { render json: rv }
+    end
+  end
+
   def postcount
     respond_to do |format|
       rv = { count: Post.count }
