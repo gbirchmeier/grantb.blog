@@ -26,7 +26,7 @@ GrantbBlog::Application.routes.draw do
 
   get "data/five", to: "data#five"
   get "data/postcount", to: "data#postcount"
-  post "data/five", to: "data#twelve"
+  post "data/twelve", to: "data#twelve"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
