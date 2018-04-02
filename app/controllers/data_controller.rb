@@ -14,7 +14,7 @@ class DataController < ApplicationController
   end
 
   def twelve
-    reponsd_to do |format|
+    respond_to do |format|
       rv = {
         english: "twelve",
         spanish: "doce"
