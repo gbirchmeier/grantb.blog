@@ -1,4 +1,6 @@
 class DataController < ApplicationController
+  #protect_from_forgery with: :null_session
+  skip_before_action :verify_authenticity_token
 
   def five
     respond_to do |format|
