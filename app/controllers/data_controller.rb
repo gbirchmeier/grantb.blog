@@ -3,31 +3,33 @@ class DataController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def five
+    rv = {
+      english: "five",
+      spanish: "cinco",
+      french: "cinq"
+    }
     respond_to do |format|
-      rv = {
-        english: "five",
-        spanish: "cinco",
-        french: "cinq"
-      }
       format.json { render json: rv }
     end
   end
 
   def twelve
+    rv = {
+      english: "twelve",
+      spanish: "doce"
+    }
     respond_to do |format|
-      rv = {
-        english: "twelve",
-        spanish: "doce"
-      }
       format.json { render json: rv }
     end
   end
 
-  def postcount
+  def eggcho
+    rv = {}
+    params.each do |k,v|
+      rv[k] = "egg" + v
+    end
     respond_to do |format|
-      rv = { count: Post.count }
       format.json { render json: rv }
     end
   end
-
 end

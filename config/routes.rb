@@ -25,8 +25,9 @@ GrantbBlog::Application.routes.draw do
   get "admin/posts/:id/delete", to: "admin/posts#delete", as: "delete_admin_post"
 
   get "data/five", to: "data#five"
-  get "data/postcount", to: "data#postcount"
   post "data/twelve", to: "data#twelve"
+  get "data/eggcho", to: "data#eggcho"
+  post "data/eggcho", to: "data#eggcho"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
