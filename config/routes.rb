@@ -24,10 +24,10 @@ GrantbBlog::Application.routes.draw do
   # TODO move this to namespace when above puzzle is solved
   get "admin/posts/:id/delete", to: "admin/posts#delete", as: "delete_admin_post"
 
-  get "data/five", to: "data#five"
-  post "data/twelve", to: "data#twelve"
-  get "data/eggcho", to: "data#eggcho"
-  post "data/eggcho", to: "data#eggcho"
+  get "data/five", to: "data#five", defaults: { format: 'json' }
+  post "data/twelve", to: "data#twelve", defaults: { format: 'json' }
+  get "data/eggcho", to: "data#eggcho", defaults: { format: 'json' }
+  post "data/eggcho", to: "data#eggcho", defaults: { format: 'json' }
 
 
   # The priority is based upon order of creation: first created -> highest priority.
