@@ -26,6 +26,7 @@ class DataController < ApplicationController
   def eggcho
     rv = {}
     params.each do |k,v|
+      next unless rv[k].is_a? String
       rv[k] = "egg" + v
     end
     respond_to do |format|
