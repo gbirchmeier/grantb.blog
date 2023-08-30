@@ -1,7 +1,4 @@
-* og tags - ogp.me
 * standard layout no longer fits /sign/in
-* twitter card tags - https://dev.twitter.com/cards/overview | https://dev.twitter.com/cards/types/summary
-* post should have permalink (front page only)
 * responsive
 
 

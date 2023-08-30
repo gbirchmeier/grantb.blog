@@ -1,15 +1,16 @@
 grantb.blog
 ===========
 
-Just using bundler for now.
+It's my blog.  I work on it in fits and starts.
+Sometimes years pass between updates.
 
+It's not as good as my professional work because
+nobody pays me for this.
 
 To upload images for use in blog posts:
 ---
 * ssh them into `/home/blog/blog_uploads/<env>`
 * web server maps this dir to `/blog_uploads`
-
-
 
 Testing
 ---
@@ -18,6 +19,11 @@ Just `rake test` and `rake cucumber` for now
 Deployment
 ---
 `bundle exec cap <env> deploy`
+
+* "production" deploys branch `deploy-prod`
+* "staging" deploys branch `deploy-staging`
+
+You have to manually merge to the above branches.
 
 First-time install
 ---
@@ -48,6 +54,40 @@ And scp these:
 
 
 Shitty platform issues
+===
+
+Installing a MariaDB docker on Mac for dev:
+---
+
+[This page](https://hub.docker.com/_/mariadb/) was my start.
+
+This command did the trick for me:
+
+    docker run -p 3306:3306 --name blog-mariadb -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -d mariadb:10.3.5
+
+With that, you can reach the container's DB at 127.0.0.1:3306.
+(That is the *only* way you can reach it.  Using "localhost" won't work.)
+
+The dev and test config files are expecting this.
+
+
+Installing mysql2 on Mac dev:
+---
+
+OS X has always gotta make it a damn fight.
+
+This is what got me through it last time:
+
+* update xcode
+* `xcode-select --install`
+* `brew install mysql`
+* `gem install mysql2 -v '0.3.17' -- --with-mysql-dir=/usr/local/opt/mysql`
+
+Maybe MariaDB might work instead for the last two steps, but I'm not going to
+break what's working to try it.
+
+
+Issues on my CentOS platform:
 ---
 
 **Bundler**
@@ -61,8 +101,7 @@ so I installed 1.6.6.
 * `yum install MariaDB-devel.x86_64`
 * `yum install nodejs` (not sure why, but Rails wants it)
 
-Sysadmin stuff I always forget
----
+*Sysadmin stuff I always forget*
 
 * `chkconfig --list`
 * `chkconfig mysql on`
